@@ -271,7 +271,7 @@ const pick=(o,ks)=>{for(const k of ks)if(o&&o[k]!=null&&o[k]!=="")return o[k];re
 async function api(path,o={}){
   let r;
   try{r=await fetch(CONFIG.BASE+path,{method:o.method||"GET",signal:o.signal,body:o.body?JSON.stringify(o.body):undefined,headers:{Authorization:"Bearer "+TOKEN,...(o.body?{"Content-Type":"application/json"}:{})}})}
-  catch(e){if(e.name==="AbortError")throw e;throw new Error("Seva haipatikani (angalia seva na CORS)")}
+  catch(e){if(e.name==="AbortError")throw e;throw new Error("Seva haipatikani (afip-3.onrender.com). Angalia CORS.")}
   if(r.status===401){logout("Kikao kimeisha. Ingia tena.");throw new Error("Kikao kimeisha")}
   if(r.status===403)throw new Error("Huna ruhusa kwa kitendo hiki (403 Forbidden)")
   if(!r.ok)throw new Error(`${path} (${r.status})`);
@@ -291,7 +291,7 @@ $("lf").addEventListener("submit",async e=>{
     if(!r.ok)throw new Error("Barua pepe au nenosiri si sahihi.");
     const j=await r.json();TOKEN=j.token;ROLE=j.role||roleFromJwt(j.token);EMAIL=$("em").value;
     sessionStorage.setItem("afip_token",TOKEN);sessionStorage.setItem("afip_role",ROLE||"");sessionStorage.setItem("afip_email",EMAIL);$("pw").value="";enter();toast("Umeingia kama "+roleInfo().label);
-  }catch(x){$("lerr").textContent=x instanceof TypeError?"Imeshindwa kufikia seva (localhost:8080). Angalia seva na CORS.":x.message}
+  }catch(x){$("lerr").textContent=x instanceof TypeError?"Imeshindwa kufikia seva (afip-3.onrender.com). Angalia seva na CORS.":x.message}
   $("lbtn").disabled=false;$("lbtn").textContent="Ingia";
 });
 function enter(){

@@ -50,7 +50,9 @@ public class SecurityConfig {
             "http://localhost:3000",
             "http://localhost:4200",
             "http://localhost:8080",
-            "http://localhost"
+            "http://localhost",
+            "https://afip-frontend.onrender.com",
+            "https://afip-3.onrender.com"
         ));
         c.setAllowedMethods(List.of("GET","POST","PUT","DELETE","PATCH","OPTIONS"));
         c.setAllowedHeaders(List.of("*"));
