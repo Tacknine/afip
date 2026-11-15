@@ -1,0 +1,64 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: afip-db-prod
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: afip-backend-prod
+    depends_on:
+      db:
+        condition: service_healthy
+      ml-service:
+        condition: service_started
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      AFIP_JWT_SECRET: ${AFIP_JWT_SECRET}
+      AFIP_JWT_TTL_HOURS: ${AFIP_JWT_TTL_HOURS}
+      AFIP_NASA_USERNAME: ${AFIP_NASA_USERNAME}
+      AFIP_NASA_PASSWORD: ${AFIP_NASA_PASSWORD}
+      AFIP_HARVEST_TOKEN: ${AFIP_HARVEST_TOKEN}
+      AFIP_ISDA_USERNAME: ${AFIP_ISDA_USERNAME}
+      AFIP_ISDA_PASSWORD: ${AFIP_ISDA_PASSWORD}
+      AFIP_SMS_PROVIDER: ${AFIP_SMS_PROVIDER}
+      AFIP_SMS_USERNAME: ${AFIP_SMS_USERNAME}
+      AFIP_SMS_API_KEY: ${AFIP_SMS_API_KEY}
+      AFIP_SMS_SENDER_ID: ${AFIP_SMS_SENDER_ID}
+      AFIP_ML_URL: http://ml-service:8000
+    restart: unless-stopped
+
+  ml-service:
+    build: ./ml-service
+    container_name: afip-ml-prod
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: afip-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend-static:/usr/share/nginx/html:ro
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  pgdata:
