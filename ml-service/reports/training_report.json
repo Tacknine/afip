@@ -1,0 +1,35 @@
+{
+    "platform": "AFIP",
+    "generated_at": "2026-11-18T14:03:26.700002+00:00",
+    "raw_data_modified": false,
+    "models": {
+        "seed_quantity": {
+            "status": "trained",
+            "validation_status": "passed",
+            "metrics": {
+                "mae_kg": 12.462602601889042,
+                "rmse_kg": 36.730300800952115,
+                "r2": 0.008757255621895776,
+                "baseline_mae_kg": 13.257079646017699,
+                "test_records": 226,
+                "train_records": 919,
+                "households_total": 534,
+                "validation_status": "passed"
+            },
+            "model_path": "C:\\Users\\harun\\IdeaProjects\\afip\\ml-service\\artifacts\\seed_quantity\\model.joblib",
+            "metadata_path": "C:\\Users\\harun\\IdeaProjects\\afip\\ml-service\\artifacts\\seed_quantity\\metadata.json"
+        },
+        "maize_yield": {
+            "status": "blocked",
+            "reason": "Harvest quantity unit has not been verified from the official questionnaire or data dictionary."
+        },
+        "crop_recommendation": {
+            "status": "blocked",
+            "reason": "Official crop-code mapping and recommendation target design are still required."
+        },
+        "crop_production": {
+            "status": "blocked",
+            "reason": "Harvest quantity unit has not been verified."
+        }
+    }
+}

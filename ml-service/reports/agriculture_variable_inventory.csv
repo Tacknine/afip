@@ -1,0 +1,590 @@
+﻿file,rows,columns,variable,label,dtype,missing,unique_values
+AG_SEC_02.dta,2305,22,plotnum,Plot Code,float64,0,11
+AG_SEC_02.dta,2305,22,plotname,Plot Name,object,0,2
+AG_SEC_02.dta,2305,22,ag2a_04,Area (Acres),float64,275,53
+AG_SEC_02.dta,2305,22,ag2a_05,PLOT NUMBER 2014/2015 NPS,object,0,11
+AG_SEC_02.dta,2305,22,ag2a_05a,Has any household member cultivated this field also in the short rainy season?,float64,273,2
+AG_SEC_02.dta,2305,22,ag2a_06,Was the plot measured?,float64,274,2
+AG_SEC_02.dta,2305,22,ag2a_07a,Who is the household identified and walked the plot?,float64,1019,14
+AG_SEC_02.dta,2305,22,ag2a_07b,Was the resulting area calculation of the [PLOT] shared with any household membe,float64,1019,2
+AG_SEC_02.dta,2305,22,ag2a_07c_1,Who was the [PLOT] gps measurement calculation shared with? (1),float64,1160,12
+AG_SEC_02.dta,2305,22,ag2a_07c_2,Who was the [PLOT] gps measurement calculation shared with? (2),float64,2265,9
+AG_SEC_02.dta,2305,22,ag2a_07c_3,Who was the [PLOT] gps measurement calculation shared with? (3),float64,2301,2
+AG_SEC_02.dta,2305,22,ag2a_08,Why was the plot not measured?,float64,1560,3
+AG_SEC_02.dta,2305,22,ag2a_09,Area (Acres) - GPS Measurement,float64,1019,403
+AG_SEC_10.dta,725,25,cropid,Crop ID,float64,0,5
+AG_SEC_10.dta,725,25,ag10_02_1,Crop Name,object,0,26
+AG_SEC_10.dta,725,25,ag10_02_2,Crop Code,float64,2,13
+AG_SEC_10.dta,725,25,ag10_03,What is the by-product produced from this crop?,float64,0,9
+AG_SEC_10.dta,725,25,ag10_04_1,What is the quantity produced in the last 12 months?  AMOUNT,float64,0,225
+AG_SEC_10.dta,725,25,ag10_04_2,What is the quantity produced in the last 12 months?  UNIT,float64,0,2
+AG_SEC_10.dta,725,25,ag10_05,"In total, how much [CROP] did you use in total as input for the [BY_PRODUCT]? (K",float64,0,193
+AG_SEC_10.dta,725,25,ag10_07_2,How much was sold? UNIT,float64,716,2
+AG_SEC_10.dta,725,25,ag10_08,How much [CROP] did you use as input for the sold [BY-PRODUCT]? (KG),float64,716,9
+AG_SEC_11.dta,1312,13,ag11_02,What is the value of the [ITEM] if sold? (TSH),float64,271,92
+AG_SEC_12A.dta,3635,20,ag12a_01_1,"In the last 12 months, did you receive any advice from [SOURCE] about [SEEDS/ PL",float64,22,2
+AG_SEC_12A.dta,3635,20,ag12a_01_2,"In the last 12 months, did you receive any advice from [SOURCE] about [FERTILIZE",float64,19,2
+AG_SEC_12A.dta,3635,20,ag12a_01_3,"In the last 12 months, did you receive any advice from [SOURCE] about [LAND MANA",float64,19,2
+AG_SEC_12A.dta,3635,20,ag12a_01_7,"In the last 12 months, did you receive any advice from [SOURCE] about [LIVESTOCK",float64,30,2
+AG_SEC_3A.dta,2305,173,plotnum,PLOT NUMBER,float64,0,11
+AG_SEC_3A.dta,2305,173,plotname,LIST ALL PLOTS OWNED OR CULTIVATED BY THE HOUSEHOLD IN MASIKA 2018,object,0,2
+AG_SEC_3A.dta,2305,173,plotid_nps4,2014/15 Plot Number,object,0,11
+AG_SEC_3A.dta,2305,173,ag3a_02_1,What is the distance from [PLOT] to: HOME (KM),float64,275,78
+AG_SEC_3A.dta,2305,173,ag3a_02_2,What is the distance from [PLOT] to: ROAD (KM),float64,275,45
+AG_SEC_3A.dta,2305,173,ag3a_02_3,What is the distance from [PLOT] to: MARKET (KM),float64,275,77
+AG_SEC_3A.dta,2305,173,ag3a_03,How did you use this plot during the long rainy season 2018?,float64,275,6
+AG_SEC_3A.dta,2305,173,ag3a_04,What was the total income from renting out this plot during the long rainy seaso,float64,2280,16
+AG_SEC_3A.dta,2305,173,ag3a_07,What was the main crop cultivated on this plot in the long rainy season 2018?,float64,1283,37
+AG_SEC_3A.dta,2305,173,ag3a_08a_1,HOUSEHOLD MEMBER: Decided what to plant on this plot in the long rainy season 20,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_08a_2,NON-HOUSEHOLD MEMBER: Decided what to plant on this plot in the long rainy seaso,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_08b_1,Who decided what to plant on this plot in the long rainy season 2018? (ID 1),float64,1277,9
+AG_SEC_3A.dta,2305,173,ag3a_08b_2,Who decided what to plant on this plot in the long rainy season 2018? (ID 2),float64,1799,8
+AG_SEC_3A.dta,2305,173,ag3a_08b_3,Who decided what to plant on this plot in the long rainy season 2018? (ID 3),float64,2289,5
+AG_SEC_3A.dta,2305,173,ag3a_08c1,Who decided what to plant on this plot in the long rainy season 2018? (NETWORK R,float64,2297,5
+AG_SEC_3A.dta,2305,173,ag3a_09a_1,HOUSEHOLD MEMBER: Made the decisions about input use on this plot in the long ra,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_09a_2,NON-HOUSEHOLD MEMER: Made the decisions about input use on this plot in the long,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_09b_1,Who made the decisions about input use on this plot in the long rainy season 201,float64,1276,9
+AG_SEC_3A.dta,2305,173,ag3a_09b_2,Who made the decisions about input use on this plot in the long rainy season 201,float64,1814,8
+AG_SEC_3A.dta,2305,173,ag3a_09b_3,Who made the decisions about input use on this plot in the long rainy season 201,float64,2289,5
+AG_SEC_3A.dta,2305,173,ag3a_09c1,Who made the decisions about input use on this plot in the long rainy season 201,float64,2292,4
+AG_SEC_3A.dta,2305,173,ag3a_10,What was the soil type of this plot?,float64,1233,4
+AG_SEC_3A.dta,2305,173,ag3a_11,What was the soil quality of this plot?,float64,1233,3
+AG_SEC_3A.dta,2305,173,ag3a_12,How do you know the quality of the soil?,float64,1233,3
+AG_SEC_3A.dta,2305,173,ag3a_13,Were there any problems with erosion on this plot in the long rainy season 2018?,float64,1233,2
+AG_SEC_3A.dta,2305,173,ag3a_15,Was there any erosion control/water harvesting facility on this plot in the last,float64,1233,2
+AG_SEC_3A.dta,2305,173,ag3a_16_1,What type of erosion control/water harvesting facility was on this plot?,float64,2250,7
+AG_SEC_3A.dta,2305,173,ag3a_16_2,What type of erosion control/water harvesting facility was on this plot?,float64,2304,1
+AG_SEC_3A.dta,2305,173,ag3a_17,How steep is the slope of this plot?,float64,1233,4
+AG_SEC_3A.dta,2305,173,ag3a_18,Was this plot irrigated in the long rainy season 2018?,float64,1233,2
+AG_SEC_3A.dta,2305,173,ag3a_19,What was the type of irrigation?,float64,2295,3
+AG_SEC_3A.dta,2305,173,ag3a_20,What was the method of obtaining water?,float64,2295,4
+AG_SEC_3A.dta,2305,173,ag3a_21,What was the source of water?,float64,2295,3
+AG_SEC_3A.dta,2305,173,ag3a_22,What was the most recent year in which the plot was left fallow?,float64,518,9
+AG_SEC_3A.dta,2305,173,ag3a_23,For how many consecutive years was this plot left fallow this last time?,float64,2048,11
+AG_SEC_3A.dta,2305,173,ag3a_24,What would the value of this plot be if it were sold today?,float64,283,94
+AG_SEC_3A.dta,2305,173,ag3a_25,How was this plot acquired?,float64,275,10
+AG_SEC_3A.dta,2305,173,ag3a_26_1,With whom do you co-own this plot? (NETWORK ROSTER ID),float64,2301,1
+AG_SEC_3A.dta,2305,173,ag3a_28a,What type of legal certificate does your household have for this plot?,float64,895,3
+AG_SEC_3A.dta,2305,173,ag3a_28b,Would you like to apply for a CCRO/GRO for this plot?,float64,1133,2
+AG_SEC_3A.dta,2305,173,ag3a_29_1,Who in the household owns this plot? (ID 1),float64,896,10
+AG_SEC_3A.dta,2305,173,ag3a_29_2,Who in the household owns this plot? (ID 2),float64,1894,8
+AG_SEC_3A.dta,2305,173,ag3a_30,Did the owner/household have the right to sell this plot or use it as collateral,float64,894,2
+AG_SEC_3A.dta,2305,173,ag3a_31_1,Who in the household can decide whether to sell this plot or use it as collatera,float64,1193,8
+AG_SEC_3A.dta,2305,173,ag3a_31_2,Who in the household can decide whether to sell this plot or use it as collatera,float64,2053,8
+AG_SEC_3A.dta,2305,173,ag3a_31a,"If you were to sell this plot, do you need approval from other parties to sell i",float64,1192,2
+AG_SEC_3A.dta,2305,173,ag3a_32_1,With whom do you co-rent this plot? (NETWORK ROSTER ID),float64,2305,0
+AG_SEC_3A.dta,2305,173,ag3a_33,How much did you pay to the owner for the use of this land in long rainy season ,float64,2049,46
+AG_SEC_3A.dta,2305,173,ag3a_34_1,What period of time did this payment cover? (NUMBER OF UNITS),float64,2133,11
+AG_SEC_3A.dta,2305,173,ag3a_34_2,What period of time did this payment cover? (UNITS),float64,2133,2
+AG_SEC_3A.dta,2305,173,ag3a_35,"What share of output from this plot did you give as rent, if any, in the long ra",float64,2049,4
+AG_SEC_3A.dta,2305,173,ag3a_36_1,Who owns the plot? (NETWORK ROSTER ID),float64,1686,12
+AG_SEC_3A.dta,2305,173,ag3a_36_2,Who owns the plot? (NETWORK ROSTER LOCATION),float64,1686,5
+AG_SEC_3A.dta,2305,173,ag3a_37_1,Who in the household has the rights to use this plot? (ID 1),float64,1686,8
+AG_SEC_3A.dta,2305,173,ag3a_37_2,Who in the household has the rights to use this plot? (ID 2),float64,2009,7
+AG_SEC_3A.dta,2305,173,ag3a_38,In which year was the plot acquired?,float64,896,64
+AG_SEC_3A.dta,2305,173,ag3a_38a,Did you have any land dispute or disagreement with anyone over this plot in the ,float64,895,2
+AG_SEC_3A.dta,2305,173,ag3a_39,Would you feel comfortable leaving this plot uncultivated for several months wit,float64,277,2
+AG_SEC_3A.dta,2305,173,ag3a_40,CAPI: DID THE HOUSEHOLD CULTIVATE THIS PLOT IN THE LONG RAINY SEASON 2018?,float64,2305,0
+AG_SEC_3A.dta,2305,173,ag3a_41,Did you use any ORGANIC FERTILIZER on [PLOT] in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_42,What was the quantity of organic fertilizer used? (KG),float64,2209,39
+AG_SEC_3A.dta,2305,173,ag3a_45,What was the total value of organic fertilizer purchased? (TSH),float64,2291,13
+AG_SEC_3A.dta,2305,173,ag3a_46_1,Where did you buy most of the organic fertilizer? (NETWORK ROSTER ID),float64,2291,4
+AG_SEC_3A.dta,2305,173,ag3a_47,Did you use any INORGANIC FERTILIZER on [PLOT] in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_48,What is the first type of INORGANIC FERTILIZER you used on this plot?,float64,2192,6
+AG_SEC_3A.dta,2305,173,ag3a_49,What quantity of [FERTILIZER] did you use? (KG),float64,2192,25
+AG_SEC_3A.dta,2305,173,ag3a_51,What was the total value of [FERTILIZER] purchased? (TSH),float64,2192,61
+AG_SEC_3A.dta,2305,173,ag3a_52,Why did you choose to use this specific type of inorganic fertilizer?,float64,2192,4
+AG_SEC_3A.dta,2305,173,ag3a_53_1,Where did you buy most of the [FERTILIZER]? (NETWORK ROSTER ID),float64,2192,7
+AG_SEC_3A.dta,2305,173,ag3a_54,Did you use a second type of INORGANIC FERTILIZER on [PLOT] in the long rainy se,float64,2192,2
+AG_SEC_3A.dta,2305,173,ag3a_55,What is the second type of INORGANIC FERTILIZER you used on this plot?,float64,2258,5
+AG_SEC_3A.dta,2305,173,ag3a_56,What quantity of [FERTILIZER] did you use? (KG),float64,2258,13
+AG_SEC_3A.dta,2305,173,ag3a_58,What was the total value of [FERTILIZER] purchased? (TSH),float64,2258,34
+AG_SEC_3A.dta,2305,173,ag3a_59_1,Where did you buy most of the [FERTILIZER]? (NETWORK ROSTER ID),float64,2258,6
+AG_SEC_3A.dta,2305,173,ag3a_60,Did you use any herbicide on [PLOT] in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_62_1,What quantity of this herbicide did you use? QUANTITY,float64,2272,17
+AG_SEC_3A.dta,2305,173,ag3a_62_2,What quantity of this herbicide did you use? UNIT,float64,2272,3
+AG_SEC_3A.dta,2305,173,ag3a_63,What was the total value of this herbicide purchased? (TSH),float64,2272,20
+AG_SEC_3A.dta,2305,173,ag3a_64,Why did you choose to use this specific type of pesticide/herbicide?,float64,2272,3
+AG_SEC_3A.dta,2305,173,ag3a_65_1,Where did you buy most of the pesticides/ herbicides? (NETWORK ROSTER ID),float64,2272,5
+AG_SEC_3A.dta,2305,173,ag3a_65_2,Where did you buy most of the herbicides? (NETWORK ROSTER LOCATION),float64,2272,4
+AG_SEC_3A.dta,2305,173,ag3a_65a,Did you use any pesticide on [PLOT] in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_65b_1,What quantity of this pesticide did you use? QUANTITY,float64,2186,39
+AG_SEC_3A.dta,2305,173,ag3a_65b_2,What quantity of this pesticide did you use? UNIT,float64,2186,4
+AG_SEC_3A.dta,2305,173,ag3a_65c,What was the total value of this pesticide purchased? (TSH),float64,2186,52
+AG_SEC_3A.dta,2305,173,ag3a_65d,Why did you choose to use this specific type of pesticide?,float64,2186,4
+AG_SEC_3A.dta,2305,173,ag3a_65e_1,Where did you buy most of the pesticides? (NETWORK ROSTER ID),float64,2186,6
+AG_SEC_3A.dta,2305,173,ag3a_66,"Did you receive any seeds, fertilizers, pesticides or herbicides for [PLOT] on c",float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_67_1,What were the types of input you received on credit? (SEEDS),float64,2291,2
+AG_SEC_3A.dta,2305,173,ag3a_67_2,What were the types of input you received on credit? (ORG FERTILZER),float64,2291,2
+AG_SEC_3A.dta,2305,173,ag3a_67_3,What were the types of input you received on credit? (INORG FERTILIZER),float64,2291,1
+AG_SEC_3A.dta,2305,173,ag3a_67_4,What were the types of input you received on credit? (PESTICIDES),float64,2291,2
+AG_SEC_3A.dta,2305,173,ag3a_70_1,How much did you repay in kind later on for the inputs? QUANTITY,float64,2291,2
+AG_SEC_3A.dta,2305,173,ag3a_70_2,How much did you repay in kind later on for the inputs? UNIT,float64,2292,2
+AG_SEC_3A.dta,2305,173,ag3a_71a,Did you use any mechanization on this plot in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_71b,Did you use any animal traction on this plot in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_72a,Did any member in this household work on (Land Preparation & Planting) on this p,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_72e,"Did any member in this household work on (Weeding, Ridging, Fertilizing, Other N",float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_72i,Did any member in this household work on (Harvesting & Threshing) on this plot?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_73,Did you hire any labor to work on this plot in the long rainy season 2018?,float64,1274,2
+AG_SEC_3A.dta,2305,173,ag3a_74_1a,Land Preparation & Planting - Number of days [WOMAN],float64,2034,21
+AG_SEC_3A.dta,2305,173,ag3a_74_1b,Land Preparation & Planting - Number of days [MAN],float64,2034,26
+AG_SEC_3A.dta,2305,173,ag3a_74_1c,Land Preparation & Planting - Number of days [CHILD],float64,2034,5
+AG_SEC_3A.dta,2305,173,ag3a_74_1d,Land Preparation & Planting - Total Wage Paid [TSH],float64,2034,45
+AG_SEC_3A.dta,2305,173,ag3a_74_2a,"Weeding, Ridging, Fertilizing, etc. - Number of days [WOMAN]",float64,2034,28
+AG_SEC_3A.dta,2305,173,ag3a_74_2b,"Weeding, Ridging, Fertilizing, etc. - Number of days [MAN]",float64,2034,28
+AG_SEC_3A.dta,2305,173,ag3a_74_2c,"Weeding, Ridging, Fertilizing, etc. - Number of days [CHILD]",float64,2034,4
+AG_SEC_3A.dta,2305,173,ag3a_74_2d,"Weeding, Ridging, Fertilizing, etc. - Total Wage Paid [TSH]",float64,2034,54
+AG_SEC_3A.dta,2305,173,ag3a_74_3a,"Harvesting & Threshing, etc. - Number of days [WOMAN]",float64,2034,21
+AG_SEC_3A.dta,2305,173,ag3a_74_3b,"Harvesting & Threshing, etc. - Number of days [MAN]",float64,2034,21
+AG_SEC_3A.dta,2305,173,ag3a_74_3c,"Harvesting & Threshing, etc. - Number of days [CHILD]",float64,2034,6
+AG_SEC_3A.dta,2305,173,ag3a_74_3d,"Harvesting & Threshing, etc. - Total Wage Paid [TSH]",float64,2034,43
+AG_SEC_3A.dta,2305,173,ag3a_76,Did you cultivate this plot in the short rainy season 2017?,float64,2287,2
+AG_SEC_3A.dta,2305,173,ag3a_77,What was the main crop cultivated on this plot in the short rainy season 2017?,float64,2293,3
+AG_SEC_3A.dta,2305,173,ag3a_78,Did you have use of this plot in the short rainy season 2017?,float64,2299,1
+AG_SEC_3A.dta,2305,173,ag3a_79,How did you acquire this plot for the long rainy season 2018?,float64,2305,0
+AG_SEC_3A.dta,2305,173,ag3a_80,How did you use this plot during the short rainy season 2017?,float64,2299,2
+AG_SEC_3A.dta,2305,173,ag3a_81,Did you cultivate this plot in the short rainy season 2018?,float64,297,2
+AG_SEC_3A.dta,2305,173,ag3a_82,What was the main crop cultivated on this plot in the short rainy season 2018?,float64,2101,14
+AG_SEC_3A.dta,2305,173,ag3a_83,Did you have use of this plot in the short rainy season 2018?,float64,501,2
+AG_SEC_3A.dta,2305,173,ag3a_84,Why did you not have this plot (owned or cultivated) in the short rainy season 2,float64,2212,5
+AG_SEC_3A.dta,2305,173,ag3a_85,How did you use this plot during the short rainy season 2018?,float64,660,5
+AG_SEC_3A_time.dta,2305,98,plotnum,PLOT NUMBER,int8,0,11
+AG_SEC_3A_time.dta,2305,98,plotname,LIST ALL PLOTS OWNED OR CULTIVATED BY THE HOUSEHOLD IN MASIKA 2018,object,0,2
+AG_SEC_3A_time.dta,2305,98,plotid_nps4,2014/15 Plot Number,object,0,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72a,Did any member in this household work on (Land Preparation & Planting) on this p,float64,1274,2
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_1,How many days did [NAME] spend on (Land Prep & Planting) 1ST MEMBER LISTED,float64,1372,42
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_2,How many days did [NAME] spend on (Land Prep & Planting) 2ND MEMBER LISTED,float64,1593,36
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_3,How many days did [NAME] spend on (Land Prep & Planting) 3RD MEMBER LISTED,float64,1937,32
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_4,How many days did [NAME] spend on (Land Prep & Planting) 4TH MEMBER LISTED,float64,2117,23
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_5,How many days did [NAME] spend on (Land Prep & Planting) 5TH MEMBER LISTED,float64,2227,21
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_6,How many days did [NAME] spend on (Land Prep & Planting) 6TH MEMBER LISTED,float64,2280,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_7,How many days did [NAME] spend on (Land Prep & Planting) 7TH MEMBER LISTED,float64,2294,7
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_8,How many days did [NAME] spend on (Land Prep & Planting) 8TH MEMBER LISTED,float64,2298,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_9,How many days did [NAME] spend on (Land Prep & Planting) 9TH MEMBER LISTED,float64,2299,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72c_10,How many days did [NAME] spend on (Land Prep & Planting) 10TH MEMBER LISTED,float64,2301,4
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_1,How many hours per day did [NAME] spend on (Land Prep & Planting) 1ST MEMBER LIS,float64,1372,15
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_2,How many hours per day did [NAME] spend on (Land Prep & Planting) 2ND MEMBER LIS,float64,1593,14
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_3,How many hours per day did [NAME] spend on (Land Prep & Planting) 3RD MEMBER LIS,float64,1937,13
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_4,How many hours per day did [NAME] spend on (Land Prep & Planting) 4TH MEMBER LIS,float64,2117,13
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_5,How many hours per day did [NAME] spend on (Land Prep & Planting) 5TH MEMBER LIS,float64,2227,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_6,How many hours per day did [NAME] spend on (Land Prep & Planting) 6TH MEMBER LIS,float64,2280,9
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_7,How many hours per day did [NAME] spend on (Land Prep & Planting) 7TH MEMBER LIS,float64,2294,7
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_8,How many hours per day did [NAME] spend on (Land Prep & Planting) 8TH MEMBER LIS,float64,2298,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_9,How many hours per day did [NAME] spend on (Land Prep & Planting) 9TH MEMBER LIS,float64,2299,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72d_10,How many hours per day did [NAME] spend on (Land Prep & Planting) 10TH MEMBER LI,float64,2301,4
+AG_SEC_3A_time.dta,2305,98,ag3a_72e,"Did any member in this household work on (Weeding, Ridging, Fertilizing, Other N",float64,1274,2
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_1,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 1ST MEMBER LISTE,float64,1325,32
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_2,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 2ND MEMBER LISTE,float64,1582,32
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_3,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 3RD MEMBER LISTE,float64,1948,32
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_4,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 4TH MEMBER LISTE,float64,2135,23
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_5,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 5TH MEMBER LISTE,float64,2222,22
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_6,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 6TH MEMBER LISTE,float64,2277,14
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_7,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 7TH MEMBER LISTE,float64,2292,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_8,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 8TH MEMBER LISTE,float64,2296,8
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_9,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 9TH MEMBER LISTE,float64,2298,6
+AG_SEC_3A_time.dta,2305,98,ag3a_72g_10,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 10TH MEMBER LIST,float64,2303,2
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_1,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 1ST MEM,float64,1325,14
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_2,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 2ND MEM,float64,1582,12
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_3,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 3RD MEM,float64,1948,10
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_4,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 4TH MEM,float64,2135,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_5,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 5TH MEM,float64,2222,9
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_6,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 6TH MEM,float64,2277,8
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_7,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 7TH MEM,float64,2292,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_8,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 8TH MEM,float64,2296,6
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_9,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 9TH MEM,float64,2298,4
+AG_SEC_3A_time.dta,2305,98,ag3a_72h_10,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 10TH ME,float64,2303,2
+AG_SEC_3A_time.dta,2305,98,ag3a_72i,Did any member in this household work on (Harvesting & Threshing) on this plot?,float64,1274,2
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_1,How many days did [NAME] spend on (Harvesting & Threshing) 1ST MEMBER LISTED,float64,1344,36
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_2,How many days did [NAME] spend on (Harvesting & Threshing) 2ND MEMBER LISTED,float64,1587,32
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_3,How many days did [NAME] spend on (Harvesting & Threshing) 3RD MEMBER LISTED,float64,1914,27
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_4,How many days did [NAME] spend on (Harvesting & Threshing) 4TH MEMBER LISTED,float64,2110,25
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_5,How many days did [NAME] spend on (Harvesting & Threshing) 5TH MEMBER LISTED,float64,2225,18
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_6,How many days did [NAME] spend on (Harvesting & Threshing) 6TH MEMBER LISTED,float64,2275,15
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_7,How many days did [NAME] spend on (Harvesting & Threshing) 7TH MEMBER LISTED,float64,2290,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_8,How many days did [NAME] spend on (Harvesting & Threshing) 8TH MEMBER LISTED,float64,2293,10
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_9,How many days did [NAME] spend on (Harvesting & Threshing) 9TH MEMBER LISTED,float64,2297,7
+AG_SEC_3A_time.dta,2305,98,ag3a_72k_10,How many days did [NAME] spend on (Harvesting & Threshing) 10TH MEMBER LISTED,float64,2301,4
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_1,How many hours per day did [NAME] spend on (Harvesting & Threshing) 1ST MEMBER L,float64,1344,15
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_2,How many hours per day did [NAME] spend on (Harvesting & Threshing) 2ND MEMBER L,float64,1587,12
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_3,How many hours per day did [NAME] spend on (Harvesting & Threshing) 3RD MEMBER L,float64,1914,12
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_4,How many hours per day did [NAME] spend on (Harvesting & Threshing) 4TH MEMBER L,float64,2110,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_5,How many hours per day did [NAME] spend on (Harvesting & Threshing) 5TH MEMBER L,float64,2225,11
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_6,How many hours per day did [NAME] spend on (Harvesting & Threshing) 6TH MEMBER L,float64,2275,9
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_7,How many hours per day did [NAME] spend on (Harvesting & Threshing) 7TH MEMBER L,float64,2290,7
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_8,How many hours per day did [NAME] spend on (Harvesting & Threshing) 8TH MEMBER L,float64,2293,8
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_9,How many hours per day did [NAME] spend on (Harvesting & Threshing) 9TH MEMBER L,float64,2297,5
+AG_SEC_3A_time.dta,2305,98,ag3a_72l_10,How many hours per day did [NAME] spend on (Harvesting & Threshing) 10TH MEMBER ,float64,2301,4
+AG_SEC_3B.dta,2305,163,plotnum,PLOT NUMBER,float64,0,11
+AG_SEC_3B.dta,2305,163,plotname,LIST ALL PLOTS OWNED OR CULTIVATED BY THE HOUSEHOLD IN MASIKA 2018,object,0,2
+AG_SEC_3B.dta,2305,163,plotid_nps4,2014/15 Plot Number,object,0,11
+AG_SEC_3B.dta,2305,163,ag3b_02_1,What is the distance from [PLOT] to: HOME (KM),float64,2090,25
+AG_SEC_3B.dta,2305,163,ag3b_02_2,What is the distance from [PLOT] to: ROAD (KM),float64,2090,21
+AG_SEC_3B.dta,2305,163,ag3b_02_3,What is the distance from [PLOT] to: MARKET (KM),float64,2090,33
+AG_SEC_3B.dta,2305,163,ag3b_03,How did you use this plot during the long rainy season 2018?,float64,2090,3
+AG_SEC_3B.dta,2305,163,ag3b_04,What was the total income from renting out this plot during the long rainy seaso,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_07,What was the main crop cultivated on this plot in the long rainy season 2018?,float64,2093,14
+AG_SEC_3B.dta,2305,163,ag3b_08a_1,HOUSEHOLD MEMBER: Decided what to plant on this plot in the long rainy season 20,float64,2093,1
+AG_SEC_3B.dta,2305,163,ag3b_08a_2,NON-HOUSEHOLD MEMBER: Decided what to plant on this plot in the long rainy seaso,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_08b_1,Who decided what to plant on this plot in the long rainy season 2018? (ID 1),float64,2093,4
+AG_SEC_3B.dta,2305,163,ag3b_08b_2,Who decided what to plant on this plot in the long rainy season 2018? (ID 2),float64,2215,5
+AG_SEC_3B.dta,2305,163,ag3b_08b_3,Who decided what to plant on this plot in the long rainy season 2018? (ID 3),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_08c1,Who decided what to plant on this plot in the long rainy season 2018? (NETWORK R,float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_09a_1,HOUSEHOLD MEMBER: Made the decisions about input use on this plot in the long ra,float64,2093,1
+AG_SEC_3B.dta,2305,163,ag3b_09a_2,NON-HOUSEHOLD MEMER: Made the decisions about input use on this plot in the long,float64,2093,1
+AG_SEC_3B.dta,2305,163,ag3b_09b_1,Who made the decisions about input use on this plot in the long rainy season 201,float64,2093,4
+AG_SEC_3B.dta,2305,163,ag3b_09b_2,Who made the decisions about input use on this plot in the long rainy season 201,float64,2222,4
+AG_SEC_3B.dta,2305,163,ag3b_09b_3,Who made the decisions about input use on this plot in the long rainy season 201,float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_09c1,Who made the decisions about input use on this plot in the long rainy season 201,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_10,What was the soil type of this plot?,float64,2093,3
+AG_SEC_3B.dta,2305,163,ag3b_11,What was the soil quality of this plot?,float64,2093,3
+AG_SEC_3B.dta,2305,163,ag3b_12,How do you know the quality of the soil?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_13,Were there any problems with erosion on this plot in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_15,Was there any erosion control/water harvesting facility on this plot in the last,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_16_1,What type of erosion control/water harvesting facility was on this plot?,float64,2299,3
+AG_SEC_3B.dta,2305,163,ag3b_16_2,What type of erosion control/water harvesting facility was on this plot?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_17,How steep is the slope of this plot?,float64,2093,4
+AG_SEC_3B.dta,2305,163,ag3b_18,Was this plot irrigated in the long rainy season 2018?,float64,2093,1
+AG_SEC_3B.dta,2305,163,ag3b_19,What was the type of irrigation?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_20,What was the method of obtaining water?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_21,What was the source of water?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_22,What was the most recent year in which the plot was left fallow?,float64,2092,7
+AG_SEC_3B.dta,2305,163,ag3b_23,For how many consecutive years was this plot left fallow this last time?,float64,2296,3
+AG_SEC_3B.dta,2305,163,ag3b_24,What would the value of this plot be if it were sold today?,float64,2091,42
+AG_SEC_3B.dta,2305,163,ag3b_25,How was this plot acquired?,float64,2090,9
+AG_SEC_3B.dta,2305,163,ag3b_26_1,With whom do you co-own this plot? (NETWORK ROSTER ID),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_28a,What type of legal certificate does your household have for this plot?,float64,2144,3
+AG_SEC_3B.dta,2305,163,ag3b_28b,Would you like to apply for a CCRO/GRO for this plot?,float64,2153,2
+AG_SEC_3B.dta,2305,163,ag3b_29_1,Who in the household owns this plot? (ID 1),float64,2144,4
+AG_SEC_3B.dta,2305,163,ag3b_29_2,Who in the household owns this plot? (ID 2),float64,2262,3
+AG_SEC_3B.dta,2305,163,ag3b_30,Did the owner/household have the right to sell this plot or use it as collateral,float64,2144,2
+AG_SEC_3B.dta,2305,163,ag3b_31_1,Who in the household can decide whether to sell this plot or use it as collatera,float64,2180,3
+AG_SEC_3B.dta,2305,163,ag3b_31_2,Who in the household can decide whether to sell this plot or use it as collatera,float64,2281,2
+AG_SEC_3B.dta,2305,163,ag3b_31a,"If you were to sell this plot, do you need approval from other parties to sell i",float64,2180,2
+AG_SEC_3B.dta,2305,163,ag3b_32_1,With whom do you co-rent this plot? (NETWORK ROSTER ID),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_33,How much did you pay to the owner for the use of this land in long rainy season ,float64,2275,5
+AG_SEC_3B.dta,2305,163,ag3b_34_1,What period of time did this payment cover? (NUMBER OF UNITS),float64,2294,5
+AG_SEC_3B.dta,2305,163,ag3b_34_2,What period of time did this payment cover? (UNITS),float64,2294,2
+AG_SEC_3B.dta,2305,163,ag3b_35,"What share of output from this plot did you give as rent, if any, in the long ra",float64,2275,2
+AG_SEC_3B.dta,2305,163,ag3b_36_1,Who owns the plot? (NETWORK ROSTER ID),float64,2251,8
+AG_SEC_3B.dta,2305,163,ag3b_36_2,Who owns the plot? (NETWORK ROSTER LOCATION),float64,2251,5
+AG_SEC_3B.dta,2305,163,ag3b_37_1,Who in the household has the rights to use this plot? (ID 1),float64,2251,2
+AG_SEC_3B.dta,2305,163,ag3b_37_2,Who in the household has the rights to use this plot? (ID 2),float64,2280,2
+AG_SEC_3B.dta,2305,163,ag3b_38,In which year was the plot acquired?,float64,2144,47
+AG_SEC_3B.dta,2305,163,ag3b_38a,Did you have any land dispute or disagreement with anyone over this plot in the ,float64,2144,2
+AG_SEC_3B.dta,2305,163,ag3b_39,Would you feel comfortable leaving this plot uncultivated for several months wit,float64,2090,2
+AG_SEC_3B.dta,2305,163,ag3b_40,CAPI: DID THE HOUSEHOLD CULTIVATE THIS PLOT IN THE LONG RAINY SEASON 2018?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_41,Did you use any ORGANIC FERTILIZER on [PLOT] in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_42,What was the quantity of organic fertilizer used? (KG),float64,2282,15
+AG_SEC_3B.dta,2305,163,ag3b_45,What was the total value of organic fertilizer purchased? (TSH),float64,2302,3
+AG_SEC_3B.dta,2305,163,ag3b_46_1,Where did you buy most of the organic fertilizer? (NETWORK ROSTER ID),float64,2302,1
+AG_SEC_3B.dta,2305,163,ag3b_47,Did you use any INORGANIC FERTILIZER on [PLOT] in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_48,What is the first type of INORGANIC FERTILIZER you used on this plot?,float64,2303,2
+AG_SEC_3B.dta,2305,163,ag3b_49,What quantity of [FERTILIZER] did you use? (KG),float64,2303,2
+AG_SEC_3B.dta,2305,163,ag3b_51,What was the total value of [FERTILIZER] purchased? (TSH),float64,2303,2
+AG_SEC_3B.dta,2305,163,ag3b_52,Why did you choose to use this specific type of inorganic fertilizer?,float64,2303,1
+AG_SEC_3B.dta,2305,163,ag3b_53_1,Where did you buy most of the [FERTILIZER]? (NETWORK ROSTER ID),float64,2303,1
+AG_SEC_3B.dta,2305,163,ag3b_54,Did you use a second type of INORGANIC FERTILIZER on [PLOT] in the long rainy se,float64,2303,1
+AG_SEC_3B.dta,2305,163,ag3b_55,What is the second type of INORGANIC FERTILIZER you used on this plot?,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_56,What quantity of [FERTILIZER] did you use? (KG),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_58,What was the total value of [FERTILIZER] purchased? (TSH),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_59_1,Where did you buy most of the [FERTILIZER]? (NETWORK ROSTER ID),float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_60,Did you use any herbicide on [PLOT] in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_62_1,What quantity of this herbicide did you use? QUANTITY,float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_62_2,What quantity of this herbicide did you use? UNIT,float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_63,What was the total value of this herbicide purchased? (TSH),float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_64,Why did you choose to use this specific type of pesticide/herbicide?,float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_65_1,Where did you buy most of the pesticides/ herbicides? (NETWORK ROSTER ID),float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_65_2,Where did you buy most of the herbicides? (NETWORK ROSTER LOCATION),float64,2304,1
+AG_SEC_3B.dta,2305,163,ag3b_65a,Did you use any pesticide on [PLOT] in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_65b_1,What quantity of this pesticide did you use? QUANTITY,float64,2295,9
+AG_SEC_3B.dta,2305,163,ag3b_65b_2,What quantity of this pesticide did you use? UNIT,float64,2295,2
+AG_SEC_3B.dta,2305,163,ag3b_65c,What was the total value of this pesticide purchased? (TSH),float64,2295,8
+AG_SEC_3B.dta,2305,163,ag3b_65d,Why did you choose to use this specific type of pesticide?,float64,2295,2
+AG_SEC_3B.dta,2305,163,ag3b_65e_1,Where did you buy most of the pesticides? (NETWORK ROSTER ID),float64,2295,3
+AG_SEC_3B.dta,2305,163,ag3b_66,"Did you receive any seeds, fertilizers, pesticides or herbicides for [PLOT] on c",float64,2093,1
+AG_SEC_3B.dta,2305,163,ag3b_70_1,How much did you repay in kind later on for the inputs? QUANTITY,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_70_2,How much did you repay in kind later on for the inputs? UNIT,float64,2305,0
+AG_SEC_3B.dta,2305,163,ag3b_71a,Did you use any mechanization on this plot in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_71b,Did you use any animal traction on this plot in the long rainy season 2018?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_72a,Did any member in this household work on (Land Preparation & Planting) on this p,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_72e,"Did any member in this household work on (Weeding, Ridging, Fertilizing, Other N",float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_72i,Did any member in this household work on (Harvesting & Threshing) on this plot?,float64,2093,2
+AG_SEC_3B.dta,2305,163,ag3b_73,Did you hire any labor to work on this plot in the long rainy season 2018?,float64,2107,2
+AG_SEC_3B.dta,2305,163,ag3b_74_1a,Land Preparation & Planting - Number of days [WOMAN],float64,2261,7
+AG_SEC_3B.dta,2305,163,ag3b_74_1b,Land Preparation & Planting - Number of days [MAN],float64,2261,18
+AG_SEC_3B.dta,2305,163,ag3b_74_1c,Land Preparation & Planting - Number of days [CHILD],float64,2261,1
+AG_SEC_3B.dta,2305,163,ag3b_74_1d,Land Preparation & Planting - Total Wage Paid [TSH],float64,2261,20
+AG_SEC_3B.dta,2305,163,ag3b_74_2a,"Weeding, Ridging, Fertilizing, etc. - Number of days [WOMAN]",float64,2261,9
+AG_SEC_3B.dta,2305,163,ag3b_74_2b,"Weeding, Ridging, Fertilizing, etc. - Number of days [MAN]",float64,2261,15
+AG_SEC_3B.dta,2305,163,ag3b_74_2c,"Weeding, Ridging, Fertilizing, etc. - Number of days [CHILD]",float64,2261,2
+AG_SEC_3B.dta,2305,163,ag3b_74_2d,"Weeding, Ridging, Fertilizing, etc. - Total Wage Paid [TSH]",float64,2261,18
+AG_SEC_3B.dta,2305,163,ag3b_74_3a,"Harvesting & Threshing, etc. - Number of days [WOMAN]",float64,2261,3
+AG_SEC_3B.dta,2305,163,ag3b_74_3b,"Harvesting & Threshing, etc. - Number of days [MAN]",float64,2261,8
+AG_SEC_3B.dta,2305,163,ag3b_74_3c,"Harvesting & Threshing, etc. - Number of days [CHILD]",float64,2261,1
+AG_SEC_3B.dta,2305,163,ag3b_74_3d,"Harvesting & Threshing, etc. - Total Wage Paid [TSH]",float64,2261,10
+AG_SEC_3B_time.dta,2305,98,plotnum,PLOT NUMBER,int8,0,11
+AG_SEC_3B_time.dta,2305,98,plotid_nps4,2014/15 Plot Number,object,0,11
+AG_SEC_3B_time.dta,2305,98,plotname,LIST ALL PLOTS OWNED OR CULTIVATED BY THE HOUSEHOLD IN MASIKA 2018,object,0,2
+AG_SEC_3B_time.dta,2305,98,ag3b_72a,Did any member in this household work on (Land Preparation & Planting) on this p,float64,2093,2
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_1,How many days did [NAME] spend on (Land Prep & Planting) 1ST MEMBER LISTED,float64,2139,27
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_2,How many days did [NAME] spend on (Land Prep & Planting) 2ND MEMBER LISTED,float64,2186,23
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_3,How many days did [NAME] spend on (Land Prep & Planting) 3RD MEMBER LISTED,float64,2254,13
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_4,How many days did [NAME] spend on (Land Prep & Planting) 4TH MEMBER LISTED,float64,2280,10
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_5,How many days did [NAME] spend on (Land Prep & Planting) 5TH MEMBER LISTED,float64,2296,6
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_6,How many days did [NAME] spend on (Land Prep & Planting) 6TH MEMBER LISTED,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_7,How many days did [NAME] spend on (Land Prep & Planting) 7TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_8,How many days did [NAME] spend on (Land Prep & Planting) 8TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_9,How many days did [NAME] spend on (Land Prep & Planting) 9TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72c_10,How many days did [NAME] spend on (Land Prep & Planting) 20TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_1,How many hours per day did [NAME] spend on (Land Prep & Planting) 1ST MEMBER LIS,float64,2139,11
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_2,How many hours per day did [NAME] spend on (Land Prep & Planting) 2ND MEMBER LIS,float64,2186,10
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_3,How many hours per day did [NAME] spend on (Land Prep & Planting) 3RD MEMBER LIS,float64,2254,6
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_4,How many hours per day did [NAME] spend on (Land Prep & Planting) 4TH MEMBER LIS,float64,2280,7
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_5,How many hours per day did [NAME] spend on (Land Prep & Planting) 5TH MEMBER LIS,float64,2296,4
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_6,How many hours per day did [NAME] spend on (Land Prep & Planting) 6TH MEMBER LIS,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_7,How many hours per day did [NAME] spend on (Land Prep & Planting) 7TH MEMBER LIS,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_8,How many hours per day did [NAME] spend on (Land Prep & Planting) 8TH MEMBER LIS,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_9,How many hours per day did [NAME] spend on (Land Prep & Planting) 9TH MEMBER LIS,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72d_10,How many hours per day did [NAME] spend on (Land Prep & Planting) 10TH MEMBER LI,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72e,"Did any member in this household work on (Weeding, Ridging, Fertilizing, Other N",float64,2093,2
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_1,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 1ST MEMBER LISTE,float64,2132,21
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_2,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 2ND MEMBER LISTE,float64,2186,20
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_3,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 3RD MEMBER LISTE,float64,2253,11
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_4,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 4TH MEMBER LISTE,float64,2284,10
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_5,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 5TH MEMBER LISTE,float64,2295,7
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_6,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 6TH MEMBER LISTE,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_7,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 7TH MEMBER LISTE,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_8,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 8TH MEMBER LISTE,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_9,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 9TH MEMBER LISTE,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72g_10,How many days did [NAME] spend on (Weeding/Ridging/Fertilizing) 10TH MEMBER LIST,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_1,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 1ST MEM,float64,2132,9
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_2,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 2ND MEM,float64,2186,8
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_3,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 3RD MEM,float64,2253,8
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_4,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 4TH MEM,float64,2284,6
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_5,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 5TH MEM,float64,2295,4
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_6,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 6TH MEM,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_7,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 7TH MEM,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_8,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 8TH MEM,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_9,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 9TH MEM,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72h_10,How many hours per day did [NAME] spend on (Weeding/Ridging/Fertilizing) 10TH ME,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72i,Did any member in this household work on (Harvesting & Threshing) on this plot?,float64,2093,2
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_1,How many days did [NAME] spend on (Harvesting & Threshing) 1ST MEMBER LISTED,float64,2137,22
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_2,How many days did [NAME] spend on (Harvesting & Threshing) 2ND MEMBER LISTED,float64,2184,18
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_3,How many days did [NAME] spend on (Harvesting & Threshing) 3RD MEMBER LISTED,float64,2248,14
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_4,How many days did [NAME] spend on (Harvesting & Threshing) 4TH MEMBER LISTED,float64,2283,8
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_5,How many days did [NAME] spend on (Harvesting & Threshing) 5TH MEMBER LISTED,float64,2297,5
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_6,How many days did [NAME] spend on (Harvesting & Threshing) 6TH MEMBER LISTED,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_7,How many days did [NAME] spend on (Harvesting & Threshing) 7TH MEMBER LISTED,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_8,How many days did [NAME] spend on (Harvesting & Threshing) 8TH MEMBER LISTED,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_9,How many days did [NAME] spend on (Harvesting & Threshing) 9TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72k_10,How many days did [NAME] spend on (Harvesting & Threshing) 10TH MEMBER LISTED,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_1,How many hours per day did [NAME] spend on (Harvesting & Threshing) 1ST MEMBER L,float64,2137,11
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_2,How many hours per day did [NAME] spend on (Harvesting & Threshing) 2ND MEMBER L,float64,2184,9
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_3,How many hours per day did [NAME] spend on (Harvesting & Threshing) 3RD MEMBER L,float64,2248,6
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_4,How many hours per day did [NAME] spend on (Harvesting & Threshing) 4TH MEMBER L,float64,2283,6
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_5,How many hours per day did [NAME] spend on (Harvesting & Threshing) 5TH MEMBER L,float64,2297,4
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_6,How many hours per day did [NAME] spend on (Harvesting & Threshing) 6TH MEMBER L,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_7,How many hours per day did [NAME] spend on (Harvesting & Threshing) 7TH MEMBER L,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_8,How many hours per day did [NAME] spend on (Harvesting & Threshing) 8TH MEMBER L,float64,2304,1
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_9,How many hours per day did [NAME] spend on (Harvesting & Threshing) 9TH MEMBER L,float64,2305,0
+AG_SEC_3B_time.dta,2305,98,ag3b_72l_10,How many hours per day did [NAME] spend on (Harvesting & Threshing) 10TH MEMBER ,float64,2305,0
+AG_SEC_4A.dta,1379,36,plotnum,PLOT CODE,float64,0,9
+AG_SEC_4A.dta,1379,36,cropid,CROP CODE,float64,0,31
+AG_SEC_4A.dta,1379,36,ag4a_01,Was crop planted in entire area of plot?,float64,14,2
+AG_SEC_4A.dta,1379,36,ag4a_02,"Approximately, how much of the plot was planted with [CROP]?",float64,653,3
+AG_SEC_4A.dta,1379,36,ag4a_03,Why didn't you plant the entire plot with [CROP]?,float64,653,7
+AG_SEC_4A.dta,1379,36,ag4a_04,Was cultivation intercropped?,float64,14,2
+AG_SEC_4A.dta,1379,36,ag4a_05,What is the reason for this intercropping?,float64,683,3
+AG_SEC_4A.dta,1379,36,ag4a_06,What was the name of the main seed variety for this [CROP] on this plot?,object,0,310
+AG_SEC_4A.dta,1379,36,ag4a_08,Were the main seeds...,float64,14,3
+AG_SEC_4A.dta,1379,36,ag4a_10_1,What was the total amount of seeds used? (QUANTITY),float64,14,73
+AG_SEC_4A.dta,1379,36,ag4a_10_2,What was the total amount of seeds used? (UNIT),float64,14,5
+AG_SEC_4A.dta,1379,36,ag4a_10a_1,What was the total seeds used on plot came from the previous season? (QUANTITY),float64,14,59
+AG_SEC_4A.dta,1379,36,ag4a_10a_2,What was the total seeds used on plot came from the previous season? (UNIT),float64,603,5
+AG_SEC_4A.dta,1379,36,ag4a_10b,What type of seed were the seeds from the previous season?,float64,603,3
+AG_SEC_4A.dta,1379,36,ag4a_10c_1,How much of the total seed used on plot came from purchases? (QUANTITY),float64,14,51
+AG_SEC_4A.dta,1379,36,ag4a_10c_2,How much of the total seed used on plot came from purchases? (UNIT),float64,885,5
+AG_SEC_4A.dta,1379,36,ag4a_12,What was the total amount paid for seeds? (TSH),float64,885,96
+AG_SEC_4A.dta,1379,36,ag4a_13_1,Where did you buy most of the seeds? (NETWORK ROSTER ID),float64,885,13
+AG_SEC_4A.dta,1379,36,ag4a_17,Were there any losses of crops before the harvest?,float64,14,2
+AG_SEC_4A.dta,1379,36,ag4a_19,Did you harvest any [CROP] on this plot in the long-rainy season 2018?,float64,14,2
+AG_SEC_4A.dta,1379,36,ag4a_20,Why didn't you harvest any [CROP] on this plot?,float64,1312,5
+AG_SEC_4A.dta,1379,36,ag4a_21,What was the area harvested in the long rainy season 2018? (ACRES),float64,81,47
+AG_SEC_4A.dta,1379,36,ag4a_22,Was area harvested less than area planted?,float64,81,2
+AG_SEC_4A.dta,1379,36,ag4a_23,What was the reason it was less than the area planted?,float64,890,7
+AG_SEC_4A.dta,1379,36,ag4a_24_1,What was the first and last month of the harvest period? (BEGIN),float64,81,12
+AG_SEC_4A.dta,1379,36,ag4a_24_2,What was the first and last month of the harvest period? (END),float64,81,13
+AG_SEC_4A.dta,1379,36,ag4a_25,How many more days do you expect the harvest to last?,float64,1371,5
+AG_SEC_4A.dta,1379,36,ag4a_26,What fraction of the crop remains to be harvested in this period?,float64,1378,1
+AG_SEC_4A.dta,1379,36,ag4a_27,What was the quantity harvested?,float64,81,234
+AG_SEC_4A.dta,1379,36,ag4a_28,What is the estimated value of the harvested crop?,float64,81,248
+AG_SEC_4A.dta,1379,36,ag4a_29_1,Who in the household made the decisions concerning the use of the harvested crop,float64,81,9
+AG_SEC_4A.dta,1379,36,ag4a_29_2,Who in the household made the decisions concerning the use of the harvested crop,float64,738,8
+AG_SEC_4B.dta,290,37,plotnum,PLOT CODE,float64,0,5
+AG_SEC_4B.dta,290,37,cropid,CROP CODE,float64,0,16
+AG_SEC_4B.dta,290,37,ag4b_01,Was crop planted in entire area of plot?,float64,5,2
+AG_SEC_4B.dta,290,37,ag4b_02,"Approximately, how much of the plot was planted with [CROP]?",float64,155,3
+AG_SEC_4B.dta,290,37,ag4b_03,Why didn't you plant the entire plot with [CROP]?,float64,155,6
+AG_SEC_4B.dta,290,37,ag4b_04,Was cultivation intercropped?,float64,5,2
+AG_SEC_4B.dta,290,37,ag4b_05,What is the reason for this intercropping?,float64,84,2
+AG_SEC_4B.dta,290,37,ag4b_06,What was the name of the main seed variety for this [CROP] on this plot?,object,0,88
+AG_SEC_4B.dta,290,37,ag4b_08,Were the main seeds...,float64,5,3
+AG_SEC_4B.dta,290,37,ag4b_10_1,What was the total amount of seeds used? (QUANTITY),float64,5,30
+AG_SEC_4B.dta,290,37,ag4b_10_2,What was the total amount of seeds used? (UNIT),float64,5,5
+AG_SEC_4B.dta,290,37,ag4b_10a_1,What was the total seeds used on plot came from the previous season? (QUANTITY),float64,5,19
+AG_SEC_4B.dta,290,37,ag4b_10a_2,What was the total seeds used on plot came from the previous season? (UNIT),float64,140,5
+AG_SEC_4B.dta,290,37,ag4b_10b,What type of seed were the seeds from the previous season?,float64,140,2
+AG_SEC_4B.dta,290,37,ag4b_10c_1,How much of the total seed used on plot came from purchases? (QUANTITY),float64,5,23
+AG_SEC_4B.dta,290,37,ag4b_10c_2,How much of the total seed used on plot came from purchases? (UNIT),float64,184,5
+AG_SEC_4B.dta,290,37,ag4b_12,What was the total amount paid for seeds? (TSH),float64,184,43
+AG_SEC_4B.dta,290,37,ag4b_13_1,Where did you buy most of the seeds? (NETWORK ROSTER ID),float64,184,8
+AG_SEC_4B.dta,290,37,ag4b_17,Were there any losses of crops before the harvest?,float64,5,2
+AG_SEC_4B.dta,290,37,ag4b_19,Did you harvest any [CROP] on this plot in the long-rainy season 2018?,float64,5,2
+AG_SEC_4B.dta,290,37,ag4b_20,Why didn't you harvest any [CROP] on this plot?,float64,226,3
+AG_SEC_4B.dta,290,37,ag4b_21,What was the area harvested in the long rainy season 2018? (ACRES),float64,69,23
+AG_SEC_4B.dta,290,37,ag4b_22,Was area harvested less than area planted?,float64,69,2
+AG_SEC_4B.dta,290,37,ag4b_23,What was the reason it was less than the area planted?,float64,205,6
+AG_SEC_4B.dta,290,37,ag4b_24_1,What was the first and last month of the harvest period? (BEGIN),float64,69,11
+AG_SEC_4B.dta,290,37,ag4b_24_2,What was the first and last month of the harvest period? (END),float64,69,11
+AG_SEC_4B.dta,290,37,ag4b_25,Have you finished the harvest?,float64,69,2
+AG_SEC_4B.dta,290,37,ag4b_26,How many more days do you expect the harvest to last?,float64,287,3
+AG_SEC_4B.dta,290,37,ag4b_27,What fraction of the crop remains to be harvested in this period?,float64,287,3
+AG_SEC_4B.dta,290,37,ag4b_28,What was the quantity harvested?,float64,69,62
+AG_SEC_4B.dta,290,37,ag4b_29,What is the estimated value of the harvested crop?,float64,69,83
+AG_SEC_4B.dta,290,37,ag4b_30_1,Who in the household made the decisions concerning the use of the harvested crop,float64,69,4
+AG_SEC_4B.dta,290,37,ag4b_30_2,Who in the household made the decisions concerning the use of the harvested crop,float64,182,5
+AG_SEC_5A.dta,1076,56,cropid,CROP CODE,float64,0,31
+AG_SEC_5A.dta,1076,56,ag5a_01,Did you sell any of the [CROP] produced in the long rainy season 2014?,float64,0,2
+AG_SEC_5A.dta,1076,56,ag5a_02,What was the quantity sold? (KG),float64,636,153
+AG_SEC_5A.dta,1076,56,ag5a_03,What was the total value of the sales? (TSH),float64,636,161
+AG_SEC_5A.dta,1076,56,ag5a_04_1,"To which persons, firms or institutions did you sell most [CROP]? (NETWORK ROSTE",float64,636,13
+AG_SEC_5A.dta,1076,56,ag5a_05,What quantity of [CROP] did you sell to [CUSTOMER #1]? (KG),float64,636,149
+AG_SEC_5A.dta,1076,56,ag5a_06,What was the total value of these sales to [CUSTOMER #1] (TSH)?,float64,636,159
+AG_SEC_5A.dta,1076,56,ag5a_07_1,During which MONTH did you sell most of [CROP] to [CUSTOMER #1]?,float64,636,11
+AG_SEC_5A.dta,1076,56,ag5a_07_2,During which YEAR did you sell most of [CROP] to [CUSTOMER #1]?,float64,637,4
+AG_SEC_5A.dta,1076,56,ag5a_08,Approximately how many transactions took place while selling [CROP] to [CUSTOMER,float64,636,10
+AG_SEC_5A.dta,1076,56,ag5a_09_1,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,636,7
+AG_SEC_5A.dta,1076,56,ag5a_09_2,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,889,5
+AG_SEC_5A.dta,1076,56,ag5a_12,What quantity of [CROP] did you sell to [CUSTOMER #2]? (KG),float64,1067,8
+AG_SEC_5A.dta,1076,56,ag5a_13,What was the total value of these sales to [CUSTOMER #2]? (TSH),float64,1067,8
+AG_SEC_5A.dta,1076,56,ag5a_14_1,During which MONTH did you sell most of [CROP] to [CUSTOMER #2]?,float64,1067,5
+AG_SEC_5A.dta,1076,56,ag5a_14_2,During which YEAR did you sell most of [CROP] to [CUSTOMER #2]?,float64,1067,2
+AG_SEC_5A.dta,1076,56,ag5a_15,Approximately how many transactions took place while selling [CROP] to [CUSTOMER,float64,1067,3
+AG_SEC_5A.dta,1076,56,ag5a_16_1,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,1067,2
+AG_SEC_5A.dta,1076,56,ag5a_16_2,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,1072,1
+AG_SEC_5A.dta,1076,56,ag5a_18,"Generally, did you transport [CROP] for sale?",float64,636,2
+AG_SEC_5A.dta,1076,56,ag5a_19,What is the average distance you transported [CROP] for sale? (KM),float64,984,23
+AG_SEC_5A.dta,1076,56,ag5a_20,How many times did you transport [CROP] for sale during the long rainy season 20,float64,984,6
+AG_SEC_5A.dta,1076,56,ag5a_21,"Generally, how did you transport [CROP]?",float64,984,6
+AG_SEC_5A.dta,1076,56,ag5a_22,How much did you pay to transport [CROP] during the long rainy season 2018? (TSH,float64,984,22
+AG_SEC_5A.dta,1076,56,ag5a_23,Do you have any of the harvest from the long rainy season 2018 in storage now?,float64,0,2
+AG_SEC_5A.dta,1076,56,ag5a_24,How much of this harvest do you still have in storage? (KG),float64,961,62
+AG_SEC_5A.dta,1076,56,ag5a_26,Did you do anything to protect the stored crop?,float64,961,2
+AG_SEC_5A.dta,1076,56,ag5a_28,"When you store [CROP], what is usually the main purpose of storing it?",float64,961,3
+AG_SEC_5A.dta,1076,56,ag5a_29,"Was any portion of the production lost post-harvest to rotting, insects, rodents",float64,0,2
+AG_SEC_5A.dta,1076,56,ag5a_31,"Out of 10 units of [CROP], how many were lost?",float64,1044,9
+AG_SEC_5A.dta,1076,56,ag5a_32,What was the value of this lost crop? (TSH),float64,1044,21
+AG_SEC_5A.dta,1076,56,ag5a_32a,How much of the harvest was consumed? (KG),float64,0,226
+AG_SEC_5A.dta,1076,56,ag5a_32b,How much of the harvest was stored as seed for the next planting season? (KG),float64,0,52
+AG_SEC_5A.dta,1076,56,ag5a_32c,How much of the harvest was given as payments for labour or non-labour payments?,float64,0,21
+AG_SEC_5A.dta,1076,56,ag5a_32d,How much of the harvest was given away as gifts? (KG),float64,0,85
+AG_SEC_5A.dta,1076,56,ag5a_32e,How much of the harvest was used as animal feed? (KG),float64,0,4
+AG_SEC_5A.dta,1076,56,ag5a_33,What was done with the residue from this crop?,float64,0,8
+AG_SEC_5A.dta,1076,56,ag5a_34,What was the quantity sold? (KG),float64,1074,2
+AG_SEC_5A.dta,1076,56,ag5a_35,What was the total value of the sales? (TSH),float64,1074,2
+AG_SEC_5B.dta,183,56,cropid,CROP CODE,float64,0,12
+AG_SEC_5B.dta,183,56,ag5b_01,Did you sell any of the [CROP] produced in the long rainy season 2014?,float64,0,2
+AG_SEC_5B.dta,183,56,ag5b_02,What was the quantity sold? (KG),float64,138,26
+AG_SEC_5B.dta,183,56,ag5b_03,What was the total value of the sales? (TSH),float64,138,33
+AG_SEC_5B.dta,183,56,ag5b_04_1,"To which persons, firms or institutions did you sell most [CROP]? (NETWORK ROSTE",float64,138,5
+AG_SEC_5B.dta,183,56,ag5b_05,What quantity of [CROP] did you sell to [CUSTOMER #1]? (KG),float64,138,27
+AG_SEC_5B.dta,183,56,ag5b_06,What was the total value of these sales to [CUSTOMER #1] (TSH)?,float64,138,33
+AG_SEC_5B.dta,183,56,ag5b_07_1,During which MONTH did you sell most of [CROP] to [CUSTOMER #1]?,float64,138,12
+AG_SEC_5B.dta,183,56,ag5b_07_2,During which YEAR did you sell most of [CROP] to [CUSTOMER #1]?,float64,142,2
+AG_SEC_5B.dta,183,56,ag5b_08,Approximately how many transactions took place while selling [CROP] to [CUSTOMER,float64,138,6
+AG_SEC_5B.dta,183,56,ag5b_09_1,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,138,2
+AG_SEC_5B.dta,183,56,ag5b_09_2,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,168,2
+AG_SEC_5B.dta,183,56,ag5b_12,What quantity of [CROP] did you sell to [CUSTOMER #2]? (KG),float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_13,What was the total value of these sales to [CUSTOMER #2]? (TSH),float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_14_1,During which MONTH did you sell most of [CROP] to [CUSTOMER #2]?,float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_14_2,During which YEAR did you sell most of [CROP] to [CUSTOMER #2]?,float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_15,Approximately how many transactions took place while selling [CROP] to [CUSTOMER,float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_16_1,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_16_2,Who in your household is responsible for negotiating the sale of [CROP] to [CUST,float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_18,"Generally, did you transport [CROP] for sale?",float64,138,2
+AG_SEC_5B.dta,183,56,ag5b_19,What is the average distance you transported [CROP] for sale? (KM),float64,174,6
+AG_SEC_5B.dta,183,56,ag5b_20,How many times did you transport [CROP] for sale during the long rainy season 20,float64,174,4
+AG_SEC_5B.dta,183,56,ag5b_21,"Generally, how did you transport [CROP]?",float64,174,3
+AG_SEC_5B.dta,183,56,ag5b_22,How much did you pay to transport [CROP] during the long rainy season 2018? (TSH,float64,174,2
+AG_SEC_5B.dta,183,56,ag5b_23,Do you have any of the harvest from the long rainy season 2018 in storage now?,float64,0,2
+AG_SEC_5B.dta,183,56,ag5b_24,How much of this harvest do you still have in storage? (KG),float64,120,40
+AG_SEC_5B.dta,183,56,ag5b_26,Did you do anything to protect the stored crop?,float64,120,2
+AG_SEC_5B.dta,183,56,ag5b_28,"When you store [CROP], what is usually the main purpose of storing it?",float64,120,3
+AG_SEC_5B.dta,183,56,ag5b_29,"Was any portion of the production lost post-harvest to rotting, insects, rodents",float64,0,2
+AG_SEC_5B.dta,183,56,ag5b_31,"Out of 10 units of [CROP], how many were lost?",float64,180,2
+AG_SEC_5B.dta,183,56,ag5b_32,What was the value of this lost crop? (TSH),float64,180,3
+AG_SEC_5B.dta,183,56,ag5b_32a,How much of the harvest was consumed? (KG),float64,0,62
+AG_SEC_5B.dta,183,56,ag5b_32b,How much of the harvest was stored as seed for the next planting season? (KG),float64,0,19
+AG_SEC_5B.dta,183,56,ag5b_32c,How much of the harvest was given as payments for labour or non-labour payments?,float64,0,1
+AG_SEC_5B.dta,183,56,ag5b_32d,How much of the harvest was given away as gifts? (KG),float64,0,26
+AG_SEC_5B.dta,183,56,ag5b_32e,How much of the harvest was used as animal feed? (KG),float64,0,1
+AG_SEC_5B.dta,183,56,ag5b_33,What was done with the residue from this crop?,float64,0,7
+AG_SEC_5B.dta,183,56,ag5b_34,What was the quantity sold? (KG),float64,183,0
+AG_SEC_5B.dta,183,56,ag5b_35,What was the total value of the sales? (TSH),float64,183,0
+AG_SEC_6A.dta,1245,19,plotnum,PLOT,float64,0,9
+AG_SEC_6A.dta,1245,19,cropid,CROP CODE,float64,0,28
+AG_SEC_6A.dta,1245,19,ag6a_02,How many of these plants/trees are on this plot?,float64,0,110
+AG_SEC_6A.dta,1245,19,ag6a_03,In what year were most of these plants/trees planted?,float64,0,58
+AG_SEC_6A.dta,1245,19,ag6a_04,How many plants/trees were planted during the last 12 months?,float64,0,35
+AG_SEC_6A.dta,1245,19,ag6a_05,Was cultivation intercropped during the past long rainy season?,float64,0,2
+AG_SEC_6A.dta,1245,19,ag6a_06,What was the reason for intercropping?,float64,436,3
+AG_SEC_6A.dta,1245,19,ag6a_07_1,What was the last completed production period for the [FRUIT]? (Begin Year),float64,363,4
+AG_SEC_6A.dta,1245,19,ag6a_07_2,What was the last completed production period for the [FRUIT]? (Begin Month),float64,363,12
+AG_SEC_6A.dta,1245,19,ag6a_07_3,What was the last completed production period for the [FRUIT]? (End Year),float64,363,3
+AG_SEC_6A.dta,1245,19,ag6a_07_4,What was the last completed production period for the [FRUIT]? (End Month),float64,363,12
+AG_SEC_6A.dta,1245,19,ag6a_08_1,Who in the household made the decisions concerning the use of [FRUIT] harvested ,float64,363,5
+AG_SEC_6A.dta,1245,19,ag6a_08_2,Who in the household made the decisions concerning the use of [FRUIT] harvested ,float64,812,8
+AG_SEC_6A.dta,1245,19,ag6a_09,What was the total amount of [FRUIT] harvested in the past 12 months? (KG),float64,363,148
+AG_SEC_6A.dta,1245,19,ag6a_10,Were there any losses of [FRUIT] before the harvest?,float64,363,2
+AG_SEC_6B.dta,769,19,plotnum,PLOT,float64,0,8
+AG_SEC_6B.dta,769,19,cropid,CROP CODE,float64,0,21
+AG_SEC_6B.dta,769,19,ag6b_02,How many of these plants/trees are on this plot?,float64,0,145
+AG_SEC_6B.dta,769,19,ag6b_03,In what year were most of these plants/trees planted?,float64,0,58
+AG_SEC_6B.dta,769,19,ag6b_04,How many plants/trees were planted during the last 12 months?,float64,0,85
+AG_SEC_6B.dta,769,19,ag6b_05,Was cultivation intercropped during the past long rainy season?,float64,0,2
+AG_SEC_6B.dta,769,19,ag6b_06,What was the reason for intercropping?,float64,426,3
+AG_SEC_6B.dta,769,19,ag6b_06a,6a. Je katika miezi 12 iliyopita %rostertitle% liliwai kuvunwa kwa %AG_S06B_Plot,float64,0,2
+AG_SEC_6B.dta,769,19,ag6b_07_1,What was the last completed production period for the [FRUIT]? (Begin Year),float64,334,3
+AG_SEC_6B.dta,769,19,ag6b_07_2,What was the last completed production period for the [FRUIT]? (Begin Month),float64,334,12
+AG_SEC_6B.dta,769,19,ag6b_07_3,What was the last completed production period for the [FRUIT]? (End Year),float64,334,3
+AG_SEC_6B.dta,769,19,ag6b_07_4,What was the last completed production period for the [FRUIT]? (End Month),float64,334,12
+AG_SEC_6B.dta,769,19,ag6b_08_1,Who in the household made the decisions concerning the use of [FRUIT] harvested ,float64,334,3
+AG_SEC_6B.dta,769,19,ag6b_08_2,Who in the household made the decisions concerning the use of [FRUIT] harvested ,float64,550,7
+AG_SEC_6B.dta,769,19,ag6b_09,What was the total amount of [FRUIT] harvested in the past 12 months? (KG),float64,334,108
+AG_SEC_6B.dta,769,19,ag6b_10,Were there any losses of [FRUIT] before the harvest?,float64,334,2
+AG_SEC_7A.dta,804,28,cropid,Fruit Tree Crop Code,float64,0,26
+AG_SEC_7A.dta,804,28,ag7a_04,What was the total value of [FRUIT] sold? (TSH),float64,603,75
+AG_SEC_7A.dta,804,28,ag7a_08,Do you have any of this harvest in storage now?,float64,0,2
+AG_SEC_7A.dta,804,28,ag7a_09,How much of this harvest do you still have in storage? (KG),float64,802,2
+AG_SEC_7A.dta,804,28,ag7a_11,Did you do anything to protect the stored crop?,float64,802,1
+AG_SEC_7A.dta,804,28,ag7a_13,"Was any portion of the production lost post-harvest to rotting, insects, rodents",float64,0,2
+AG_SEC_7A.dta,804,28,ag7a_15,"Out of 10 units of [FRUIT], how many were lost?",float64,728,8
+AG_SEC_7A.dta,804,28,ag7a_16,What was the value of this lost [FRUIT]? (TSH),float64,728,37
+AG_SEC_7A.dta,804,28,ag7a_17,How much of the harvest was consumed? (KG),float64,0,97
+AG_SEC_7A.dta,804,28,ag7a_18,How much of the harvest was stored as seed for the next planting season? (KG),float64,0,3
+AG_SEC_7A.dta,804,28,ag7a_19,How much of the harvest was given as payments for labour or non-labour payments?,float64,0,6
+AG_SEC_7A.dta,804,28,ag7a_20,How much of the harvest was given away as gifts? (KG),float64,0,61
+AG_SEC_7A.dta,804,28,ag7a_21,How much of the harvest was used as animal feed? (KG),float64,0,8
+AG_SEC_7B.dta,364,28,cropid,Fruit Tree Crop Code,float64,0,17
+AG_SEC_7B.dta,364,28,ag7b_04,What was the total value of [FRUIT] sold? (TSH),float64,198,98
+AG_SEC_7B.dta,364,28,ag7b_08,Do you have any of this harvest in storage now?,float64,0,2
+AG_SEC_7B.dta,364,28,ag7b_09,How much of this harvest do you still have in storage? (KG),float64,331,20
+AG_SEC_7B.dta,364,28,ag7b_11,Did you do anything to protect the stored crop?,float64,331,1
+AG_SEC_7B.dta,364,28,ag7b_13,"Was any portion of the production lost post-harvest to rotting, insects, rodents",float64,0,1
+AG_SEC_7B.dta,364,28,ag7b_15,"Out of 10 units of [FRUIT], how many were lost?",float64,364,0
+AG_SEC_7B.dta,364,28,ag7b_16,What was the value of this lost [FRUIT]? (TSH),float64,364,0
+AG_SEC_7B.dta,364,28,ag7b_17,How much of the harvest was consumed? (KG),float64,0,72
+AG_SEC_7B.dta,364,28,ag7b_18,How much of the harvest was stored as seed for the next planting season? (KG),float64,0,3
+AG_SEC_7B.dta,364,28,ag7b_19,How much of the harvest was given as payments for labour or non-labour payments?,float64,0,5
+AG_SEC_7B.dta,364,28,ag7b_20,How much of the harvest was given away as gifts? (KG),float64,0,31
+AG_SEC_7B.dta,364,28,ag7b_21,How much of the harvest was used as animal feed? (KG),float64,0,3

@@ -1,0 +1,67 @@
+{
+    "platform": "AFIP",
+    "generated_at": "2026-11-18T17:02:09.474313+00:00",
+    "models": {
+        "seed_quantity": {
+            "model_name": "seed_quantity",
+            "available": true,
+            "production_ready": false,
+            "status": "trained_requires_review",
+            "version": "1.0.0",
+            "target_unit": "KG",
+            "validation_status": "passed",
+            "evaluation_recommendation": "WEAK_MODEL_REQUIRES_IMPROVEMENT",
+            "reason": "Model requires stronger evaluation and explicit production approval."
+        },
+        "maize_yield": {
+            "model_name": "maize_yield",
+            "available": false,
+            "production_ready": false,
+            "status": "unavailable",
+            "version": null,
+            "target_unit": null,
+            "validation_status": null,
+            "evaluation_recommendation": null,
+            "reason": "Model file does not exist."
+        },
+        "crop_recommendation": {
+            "model_name": "crop_recommendation",
+            "available": false,
+            "production_ready": false,
+            "status": "unavailable",
+            "version": null,
+            "target_unit": null,
+            "validation_status": null,
+            "evaluation_recommendation": null,
+            "reason": "Model file does not exist."
+        },
+        "crop_production": {
+            "model_name": "crop_production",
+            "available": false,
+            "production_ready": false,
+            "status": "unavailable",
+            "version": null,
+            "target_unit": null,
+            "validation_status": null,
+            "evaluation_recommendation": null,
+            "reason": "Model file does not exist."
+        }
+    },
+    "research_models": {
+        "seed_quantity_crop_median": {
+            "model_name": "seed_quantity_crop_median",
+            "available": true,
+            "production_ready": false,
+            "production_approved": false,
+            "research_only": true,
+            "candidate_type": "crop_specific_median",
+            "status": "research_only",
+            "version": "1.0.0-research",
+            "target_unit": "KG",
+            "validation_status": "passed",
+            "training_records": 1145,
+            "unique_crops": 28,
+            "reason": "Experimental candidate. Requires further evaluation and explicit production approval."
+        }
+    }
+}

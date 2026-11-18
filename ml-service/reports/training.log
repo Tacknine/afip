@@ -1,0 +1,141 @@
+2026-11-18 17:03:26,700 | INFO | ======================================================================
+2026-11-18 17:03:26,700 | INFO | AFIP MODEL TRAINING PIPELINE
+2026-11-18 17:03:26,703 | INFO | ======================================================================
+2026-11-18 17:03:26,703 | INFO | ======================================================================
+2026-11-18 17:03:26,703 | INFO | TRAINING SEED QUANTITY MODEL
+2026-11-18 17:03:26,703 | INFO | ======================================================================
+2026-11-18 17:03:26,703 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 17:03:26,740 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 17:03:26,781 | INFO | Seed quantity data audit
+2026-11-18 17:03:26,781 | INFO | Original rows: 1379
+2026-11-18 17:03:26,790 | INFO | KG records with valid positive targets: 1145
+2026-11-18 17:03:26,790 | INFO | Unique households: 534
+2026-11-18 17:03:26,794 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 17:03:26,810 | INFO | Training rows: 919
+2026-11-18 17:03:26,810 | INFO | Testing rows: 226
+2026-11-18 17:03:27,701 | INFO | MODEL EVALUATION
+2026-11-18 17:03:27,704 | INFO | MAE: 12.4626 KG
+2026-11-18 17:03:27,706 | INFO | RMSE: 36.7303 KG
+2026-11-18 17:03:27,706 | INFO | R2: 0.0088
+2026-11-18 17:03:27,706 | INFO | Baseline MAE: 13.2571 KG
+2026-11-18 17:03:27,706 | INFO | Validation: passed
+2026-11-18 17:03:27,873 | INFO | Model saved: C:\Users\harun\IdeaProjects\afip\ml-service\artifacts\seed_quantity\model.joblib
+2026-11-18 17:03:27,873 | INFO | Metadata saved: C:\Users\harun\IdeaProjects\afip\ml-service\artifacts\seed_quantity\metadata.json
+2026-11-18 17:03:27,879 | INFO | ======================================================================
+2026-11-18 17:03:27,881 | INFO | AFIP TRAINING SUMMARY
+2026-11-18 17:03:27,881 | INFO | ======================================================================
+2026-11-18 17:03:27,881 | INFO | SEED_QUANTITY: TRAINED
+2026-11-18 17:03:27,881 | INFO | MAIZE_YIELD: BLOCKED
+2026-11-18 17:03:27,881 | INFO | CROP_RECOMMENDATION: BLOCKED
+2026-11-18 17:03:27,881 | INFO | CROP_PRODUCTION: BLOCKED
+2026-11-18 17:03:27,881 | INFO | Training report: C:\Users\harun\IdeaProjects\afip\ml-service\reports\training_report.json
+2026-11-18 17:03:27,881 | INFO | Raw datasets were not modified.
+2026-11-18 17:03:27,881 | INFO | TRAINING PIPELINE COMPLETED.
+2026-11-18 19:20:31,262 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:20:31,293 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:20:31,321 | INFO | Seed quantity data audit
+2026-11-18 19:20:31,322 | INFO | Original rows: 1379
+2026-11-18 19:20:31,322 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:20:31,326 | INFO | Unique households: 534
+2026-11-18 19:20:31,326 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:25:17,769 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:25:17,798 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:25:17,832 | INFO | Seed quantity data audit
+2026-11-18 19:25:17,833 | INFO | Original rows: 1379
+2026-11-18 19:25:17,834 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:25:17,838 | INFO | Unique households: 534
+2026-11-18 19:25:17,838 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:29:39,959 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:29:39,988 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:29:40,025 | INFO | Seed quantity data audit
+2026-11-18 19:29:40,025 | INFO | Original rows: 1379
+2026-11-18 19:29:40,031 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:29:40,031 | INFO | Unique households: 534
+2026-11-18 19:29:40,031 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:38:39,482 | INFO | ===========================================================================
+2026-11-18 19:38:39,485 | INFO | AFIP SEED QUANTITY PRODUCTION TRAINING
+2026-11-18 19:38:39,488 | INFO | ===========================================================================
+2026-11-18 19:38:39,489 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:38:39,522 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:38:39,570 | INFO | Seed quantity data audit
+2026-11-18 19:38:39,570 | INFO | Original rows: 1379
+2026-11-18 19:38:39,573 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:38:39,575 | INFO | Unique households: 534
+2026-11-18 19:38:39,576 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:38:39,577 | INFO | Eligible records: 1145
+2026-11-18 19:38:39,578 | INFO | Unique households: 534
+2026-11-18 19:38:39,579 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:38:39,579 | INFO | Target: actual KG, without log transformation
+2026-11-18 19:38:39,594 | INFO | Training rows: 919
+2026-11-18 19:38:39,595 | INFO | Testing rows: 226
+2026-11-18 19:38:39,596 | INFO | Cross-validating random_forest
+2026-11-18 19:38:41,413 | INFO | random_forest fold 1 MAE: 10.0619 KG
+2026-11-18 19:38:43,125 | INFO | random_forest fold 2 MAE: 17.9340 KG
+2026-11-18 19:38:45,132 | INFO | random_forest fold 3 MAE: 13.8050 KG
+2026-11-18 19:38:50,932 | INFO | random_forest fold 4 MAE: 13.5543 KG
+2026-11-18 19:38:52,974 | INFO | random_forest fold 5 MAE: 12.5349 KG
+2026-11-18 19:38:52,975 | INFO | Cross-validating extra_trees
+2026-11-18 19:38:57,028 | INFO | extra_trees fold 1 MAE: 10.7152 KG
+2026-11-18 19:39:01,437 | INFO | extra_trees fold 2 MAE: 18.2842 KG
+2026-11-18 19:39:06,249 | INFO | extra_trees fold 3 MAE: 13.6068 KG
+2026-11-18 19:39:10,788 | INFO | extra_trees fold 4 MAE: 13.9860 KG
+2026-11-18 19:39:16,984 | INFO | extra_trees fold 5 MAE: 13.9968 KG
+2026-11-18 19:39:16,988 | INFO | Selected algorithm: random_forest
+2026-11-18 19:39:20,549 | INFO | ===========================================================================
+2026-11-18 19:39:20,551 | INFO | HELD-OUT EVALUATION
+2026-11-18 19:39:20,552 | INFO | Algorithm: random_forest
+2026-11-18 19:39:20,552 | INFO | MAE: 15.3211 KG
+2026-11-18 19:39:20,552 | INFO | RMSE: 38.3990 KG
+2026-11-18 19:39:20,554 | INFO | R2: -0.0834
+2026-11-18 19:39:20,554 | INFO | Baseline MAE: 13.2571 KG
+2026-11-18 19:39:20,556 | INFO | Baseline improvement: -15.57%
+2026-11-18 19:39:20,556 | INFO | Validation passed: False
+2026-11-18 19:41:27,163 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:41:27,231 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:41:27,285 | INFO | Seed quantity data audit
+2026-11-18 19:41:27,286 | INFO | Original rows: 1379
+2026-11-18 19:41:27,289 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:41:27,292 | INFO | Unique households: 534
+2026-11-18 19:41:27,294 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:42:15,278 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:42:15,300 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:42:15,331 | INFO | Seed quantity data audit
+2026-11-18 19:42:15,333 | INFO | Original rows: 1379
+2026-11-18 19:42:15,333 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:42:15,333 | INFO | Unique households: 534
+2026-11-18 19:42:15,334 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:43:11,350 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:43:11,376 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:43:11,414 | INFO | Seed quantity data audit
+2026-11-18 19:43:11,419 | INFO | Original rows: 1379
+2026-11-18 19:43:11,420 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:43:11,422 | INFO | Unique households: 534
+2026-11-18 19:43:11,424 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:43:58,134 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:43:58,184 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:43:58,224 | INFO | Seed quantity data audit
+2026-11-18 19:43:58,225 | INFO | Original rows: 1379
+2026-11-18 19:43:58,226 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:43:58,227 | INFO | Unique households: 534
+2026-11-18 19:43:58,228 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:46:54,950 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:46:54,975 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:46:55,010 | INFO | Seed quantity data audit
+2026-11-18 19:46:55,010 | INFO | Original rows: 1379
+2026-11-18 19:46:55,016 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:46:55,016 | INFO | Unique households: 534
+2026-11-18 19:46:55,016 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:48:36,141 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:48:36,153 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:48:36,212 | INFO | Seed quantity data audit
+2026-11-18 19:48:36,213 | INFO | Original rows: 1379
+2026-11-18 19:48:36,215 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:48:36,215 | INFO | Unique households: 534
+2026-11-18 19:48:36,216 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
+2026-11-18 19:53:06,965 | INFO | Loading dataset: AG_SEC_4A.dta
+2026-11-18 19:53:07,028 | INFO | Loaded AG_SEC_4A.dta: rows=1379 columns=36
+2026-11-18 19:53:07,086 | INFO | Seed quantity data audit
+2026-11-18 19:53:07,099 | INFO | Original rows: 1379
+2026-11-18 19:53:07,103 | INFO | KG records with valid positive targets: 1145
+2026-11-18 19:53:07,105 | INFO | Unique households: 534
+2026-11-18 19:53:07,110 | INFO | Features: ['cropid', 'ag4a_01', 'ag4a_02', 'ag4a_04', 'ag4a_06', 'ag4a_08']
