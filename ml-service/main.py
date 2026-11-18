@@ -1,92 +1,73 @@
-"""
-AFIP ML Service — serves the trained yield prediction model.
-"""
+"""AFIP ML Service - utabiri wa mavuno ya mahindi (modeli iliyofunzwa kwa data halisi)."""
 import os
-import joblib
-import numpy as np
 from contextlib import asynccontextmanager
+from typing import Optional
+import joblib
+import pandas as pd
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from typing import Optional
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "models", "yield_model.pkl")
-model = None
+bundle = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global model
+    global bundle
     if os.path.exists(MODEL_PATH):
-        model = joblib.load(MODEL_PATH)
-        print(f"Model loaded from {MODEL_PATH}", flush=True)
+        bundle = joblib.load(MODEL_PATH)
+        print(f"Model loaded: {bundle['meta']['model_version']}", flush=True)
     else:
-        print(f"WARNING: Model not found at {MODEL_PATH}. Run train_model.py first.", flush=True)
+        print(f"WARNING: {MODEL_PATH} haipo. Endesha pipeline ya data halisi kisha train_model.py.", flush=True)
     yield
-    print("ML service shutting down", flush=True)
 
-app = FastAPI(
-    title="AFIP ML Service",
-    description="Yield prediction API for Adaptive Farming Intelligence Platform",
-    version="1.0.0",
-    lifespan=lifespan,
-)
+app = FastAPI(title="AFIP ML Service", version="2.0.0", lifespan=lifespan)
 
 class YieldRequest(BaseModel):
-    ndvi: float = Field(..., ge=0.0, le=1.0, description="Latest NDVI value")
-    ph: Optional[float] = Field(None, ge=0.0, le=14.0, description="Soil pH")
-    nitrogen: Optional[float] = Field(None, ge=0.0, description="Total nitrogen g/kg")
-    carbon: Optional[float] = Field(None, ge=0.0, description="Organic carbon g/kg")
-    rainfall: Optional[float] = Field(600.0, ge=0.0, description="Seasonal rainfall mm")
-    temperature: Optional[float] = Field(25.0, description="Average temperature C")
+    ndvi: float = Field(..., ge=-1.0, le=1.0)
+    ph: Optional[float] = Field(None, ge=0.0, le=14.0)
+    nitrogen: Optional[float] = Field(None, ge=0.0, description="g/kg")
+    carbon: Optional[float] = Field(None, ge=0.0, description="g/kg")
+    rainfall: Optional[float] = Field(None, ge=0.0, description="mm ya msimu")
+    temperature: Optional[float] = Field(None, description="wastani wa C")
 
 class YieldResponse(BaseModel):
     yield_t_ha: float
-    confidence: float
+    interval_low: float
+    interval_high: float
+    confidence: Optional[float] = None
     model_version: str
+    imputed_features: list[str]
     features_used: dict
+    test_rmse: float
 
 @app.get("/health")
 def health():
-    return {
-        "status": "UP",
-        "model_loaded": model is not None,
-        "model_path": MODEL_PATH,
-    }
+    return {"status": "UP", "model_loaded": bundle is not None,
+            "model_version": bundle["meta"]["model_version"] if bundle else None}
+
+@app.get("/model-info")
+def info():
+    if bundle is None:
+        raise HTTPException(503, "Model not loaded")
+    return bundle["meta"]
 
 @app.post("/predict", response_model=YieldResponse)
 def predict(req: YieldRequest):
-    if model is None:
-        raise HTTPException(status_code=503, detail="Model not loaded")
-
-    features = {
-        'ndvi': req.ndvi,
-        'ph': req.ph if req.ph is not None else 6.0,
-        'nitrogen': req.nitrogen if req.nitrogen is not None else 1.5,
-        'carbon': req.carbon if req.carbon is not None else 15.0,
-        'rainfall': req.rainfall,
-        'temperature': req.temperature,
-    }
-
-    X = np.array([[
-        features['ndvi'],
-        features['ph'],
-        features['nitrogen'],
-        features['carbon'],
-        features['rainfall'],
-        features['temperature'],
-    ]])
-
-    prediction = model.predict(X)[0]
-
-    provided = sum(1 for v in [req.ndvi, req.ph, req.nitrogen, req.carbon] if v is not None)
-    confidence = 0.5 + (provided / 4.0) * 0.4
-
+    if bundle is None:
+        raise HTTPException(503, "Model not loaded")
+    meta = bundle["meta"]
+    feats = meta["features"]
+    row = {f: getattr(req, f) for f in feats}
+    imputed = [f for f, v in row.items() if v is None]
+    pred = float(bundle["pipeline"].predict(pd.DataFrame([row], columns=feats))[0])
+    lo_r, hi_r = meta["interval_residual_q10_q90"]
     return YieldResponse(
-        yield_t_ha=round(float(prediction), 2),
-        confidence=round(float(confidence), 2),
-        model_version="random-forest-v1.0.0",
-        features_used=features,
+        yield_t_ha=round(max(pred, 0.0), 2),
+        interval_low=round(max(pred + lo_r, 0.0), 2),
+        interval_high=round(max(pred + hi_r, 0.0), 2),
+        confidence=None,
+        model_version=meta["model_version"],
+        imputed_features=imputed,
+        features_used={k: v for k, v in row.items() if v is not None},
+        test_rmse=round(meta["test_metrics"]["rmse"], 3),
     )
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)

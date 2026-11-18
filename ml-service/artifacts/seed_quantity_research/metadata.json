@@ -1,0 +1,45 @@
+{
+    "model_name": "seed_quantity_crop_median",
+    "candidate_type": "crop_specific_median",
+    "status": "research_only",
+    "validation_status": "passed",
+    "production_approved": false,
+    "version": "1.0.0-research",
+    "target_column": "ag4a_10_1",
+    "target_unit": "KG",
+    "unit_verified": true,
+    "feature_columns": [
+        "cropid"
+    ],
+    "training_records": 1145,
+    "unique_crops": 28,
+    "unique_households": 534,
+    "fallback": "global_median",
+    "cross_validation": {
+        "method": "5-fold GroupKFold by sdd_hhid",
+        "mae_kg": 11.5863449782,
+        "rmse_kg": 36.163,
+        "comparison": {
+            "random_forest_log_mae_kg": 11.6984,
+            "extra_trees_log_mae_kg": 11.7615,
+            "gradient_boosting_log_mae_kg": 11.774
+        },
+        "note": "Research candidate. Cross-validation metrics are from the previous grouped experiment."
+    },
+    "data_audit": {
+        "original_rows": 1379,
+        "eligible_rows": 1145,
+        "unique_households": 534,
+        "target": "ag4a_10_1",
+        "target_unit": "KG",
+        "unit_filter": "ag4a_10_2 == 1",
+        "feature_columns": [
+            "cropid",
+            "ag4a_01",
+            "ag4a_02",
+            "ag4a_04",
+            "ag4a_06",
+            "ag4a_08"
+        ]
+    }
+}

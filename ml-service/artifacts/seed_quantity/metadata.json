@@ -1,0 +1,48 @@
+{
+    "model_name": "seed_quantity",
+    "status": "trained",
+    "validation_status": "passed",
+    "version": "1.0.0",
+    "trained_at": "2026-11-18T14:03:27.873308+00:00",
+    "target_column": "ag4a_10_1",
+    "target_unit": "KG",
+    "unit_verified": true,
+    "feature_columns": [
+        "cropid",
+        "ag4a_01",
+        "ag4a_02",
+        "ag4a_04",
+        "ag4a_06",
+        "ag4a_08"
+    ],
+    "target_label_map": {},
+    "metrics": {
+        "mae_kg": 12.462602601889042,
+        "rmse_kg": 36.730300800952115,
+        "r2": 0.008757255621895776,
+        "baseline_mae_kg": 13.257079646017699,
+        "test_records": 226,
+        "train_records": 919,
+        "households_total": 534,
+        "validation_status": "passed"
+    },
+    "data_audit": {
+        "original_rows": 1379,
+        "eligible_rows": 1145,
+        "unique_households": 534,
+        "target": "ag4a_10_1",
+        "target_unit": "KG",
+        "unit_filter": "ag4a_10_2 == 1",
+        "feature_columns": [
+            "cropid",
+            "ag4a_01",
+            "ag4a_02",
+            "ag4a_04",
+            "ag4a_06",
+            "ag4a_08"
+        ]
+    },
+    "split_method": "GroupShuffleSplit by sdd_hhid",
+    "training_rows": 919,
+    "testing_rows": 226
+}
