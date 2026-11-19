@@ -17,13 +17,13 @@
 }
 html[data-theme="dark"]{--bg:#0d1a0d;--card:#152015;--tx:#e8f0e8;--ln:#2a3a2a;--mu:#9ab09a}
 html[data-theme="dark"] .card{background:var(--card);border-color:var(--ln)}
-html[data-theme="dark"] input,html[data-theme="dark"] select{background:#0a140a;color:var(--tx);border-color:var(--ln)}
+html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="dark"] textarea{background:#0a140a;color:var(--tx);border-color:var(--ln)}
 html[data-theme="dark"] .empty{background:#152015;color:var(--mu)}
 html[data-theme="dark"] th{background:#1f2f1f}
 html[data-theme="dark"] .btn{color:#000}
 *{box-sizing:border-box;margin:0}
 body{font-family:Inter,"Trebuchet MS",Verdana,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5;transition:background .3s,color .3s}
-button,input,select{font-family:inherit;font-size:inherit}
+button,input,select,textarea{font-family:inherit;font-size:inherit}
 button{cursor:pointer;border:0}
 :focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .flag{height:8px;background:linear-gradient(90deg,var(--g) 0 38%,var(--y) 38% 44%,var(--k) 44% 56%,var(--y) 56% 62%,var(--sk) 62%)}
@@ -34,7 +34,7 @@ button{cursor:pointer;border:0}
 #login input{background:#fff;color:#0F1F0F}
 .logo{display:block;margin:0 auto 10px}
 label{display:block;font-size:13px;margin:10px 0 4px;font-weight:bold}
-input,select{width:100%;padding:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font-size:15px;border-radius:3px}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font-size:15px;border-radius:3px}
 .btn{background:var(--g);color:#fff;padding:10px 16px;font-weight:bold;font-size:14px;border-radius:3px;transition:background .2s}
 .btn:hover{background:var(--fo)}
 .btn:disabled{opacity:.5;cursor:wait}
@@ -116,9 +116,6 @@ th{background:#e8efe6}
 html[data-theme="dark"] th{background:#1f2f1f}
 .sp{display:inline-block;width:18px;height:18px;border:3px solid var(--ln);border-top-color:var(--g);border-radius:50%;animation:s .8s linear infinite;vertical-align:middle;margin-right:8px}
 @keyframes s{to{transform:rotate(360deg)}}
-.skeleton{background:linear-gradient(90deg,#e8efe6 25%,#f4f7f2 50%,#e8efe6 75%);background-size:200% 100%;animation:sk 1.5s infinite;border-radius:4px;height:16px;margin:6px 0}
-html[data-theme="dark"] .skeleton{background:linear-gradient(90deg,#1f2f1f 25%,#152015 50%,#1f2f1f 75%);background-size:200% 100%}
-@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
 #toast{position:fixed;bottom:16px;right:16px;background:var(--k);color:#fff;padding:10px 16px;border-left:5px solid var(--y);display:none;z-index:3000;font-size:14px;max-width:80vw;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 #toast.show{display:block;animation:tin .3s}
 @keyframes tin{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
@@ -135,8 +132,11 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 .chk input{width:auto}
 #offline{position:fixed;top:0;left:0;right:0;background:var(--sn);color:#000;text-align:center;padding:6px;font-weight:bold;font-size:13px;z-index:4000;display:none}
 #offline.show{display:block}
+.sc{font-size:11px;color:var(--mu)}
+.sel{width:auto;padding:4px 8px;font-size:13px;margin-bottom:6px}
+#load{display:none}
 @media print{
-  #side,.mmenu,.utop,.search,footer,.top,#toast,#offline,nav,.btn{display:none!important}
+  #side,.mmenu,.utop,.search,footer,#toast,#offline,nav,.btn{display:none!important}
   #app{display:block!important}
   .card{break-inside:avoid;border:1px solid #ccc}
   body{background:#fff;color:#000}
@@ -144,9 +144,6 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 body:not(.can-act) .needs-act,body:not(.is-admin) .admin-only{display:none!important}
 body:not(.can-manage-farms) .farm-manager{display:none!important}
-.sc{font-size:11px;color:var(--mu)}
-.sel{width:auto;padding:4px 8px;font-size:13px;margin-bottom:6px}
-#load{display:none}
 </style>
 </head>
 <body>
@@ -179,9 +176,11 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <button data-t="risk">Hatari</button>
     <button data-t="rec">Mapendekezo</button>
     <button data-t="yield">Mavuno</button>
+    <button data-t="seed">Mbegu</button>
     <button data-t="notif">Arifa</button>
     <button data-t="maps">Ramani</button>
     <button data-t="rep">Ripoti</button>
+    <button data-t="integ" class="admin-only">Muunganisho</button>
     <button data-t="users" class="admin-only">Watumiaji</button>
     <button data-t="settings" class="admin-only">Mipangilio</button>
   </nav>
@@ -259,8 +258,11 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <div class="card" data-s="dash"><h2>Hatari kwa ukali</h2><div id="riskBars"></div></div>
     </div>
 
-    <div class="band" style="--b:var(--sk);--t:#000" data-s="dash">Mazao</div>
-    <div class="card" data-s="dash"><h2>Mazao yanayokadiriwa</h2><div class="wrap" id="cropEst"></div></div>
+    <div class="band" style="--b:var(--sk);--t:#000" data-s="dash">Mazao na Mbegu</div>
+    <div class="grid c2">
+      <div class="card" data-s="dash"><h2>Mazao yanayokadiriwa</h2><div class="wrap" id="cropEst"></div></div>
+      <div class="card" data-s="dash"><h2>Kiasi cha Mbegu</h2><div id="seedEst"></div></div>
+    </div>
 
     <div class="band" style="--b:var(--k);--t:#fff" data-s="dash">Arifa na Vitendo vya Haraka</div>
     <div class="grid c2">
@@ -270,6 +272,7 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
           <button class="btn" data-a="soil">Fetch Soil</button>
           <button class="btn o" data-a="risk">Assess Risk</button>
           <button class="btn k" data-a="yield">Predict Yield</button>
+          <button class="btn y" data-a="seed">Predict Seed</button>
         </div>
       </div>
     </div>
@@ -301,7 +304,11 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     </section>
     <section class="pg" data-s="ndvi">
       <div class="band" style="--b:var(--fo);--t:#fff">NDVI - Uoto wa Mimea</div>
-      <p class="mu">Backend inatoa uchunguzi wa NDVI uliopo tu; hakuna njia ya fetch ya satelaiti iliyowekwa wazi kwa sasa.</p>
+      <div class="row needs-act">
+        <input type="file" id="csvFile" accept=".csv" class="sel">
+        <button class="btn" id="importCsv">Import CSV</button>
+        <span class="mu" id="csvStatus"></span>
+      </div>
       <div class="grid c2">
         <div class="card"><h2>NDVI</h2><div id="ndviPg"></div></div>
         <div class="card"><h2>Mwenendo wa NDVI</h2><div id="ndviPgLine"></div></div>
@@ -319,18 +326,23 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <div class="grid c2" id="recPg"></div>
     </section>
     <section class="pg" data-s="yield">
-      <div class="band" style="--b:var(--g);--t:#000">Mavuno (Yield)</div>
+      <div class="band" style="--b:var(--g);--t:#000">Mavuno (Yield) — <code>/api/ml/yield/...</code></div>
       <div class="row needs-act"><button class="btn o" data-a="yield">Predict Yield</button></div>
       <div id="yieldPg"></div>
+    </section>
+    <section class="pg" data-s="seed">
+      <div class="band" style="--b:var(--sv);--t:#000">Kiasi cha Mbegu (Seed) — <code>/api/ml/seed-quantity/...</code></div>
+      <div class="row needs-act"><button class="btn o" data-a="seed">Predict Seed</button></div>
+      <div id="seedPg"></div>
     </section>
     <section class="pg" data-s="notif">
       <div class="band" style="--b:var(--k);--t:#fff">Arifa</div>
       <div class="card">
-        <p class="mu" style="margin-bottom:10px">API ya sasa hurudisha arifa za mtumiaji mwenye ID 1, si lazima mtumiaji aliyeingia. Hali ya kusomwa hutokana na readAt.</p>
         <div class="row" role="group" aria-label="Chuja arifa">
           <button class="fb on" data-f="ALL">All</button>
           <button class="fb" data-f="IN_APP">IN_APP</button>
           <button class="fb" data-f="SMS">SMS</button>
+          <button class="btn y needs-act" id="sendNotif">Tuma Arifa</button>
         </div>
         <ul id="notPg"></ul>
       </div>
@@ -341,17 +353,35 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         <div class="card"><h2>Tanzania</h2><div id="mapTz2" class="map"></div><p class="mu" id="mapNote2"></p></div>
         <div class="card"><h2>Afrika</h2><div id="mapAf2" class="map"></div></div>
       </div>
-      <div class="card"><h2>Maelezo ya shamba</h2><div class="wrap" id="farmDet"></div></div>
+      <div class="card"><h2>Maelezo ya shamba</h2><div class="wrap" id="farmDet"></div>
+        <div class="row needs-act farm-manager">
+          <label for="boundaryInput" class="mu">Mpaka (GeoJSON):</label>
+          <input id="boundaryInput" type="file" accept=".json,.geojson" class="sel">
+          <button class="btn" id="uploadBoundary">Pakia Mpaka</button>
+          <span class="mu" id="boundaryStatus"></span>
+        </div>
+      </div>
     </section>
     <section class="pg" data-s="rep">
       <div class="band" style="--b:var(--fo);--t:#fff">Ripoti</div>
       <div class="card"><h2>Pakua ripoti</h2>
-        <p class="mu" style="margin-bottom:10px">Ripoti kamili ya shamba lililochaguliwa.</p>
         <button class="btn" data-r="pdf">Pakua PDF</button>
         <button class="btn y" data-r="excel">Pakua Excel</button>
         <button class="btn k" onclick="window.print()" style="margin-left:8px">Chapisha</button>
       </div>
       <div class="card"><h2>Muhtasari wa ripoti</h2><div class="wrap" id="repPrev"></div></div>
+    </section>
+    <section class="pg" data-s="integ">
+      <div class="band" style="--b:var(--br);--t:#fff">Muunganisho (Integration)</div>
+      <div class="grid c2">
+        <div class="card"><h2>Health</h2><div id="intHealth"></div></div>
+        <div class="card"><h2>Sync Logs</h2><div id="intLogs"></div></div>
+      </div>
+      <div class="grid c2">
+        <div class="card"><h2>ISDA Soil — Status</h2><div id="isdaStatus"></div></div>
+        <div class="card"><h2>ISDA Soil — Layers</h2><div id="isdaLayers"></div></div>
+      </div>
+      <div class="card"><h2>GLAM Fetch</h2><div id="glamFetch"></div></div>
     </section>
   </div>
   <section class="pg" data-s="farms">
@@ -371,8 +401,9 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
   <section class="pg admin-only" data-s="settings">
     <div class="band" style="--b:var(--br);--t:#fff">Mipangilio</div>
     <div class="card">
-      <h2>Mipangilio imezimwa kwa usalama</h2>
-      <p class="mu">API ya sasa ya mipangilio hurudisha ramani nzima ya usanidi, inayoweza kujumuisha siri. Kiolesura hiki hakitapakua au kuonyesha majibu hayo. Inahitajika API salama inayoficha siri na kuunga mkono masasisho ya sehemu kabla mipangilio haijawashwa.</p>
+      <p class="mu" style="margin-bottom:10px">GET /api/settings na PUT /api/settings. Onyesha tu funguo zisizo za siri.</p>
+      <div class="row"><button class="btn" id="loadSettings">Pakia Mipangilio</button></div>
+      <div class="wrap" id="settingsView"></div>
     </div>
   </section>
 </main>
@@ -384,48 +415,36 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <a href="#" data-go="dash">Dashboard</a><a href="#" data-go="soil">Soil</a>
       <a href="#" data-go="ndvi">NDVI</a><a href="#" data-go="risk">Hatari</a>
       <a href="#" data-go="rec">Mapendekezo</a><a href="#" data-go="yield">Mavuno</a>
-      <a href="#" data-go="notif">Arifa</a><a href="#" data-go="maps">Ramani</a>
-      <a href="#" data-go="rep">Ripoti</a>
+      <a href="#" data-go="seed">Mbegu</a><a href="#" data-go="notif">Arifa</a>
+      <a href="#" data-go="maps">Ramani</a><a href="#" data-go="rep">Ripoti</a>
     </div>
     <div id="f-contact"><h3>Mawasiliano</h3><p>Anwani: [weka anwani yako]</p><p>Simu: [weka namba ya simu]</p><p>Barua pepe: [weka barua pepe]</p></div>
-    <div><h3>Tanzania na Afrika</h3><p>Data za kilimo zinatoka kwenye AFIP API. Hali ya hewa, ikiwepo, hutolewa moja kwa moja na Open-Meteo; haitolewi wala kuthibitishwa na AFIP backend.</p></div>
+    <div><h3>Chanzo cha data</h3><p>Data za kilimo zinatoka AFIP backend (<code>afip-3.onrender.com</code>). Hali ya hewa inatoka Open-Meteo moja kwa moja.</p></div>
   </div>
   <div class="fbot">&copy; <span id="yr"></span> AFIP - Adaptive Farming Intelligence Platform. Haki zote zimehifadhiwa.</div>
 </footer>
 </div>
 </div>
-<dialog id="uDlg" aria-labelledby="uT">
-  <form id="uForm">
+<dialog id="uDlg" aria-labelledby="uT"><form id="uForm">
     <h2 id="uT" style="margin-bottom:8px">Ongeza Mtumiaji</h2>
     <label for="ue">Barua pepe</label><input id="ue" name="email" type="email" required>
     <label for="un">Jina kamili</label><input id="un" name="fullName" required>
     <label for="up">Nenosiri</label><input id="up" name="password" type="password" minlength="8" autocomplete="new-password" required>
-    <label for="ur">Role</label>
-    <select id="ur" name="role" class="sel" style="width:100%">
+    <label for="ur">Role</label><select id="ur" name="role" class="sel" style="width:100%">
       <option>SUPER_ADMIN</option><option>AGRICULTURAL_OFFICER</option>
       <option>FARMER</option><option>RESEARCHER</option><option>DATA_ANALYST</option>
     </select>
     <div class="err" id="uErr" role="alert"></div>
-    <div class="acts" style="margin-top:14px">
-      <button class="btn" type="submit">Hifadhi</button>
-      <button class="btn k" type="button" id="uCancel">Ghairi</button>
-    </div>
-  </form>
-</dialog>
-<dialog id="farmDlg" aria-labelledby="farmT">
-  <form id="farmForm">
+    <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="uCancel">Ghairi</button></div>
+</form></dialog>
+<dialog id="farmDlg" aria-labelledby="farmT"><form id="farmForm">
     <h2 id="farmT" style="margin-bottom:8px">Ongeza shamba</h2>
     <label for="farmName">Jina la shamba</label><input id="farmName" name="name" required>
     <label for="farmFarmer">Mkulima</label><select id="farmFarmer" name="farmerId" required></select>
     <div class="err" id="farmErr" role="alert"></div>
-    <div class="acts" style="margin-top:14px">
-      <button class="btn" type="submit">Hifadhi</button>
-      <button class="btn k" type="button" id="farmCancel">Ghairi</button>
-    </div>
-  </form>
-</dialog>
-<dialog id="farmerDlg" aria-labelledby="farmerT">
-  <form id="farmerForm">
+    <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="farmCancel">Ghairi</button></div>
+</form></dialog>
+<dialog id="farmerDlg" aria-labelledby="farmerT"><form id="farmerForm">
     <h2 id="farmerT" style="margin-bottom:8px">Ongeza mkulima</h2>
     <label for="farmerFirst">Jina la kwanza</label><input id="farmerFirst" name="firstName" required>
     <label for="farmerLast">Jina la mwisho</label><input id="farmerLast" name="lastName" required>
@@ -434,24 +453,37 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <label for="farmerDistrict">Wilaya</label><input id="farmerDistrict" name="district">
     <label for="farmerRegion">Mkoa</label><input id="farmerRegion" name="region">
     <div class="err" id="farmerErr" role="alert"></div>
-    <div class="acts" style="margin-top:14px">
-      <button class="btn" type="submit">Hifadhi</button>
-      <button class="btn k" type="button" id="farmerCancel">Ghairi</button>
-    </div>
-  </form>
-</dialog>
+    <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="farmerCancel">Ghairi</button></div>
+</form></dialog>
+<dialog id="notifDlg" aria-labelledby="notifT"><form id="notifForm">
+    <h2 id="notifT" style="margin-bottom:8px">Tuma Arifa</h2>
+    <label for="notifTitle">Kichwa</label><input id="notifTitle" name="title" required>
+    <label for="notifBody">Maudhui</label><textarea id="notifBody" name="body" rows="3" required></textarea>
+    <label for="notifChannel">Njia</label><select id="notifChannel" name="channel" class="sel" style="width:100%"><option>IN_APP</option><option>SMS</option></select>
+    <div class="err" id="notifErr" role="alert"></div>
+    <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Tuma</button><button class="btn k" type="button" id="notifCancel">Ghairi</button></div>
+</form></dialog>
 <div id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-/* ===== AFIP v3 ===== */
+/* ===== AFIP v4 — endpoints zote za backend ===== */
 const CONFIG = {
   BASE: (document.querySelector('meta[name="afip-api-base"]')?.content.trim() || window.location.origin).replace(/\/$/, ""),
   ACTIONS: {
     soil: (id, depth) => `/api/soil/farm/${id}/fetch?depth=${encodeURIComponent(depth || "0-20")}`,
     risk: id => `/api/risk/farm/${id}/assess`,
-    yield: id => `/api/yield/farm/${id}/predict`,
+    yield: id => `/api/ml/yield/farm/${id}/predict`,        // ✅ /api/ml/yield
+    seed: id => `/api/ml/seed-quantity/farm/${id}/predict`, // ✅ mpya
     recs: id => `/api/recommendations/farm/${id}/generate`
+  },
+  GET: {
+    soil: id => `/api/soil/farm/${id}`,
+    veg: id => `/api/vegetation/farm/${id}`,
+    risk: id => `/api/risk/farm/${id}`,
+    rec: id => `/api/recommendations/farm/${id}`,
+    yld: id => `/api/ml/yield/farm/${id}`,                  // ✅ /api/ml/yield
+    seed: id => `/api/ml/seed-quantity/farm/${id}`,         // ✅ mpya
   },
   TZ_GEOJSON: "https://raw.githubusercontent.com/johan/world.geo.json/master/countries/TZA.geo.json",
   USER_ROLE_PATH: id => `/api/users/${id}/role`,
@@ -499,10 +531,11 @@ async function api(path, o = {}, retries = 1) {
     r = await fetch(CONFIG.BASE + path, {
       method,
       signal: o.signal,
-      body: o.body ? JSON.stringify(o.body) : undefined,
+      body: o.body ? JSON.stringify(o.body) : (o.rawBody || undefined),
       headers: {
         ...(TOKEN ? { Authorization: "Bearer " + TOKEN } : {}),
-        ...(o.body ? { "Content-Type": "application/json" } : {})
+        ...(o.body ? { "Content-Type": "application/json" } : {}),
+        ...(o.headers || {})
       }
     });
   } catch (e) {
@@ -513,10 +546,7 @@ async function api(path, o = {}, retries = 1) {
   if (!r.ok) {
     const text = await r.text();
     let payload = null;
-    if (text) {
-      try { payload = JSON.parse(text); }
-      catch { payload = { message: text }; }
-    }
+    if (text) { try { payload = JSON.parse(text); } catch { payload = { message: text }; } }
     const messages = {
       401: "Kikao kimeisha au taarifa za kuingia si sahihi",
       403: "Huna ruhusa kwa kitendo hiki",
@@ -540,14 +570,13 @@ async function safe(path, signal) {
     const d = Array.isArray(value) ? value : Array.isArray(value?.data) ? value.data : null;
     if (!d) throw new Error("Muundo wa majibu ya API si orodha iliyotarajiwa.");
     return { d, e: null };
-  }
-  catch (e) { return { d: [], e: e.name === "AbortError" ? null : e.message }; }
+  } catch (e) { return { d: [], e: e.name === "AbortError" ? null : e.message }; }
 }
 
 /* ===== Login ===== */
 $("lf").addEventListener("submit", async e => {
   e.preventDefault();
-  $("lerr").textContent = "";   $("lbtn").disabled = true;
+  $("lerr").textContent = ""; $("lbtn").disabled = true;
   $("lbtn").innerHTML = '<span class="sp"></span>Inaingia...';
   try {
     const j = await api("/api/auth/login", { method: "POST", body: { email: $("em").value, password: $("pw").value } });
@@ -578,16 +607,12 @@ async function enter() {
     await loadFarms();
     const f = FARMS.find(x => String(x.id) === sessionStorage.getItem("afip_farm")) || (ROLE === "FARMER" ? FARMS[0] : null);
     if (f) { $("q").value = f.name || ""; selectFarm(f); }
-  } catch (e) {
-    logout(e.message);
-    throw e;
-  }
+  } catch (e) { logout(e.message); throw e; }
 }
 
 function logout(msg) {
   TOKEN = null; FARM = null; ROLE = null; EMAIL = null; READY = false; TAB = "dash"; REQ++;
-  document.body.classList.remove("can-act", "is-admin");
-  document.body.classList.remove("can-manage-farms");
+  document.body.classList.remove("can-act", "is-admin", "can-manage-farms");
   if (CTRL) CTRL.abort();
   sessionStorage.removeItem("afip_token");
   sessionStorage.removeItem("afip_farm");
@@ -610,23 +635,18 @@ const farmer = f => FARMERS.find(x => x.id === f.farmerId);
 const region = f => String(pick(f, CONFIG.REGION_FIELDS) ?? pick(farmer(f), CONFIG.REGION_FIELDS) ?? "");
 const fname = f => { const x = farmer(f); return x ? `${x.firstName || ""} ${x.lastName || ""}`.trim() : ""; };
 function renderFarms(farmError, farmerError) {
-  const el = $("farmsTbl");
-  if (!el) return;
+  const el = $("farmsTbl"); if (!el) return;
   const status = $("farmListStatus");
   status.textContent = farmError || farmerError
     ? [farmError && `Mashamba: ${farmError}`, farmerError && `Wakulima: ${farmerError}`].filter(Boolean).join(" · ")
     : `${FARMS.length} mashamba`;
   el.innerHTML = FARMS.length ? tbl(
     ["Shamba","Mkulima","Kijiji","Wilaya","Mkoa","Eneo (ha)","Chagua"],
-    FARMS.map(f => {
-      const fr = farmer(f) || {};
-      return [
-        esc(f.name || "-"), esc(fname(f) || "-"), esc(fr.village || "-"),
+    FARMS.map(f => { const fr = farmer(f) || {};
+      return [esc(f.name || "-"), esc(fname(f) || "-"), esc(fr.village || "-"),
         esc(fr.district || "-"), esc(region(f) || "-"), esc(f.areaHa ?? "-"),
-        `<button class="btn" data-farm-select="${esc(f.id)}">Fungua</button>`
-      ];
-    })
-  ) : `<p class="mu">${farmError ? "Orodha ya mashamba haikupatikana." : "Hakuna mashamba yaliyosajiliwa."}</p>`;
+        `<button class="btn" data-farm-select="${esc(f.id)}">Fungua</button>`]; }
+  )) : `<p class="mu">${farmError ? "Orodha ya mashamba haikupatikana." : "Hakuna mashamba yaliyosajiliwa."}</p>`;
 }
 
 function score(f, q) {
@@ -637,13 +657,9 @@ function score(f, q) {
   if (region(f).toLowerCase().includes(q) || fname(f).toLowerCase().includes(q)) return 3;
   return 9;
 }
-
 const qi = $("q");
-qi.setAttribute("role", "combobox");
-qi.setAttribute("aria-controls", "dd");
-qi.setAttribute("aria-expanded", "false");
+qi.setAttribute("role", "combobox"); qi.setAttribute("aria-controls", "dd"); qi.setAttribute("aria-expanded", "false");
 const closeDD = () => { $("dd").style.display = "none"; qi.setAttribute("aria-expanded", "false"); };
-
 function search() {
   const q = qi.value.trim().toLowerCase();
   const res = (q ? FARMS.map(f => [score(f, q), f]).filter(x => x[0] < 9)
@@ -682,10 +698,12 @@ $("nav").addEventListener("click", e => {
   applyTab();
   if (TAB === "users") loadUsers();
   if (TAB === "farms") renderFarms();
+  if (TAB === "integ") loadIntegration();
+  if (TAB === "settings") loadSettings();
 });
 function applyTab() {
   document.querySelectorAll("[data-s]").forEach(el => el.classList.toggle("hide", !el.dataset.s.split(" ").includes(TAB)));
-  const standalone = ["users", "settings", "farms"].includes(TAB);
+  const standalone = ["users", "settings", "farms", "integ"].includes(TAB);
   $("dashbody").classList.toggle("hide", standalone || !READY);
   $("empty").classList.toggle("hide", standalone || !!FARM);
   if (standalone) $("load").style.display = "none";
@@ -700,22 +718,24 @@ async function selectFarm(f) {
   if (CTRL) CTRL.abort();
   CTRL = new AbortController();
   const sg = CTRL.signal;
-  $("empty").classList.add("hide");
-  $("dashbody").classList.add("hide");
-  $("loaderr").classList.add("hide");
-  $("load").style.display = "block";
+  $("empty").classList.add("hide"); $("dashbody").classList.add("hide");
+  $("loaderr").classList.add("hide"); $("load").style.display = "block";
   const r = await Promise.all([
-    ...["soil","vegetation","risk","recommendations","yield"].map(k => safe(`/api/${k}/farm/${f.id}`, sg)),
+    safe(CONFIG.GET.soil(f.id), sg),
+    safe(CONFIG.GET.veg(f.id), sg),
+    safe(CONFIG.GET.risk(f.id), sg),
+    safe(CONFIG.GET.rec(f.id), sg),
+    safe(CONFIG.GET.yld(f.id), sg),
+    safe(CONFIG.GET.seed(f.id), sg),
     safe("/api/notifications", sg)
   ]);
   if (my !== REQ) return;
   $("load").style.display = "none";
-  D = { soil: r[0], veg: r[1], risk: r[2], rec: r[3], yld: r[4], nt: r[5] };
+  D = { soil: r[0], veg: r[1], risk: r[2], rec: r[3], yld: r[4], seed: r[5], nt: r[6] };
   const errs = r.filter(x => x.e);
   if (errs.length === r.length) {
     $("loaderr").innerHTML = `Imeshindwa kupakia data: ${esc(errs[0].e)} <button class="btn" data-retry>Jaribu tena</button>`;
-    $("loaderr").classList.remove("hide");
-    return;
+    $("loaderr").classList.remove("hide"); return;
   }
   render(f); READY = true; applyTab();
 }
@@ -733,13 +753,12 @@ const confidenceWidth = c => c == null ? 0 : Math.max(0, Math.min(100, Math.roun
 const pct = c => c == null ? "" : ` - uhakika ${confidenceLabel(c)}`;
 
 function render(f) {
-  const { risk, rec, yld, nt, veg } = D;
+  const { risk, rec, yld, nt, veg, seed } = D;
   $("title").textContent = `Shamba: ${f.name || "-"} · ${region(f) || "mkoa haujatolewa"} · Farm ID: ${f.id}`;
   const vs = veg.d.filter(v => !v.indicator || v.indicator === "NDVI").sort((a, b) => String(observationDate(a) || "").localeCompare(String(observationDate(b) || "")));
   const last = vs.slice(-1)[0];
   const ndvi = last ? last.value : null, y = yld.d[0];
   const x = (r, v) => r.e ? "!" : v;
-
   $("kpis").innerHTML = [
     kpi("Wakulima", FARMERS.length, "var(--g)", "Mfumo wote"),
     kpi("Mashamba", FARMS.length, "var(--y)", "Mfumo wote"),
@@ -747,17 +766,19 @@ function render(f) {
     kpi("Hatari", x(risk, risk.d.length), "var(--sn)", "Shamba hili"),
     kpi("Mavuno (t/ha)", x(yld, y ? y.value : "-"), "var(--sv)", "Shamba hili"),
     kpi("NDVI", x(veg, ndvi ?? "-"), "var(--fo)", "Shamba hili"),
+    kpi("Mbegu (kg/ha)", x(seed, seed.d[0] ? seed.d[0].value : "-"), "var(--br)", "Shamba hili"),
     kpi("Mapendekezo", x(rec, rec.d.length), "var(--br)", "Shamba hili"),
     kpi("Mvua (mm)", "...", "var(--sk)", "Siku 30 zilizopita").replace('class="card kpi"', 'class="card kpi" id="kRain"')
   ].join("");
-
   gauge(veg.e ? null : ndvi, last?.qualityFlag);
-
   $("yield").innerHTML = state(yld, d => `
     <div class="big">${esc(d[0].value)}</div>
     <p class="mu">t/ha - ${esc((d[0].predictionType || "").replace(/YIELD_ESTIMATE_|_T_HA/g, "").toLowerCase())}</p>
     <p class="mu">Uhakika: ${confidenceLabel(d[0].confidence)}</p>`);
-
+  $("seedEst").innerHTML = state(seed, d => d[0] ? `
+    <div class="big">${esc(d[0].value)}</div>
+    <p class="mu">kg/ha - ${esc((d[0].predictionType || "SEED_QUANTITY").replace(/_/g, " ").toLowerCase())}</p>
+    <p class="mu">Uhakika: ${confidenceLabel(d[0].confidence)}</p>` : NO);
   soilRender();
   $("ndviLine").innerHTML = veg.e ? errHtml(veg.e) : ndviLine(vs);
   $("riskBars").innerHTML = state(risk, d => {
@@ -766,7 +787,6 @@ function render(f) {
     const m = Math.max(...rows.map(r => r[1]), 1);
     return rows.map(r => `<div class="bar"><span>${r[0]}</span><div><i style="width:${r[1] / m * 100}%;--c:${r[2]}"></i></div><b>${r[1]}</b></div>`).join("");
   });
-
   const li = h => `<li class="it">${h}</li>`;
   $("risks").innerHTML = state(risk, d => [...d].sort((a, b) => (rank[a.severity] ?? 9) - (rank[b.severity] ?? 9)).map(r =>
     li(`${tag(r.severity)}<b>${esc((r.riskCategory || "").replace(/_/g, " "))}</b><span class="mu">${pct(r.confidence)}</span><br><span class="mu">${esc(r.recommendedAction)}</span>${r.supportingData ? `<br><span class="mu">Data: ${esc(Object.entries(r.supportingData).map(([k, v]) => k.replace(/_/g, " ") + ": " + v).join(", "))}</span>` : ""}`)).join(""));
@@ -774,7 +794,6 @@ function render(f) {
     li(`${tag(r.priority)}<b>${esc(r.title)}</b><span class="mu">${pct(r.confidence)}${r.status ? " - " + esc(r.status) : ""}</span><br><span class="mu">${esc(r.description)}</span>${r.reason ? `<br><span class="mu">Sababu: ${esc(r.reason)}</span>` : ""}`)).join(""));
   $("notes").innerHTML = state(nt, d => [...d].sort((a, b) => (b.sentAt || "") > (a.sentAt || "") ? 1 : -1).slice(0, 5).map(n =>
     li(`<b>${esc(n.title)}</b><br><span class="mu">${esc(n.body)}</span>`)).join(""));
-
   mapFarm(f);
   renderPages(f);
   loadWeather(f, REQ);
@@ -782,10 +801,8 @@ function render(f) {
     [esc((y.predictionType || "").replace(/YIELD_ESTIMATE_|_T_HA/g, "").toLowerCase() || "-"), esc(y.value), confidenceLabel(y.confidence)])));
   renderAgronomy(f);
 }
-
 function renderAgronomy(f) {
-  const el = $("agronomy");
-  if (!el) return;
+  const el = $("agronomy"); if (!el) return;
   el.innerHTML = state(D.rec, rows => rows.length
     ? rows.slice(0, 4).map(r => `<div style="margin-bottom:10px"><b>${esc(r.title || "Pendekezo")}</b><p class="mu">${esc(r.description || "")}</p></div>`).join("")
     : NO);
@@ -869,12 +886,8 @@ function ndviLine(v) {
 function initMaps() {
   if (maps.tz) return;
   maps.tz = []; maps.af = []; layers.m = [];
-  if (!window.L) {
-    ["mapNote", "mapNote2"].forEach(i => { $(i).textContent = "Ramani haipatikani kwa sasa."; });
-    return;
-  }
+  if (!window.L) { ["mapNote", "mapNote2"].forEach(i => { $(i).textContent = "Ramani haipatikani kwa sasa."; }); return; }
   const tile = () => L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "&copy; OpenStreetMap" });
-  const fb = [];
   ["", "2"].forEach(s => {
     const a = L.map("mapTz" + s).setView([-6.37, 34.9], 5); tile().addTo(a); maps.tz.push(a);
     const b = L.map("mapAf" + s).setView([2, 20], 3); tile().addTo(b); maps.af.push(b);
@@ -882,9 +895,7 @@ function initMaps() {
   fetch(CONFIG.TZ_GEOJSON).then(r => r.ok ? r.json() : Promise.reject()).then(g => {
     maps.af.forEach(m => L.geoJSON(g, { style: { color: "#000", weight: 2, fillColor: "#FCD116", fillOpacity: .7 } }).addTo(m).bindPopup("Tanzania"));
     maps.tz.forEach(m => L.geoJSON(g, { style: { color: "#1EB53A", weight: 3, fill: false } }).addTo(m));
-  }).catch(() => {
-    ["mapNote", "mapNote2"].forEach(i => { if (!$(i).textContent) $(i).textContent = "Mpaka wa Tanzania haukupatikana kutoka chanzo cha ramani."; });
-  });
+  }).catch(() => { ["mapNote", "mapNote2"].forEach(i => { if (!$(i).textContent) $(i).textContent = "Mpaka wa Tanzania haukupatikana kutoka chanzo cha ramani."; }); });
 }
 function mapFarm(f) {
   layers.m.forEach(m => m.remove()); layers.m = [];
@@ -901,31 +912,28 @@ function mapFarm(f) {
   });
 }
 
+/* ===== Dialog handlers ===== */
 document.addEventListener("click", async e => {
   const select = e.target.closest("[data-farm-select]");
   if (select) {
     const f = FARMS.find(x => String(x.id) === select.dataset.farmSelect);
-    if (f) {
-      $("q").value = f.name || "";
-      selectFarm(f);
-    }
+    if (f) { $("q").value = f.name || ""; selectFarm(f); }
     return;
   }
   if (e.target.id === "addFarm") {
     $("farmErr").textContent = "";
     $("farmFarmer").innerHTML = FARMERS.map(fr =>
-      `<option value="${esc(fr.id)}">${esc(`${fr.firstName || ""} ${fr.lastName || ""}`.trim() || fr.id)}</option>`
-    ).join("");
+      `<option value="${esc(fr.id)}">${esc(`${fr.firstName || ""} ${fr.lastName || ""}`.trim() || fr.id)}</option>`).join("");
     const submit = $("farmForm").querySelector('[type="submit"]');
     submit.disabled = !FARMERS.length;
-    if (!FARMERS.length) {
-      $("farmErr").textContent = "Hakuna wakulima waliopatikana; shamba haliwezi kuunganishwa na mkulima.";
-    }
+    if (!FARMERS.length) $("farmErr").textContent = "Hakuna wakulima waliopatikana; shamba haliwezi kuunganishwa na mkulima.";
     $("farmDlg").showModal();
   }
-  if (e.target.id === "addFarmer") {
-    $("farmerErr").textContent = "";
-    $("farmerDlg").showModal();
+  if (e.target.id === "addFarmer") { $("farmerErr").textContent = ""; $("farmerDlg").showModal(); }
+  if (e.target.id === "addUser") { $("uErr").textContent = ""; $("uDlg").showModal(); }
+  if (e.target.id === "sendNotif") {
+    if (!FARM) { toast("Chagua shamba kwanza."); return; }
+    $("notifErr").textContent = ""; $("notifDlg").showModal();
   }
 });
 $("farmForm").addEventListener("submit", async e => {
@@ -933,28 +941,17 @@ $("farmForm").addEventListener("submit", async e => {
   const form = new FormData(e.target);
   const farmerId = Number(form.get("farmerId"));
   const name = String(form.get("name") || "").trim();
-  if (!Number.isSafeInteger(farmerId) || farmerId <= 0 || !name) {
-    $("farmErr").textContent = "Chagua mkulima na uweke jina la shamba.";
-    return;
-  }
+  if (!Number.isSafeInteger(farmerId) || farmerId <= 0 || !name) { $("farmErr").textContent = "Chagua mkulima na uweke jina la shamba."; return; }
   const submit = e.target.querySelector('[type="submit"]');
   submit.disabled = true;
   try {
     const created = await api("/api/farms", { method: "POST", body: { farmerId, name } });
-    $("farmDlg").close();
-    e.target.reset();
-    await loadFarms();
+    $("farmDlg").close(); e.target.reset(); await loadFarms();
     const farm = FARMS.find(f => String(f.id) === String(created?.id));
-    if (farm) {
-      $("q").value = farm.name || "";
-      await selectFarm(farm);
-    }
+    if (farm) { $("q").value = farm.name || ""; await selectFarm(farm); }
     toast("Shamba limeongezwa.");
-  } catch (x) {
-    $("farmErr").textContent = x.message;
-  } finally {
-    submit.disabled = false;
-  }
+  } catch (x) { $("farmErr").textContent = x.message; }
+  finally { submit.disabled = false; }
 });
 $("farmCancel").onclick = () => $("farmDlg").close();
 $("farmerForm").addEventListener("submit", async e => {
@@ -962,31 +959,50 @@ $("farmerForm").addEventListener("submit", async e => {
   const form = new FormData(e.target);
   const firstName = String(form.get("firstName") || "").trim();
   const lastName = String(form.get("lastName") || "").trim();
-  if (!firstName || !lastName) {
-    $("farmerErr").textContent = "Jina la kwanza na la mwisho vinahitajika.";
-    return;
-  }
+  if (!firstName || !lastName) { $("farmerErr").textContent = "Jina la kwanza na la mwisho vinahitajika."; return; }
   const body = Object.fromEntries(["phone", "village", "district", "region"]
     .map(key => [key, String(form.get(key) || "").trim()]).filter(([, value]) => value));
-  body.firstName = firstName;
-  body.lastName = lastName;
+  body.firstName = firstName; body.lastName = lastName;
   const submit = e.target.querySelector('[type="submit"]');
   submit.disabled = true;
   try {
     await api("/api/farmers", { method: "POST", body });
-    $("farmerDlg").close();
-    e.target.reset();
-    await loadFarms();
+    $("farmerDlg").close(); e.target.reset(); await loadFarms();
     toast("Mkulima ameongezwa.");
-  } catch (x) {
-    $("farmerErr").textContent = x.message;
-  } finally {
-    submit.disabled = false;
-  }
+  } catch (x) { $("farmerErr").textContent = x.message; }
+  finally { submit.disabled = false; }
 });
 $("farmerCancel").onclick = () => $("farmerDlg").close();
+$("uForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const submit = e.target.querySelector('[type="submit"]');
+  submit.disabled = true;
+  try {
+    await api("/api/auth/register", { method: "POST", body: { email: f.get("email"), password: f.get("password"), fullName: f.get("fullName"), role: f.get("role") } });
+    $("uDlg").close(); e.target.reset();
+    toast("Ombi la kuongeza mtumiaji limepokelewa."); await loadUsers();
+  } catch (x) { $("uErr").textContent = x.message; }
+  finally { submit.disabled = false; }
+});
+$("uCancel").onclick = () => $("uDlg").close();
+$("notifForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const submit = e.target.querySelector('[type="submit"]');
+  submit.disabled = true;
+  try {
+    await api("/api/notifications/send", { method: "POST", body: {
+      farmId: FARM?.id, title: f.get("title"), body: f.get("body"), channel: f.get("channel")
+    }});
+    $("notifDlg").close(); e.target.reset();
+    toast("Arifa imetumwa."); await selectFarm(FARM);
+  } catch (x) { $("notifErr").textContent = x.message; }
+  finally { submit.disabled = false; }
+});
+$("notifCancel").onclick = () => $("notifDlg").close();
 
-/* ===== Actions + Reports ===== */
+/* ===== Actions + Reports + CSV + Boundary ===== */
 document.addEventListener("click", async e => {
   if (e.target.closest("[data-retry]") && FARM) return selectFarm(FARM);
   const a = e.target.closest("[data-a]"), r = e.target.closest("[data-r]");
@@ -1001,7 +1017,7 @@ document.addEventListener("click", async e => {
     if (a) {
       const depth = a.dataset.a === "soil" ? $("depth2").value : undefined;
       const j = await api(CONFIG.ACTIONS[a.dataset.a](FARM.id, depth), { method: "POST" });
-      const n = j && (j.stored ?? j.risksFound ?? j.generated);
+      const n = j && (j.stored ?? j.risksFound ?? j.generated ?? j.value);
       toast(old + ": imekamilika" + (n != null ? " (" + n + ")" : "") + ". Inasasisha data...");
       await selectFarm(FARM);
     } else {
@@ -1009,37 +1025,48 @@ document.addEventListener("click", async e => {
       const l = document.createElement("a");
       l.href = URL.createObjectURL(blob);
       l.download = `afip-shamba-${FARM.id}.${k === "pdf" ? "pdf" : "xlsx"}`;
-      l.click();
-      setTimeout(() => URL.revokeObjectURL(l.href), 1000);
+      l.click(); setTimeout(() => URL.revokeObjectURL(l.href), 1000);
       toast("Ripoti imepakuliwa.");
     }
-  } catch (x) {
-    toast("Imeshindwa: " + x.message);
-  } finally {
-    ACTION_PENDING.delete(pendingKey);
-    b.disabled = false; b.textContent = old;
-  }
+  } catch (x) { toast("Imeshindwa: " + x.message); }
+  finally { ACTION_PENDING.delete(pendingKey); b.disabled = false; b.textContent = old; }
+});
+$("importCsv").addEventListener("click", async () => {
+  if (!FARM) return toast("Chagua shamba kwanza.");
+  const file = $("csvFile").files[0];
+  if (!file) return toast("Chagua faili ya CSV kwanza.");
+  $("csvStatus").textContent = "Inapakia...";
+  try {
+    const fd = new FormData(); fd.append("file", file);
+    await api(`/api/vegetation/farm/${FARM.id}/import-csv`, { method: "POST", rawBody: fd });
+    $("csvStatus").textContent = "Imepakiwa.";
+    toast("CSV imepakiwa."); await selectFarm(FARM);
+  } catch (x) { $("csvStatus").textContent = "Imeshindwa: " + x.message; toast("Imeshindwa: " + x.message); }
+});
+$("uploadBoundary").addEventListener("click", async () => {
+  if (!FARM) return toast("Chagua shamba kwanza.");
+  const file = $("boundaryInput").files[0];
+  if (!file) return toast("Chagua faili ya GeoJSON kwanza.");
+  $("boundaryStatus").textContent = "Inapakia...";
+  try {
+    const text = await file.text();
+    const geojson = JSON.parse(text);
+    await api(`/api/farms/${FARM.id}/boundary`, { method: "POST", body: geojson });
+    $("boundaryStatus").textContent = "Imepakiwa.";
+    toast("Mpaka umepakiwa.");
+  } catch (x) { $("boundaryStatus").textContent = "Imeshindwa: " + x.message; toast("Imeshindwa: " + x.message); }
 });
 
 /* ===== Page renderers ===== */
 const tbl = (h, rows) => `<table><thead><tr>${h.map(x => `<th scope="col">${x}</th>`).join("")}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
 const badge = (t, c, dk) => `<span class="tag" style="background:${c};color:${dk ? "#000" : "#fff"}">${esc(t)}</span>`;
-const fmtDate = d => {
-  if (d == null || d === "") return "-";
-  const t = new Date(d);
-  return isNaN(t) ? esc(d) : t.toLocaleString("sw-TZ");
-};
+const fmtDate = d => { if (d == null || d === "") return "-"; const t = new Date(d); return isNaN(t) ? esc(d) : t.toLocaleString("sw-TZ"); };
 
 const SOIL9 = [
-  ["Clay","",["clay_content","clay"]],
-  ["Sand","",["sand_content","sand"]],
-  ["Silt","",["silt_content","silt"]],
-  ["pH","",["ph","ph_h2o","ph_value"]],
-  ["Nitrogen","",["nitrogen_total","nitrogen","total_nitrogen"]],
-  ["Carbon","",["carbon_organic","organic_carbon","carbon"]],
-  ["CEC","",["cec","cec_extractable","cation_exchange_capacity"]],
-  ["Bulk density","",["bulk_density","bd","bulk"]],
-  ["Texture","",["texture_class","texture"]]
+  ["Clay","",["clay_content","clay"]],["Sand","",["sand_content","sand"]],["Silt","",["silt_content","silt"]],
+  ["pH","",["ph","ph_h2o","ph_value"]],["Nitrogen","",["nitrogen_total","nitrogen","total_nitrogen"]],
+  ["Carbon","",["carbon_organic","organic_carbon","carbon"]],["CEC","",["cec","cec_extractable","cation_exchange_capacity"]],
+  ["Bulk density","",["bulk_density","bd","bulk"]],["Texture","",["texture_class","texture"]]
 ];
 function soilTable() {
   const r = D.soil, el = $("soilTbl"), sel = $("depth2");
@@ -1049,8 +1076,7 @@ function soilTable() {
   sel.innerHTML = depths.map(d => `<option${d === DEPTH ? " selected" : ""}>${esc(d)}</option>`).join("");
   const cur = r.d.filter(x => !DEPTH || x.depth === DEPTH), used = new Set();
   const rows = SOIL9.map(([l, u, al]) => {
-    const m = cur.find(x => al.includes(String(x.property || "").toLowerCase()));
-    if (m) used.add(m);
+    const m = cur.find(x => al.includes(String(x.property || "").toLowerCase())); if (m) used.add(m);
     return m ? [l, esc(m.value) + (u ? " " + u : ""), esc(m.depth || "-")] : [l, "n/a", esc(DEPTH || "-")];
   });
   const other = cur.filter(x => !used.has(x)).map(x => x.property);
@@ -1064,10 +1090,9 @@ function soilTable() {
 }
 function gaugeSvg(v) {
   const p = Math.max(0, Math.min(1, (Number(v) + 1) / 2));
-  const c = "#1EB53A";
   return `<svg viewBox="0 0 200 120" width="100%" height="190" role="img" aria-label="NDVI ${v}">
     <path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="#e8efe6" stroke-width="18"/>
-    <path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="${c}" stroke-width="18" stroke-dasharray="${p * 251} 252"/>
+    <path d="M20 105 A80 80 0 0 1 180 105" fill="none" stroke="#1EB53A" stroke-width="18" stroke-dasharray="${p * 251} 252"/>
     <text x="100" y="95" text-anchor="middle" font-size="30" font-weight="bold" fill="currentColor">${esc(v)}</text>
   </svg>`;
 }
@@ -1099,10 +1124,7 @@ document.addEventListener("click", async e => {
     if (!updated?.readAt) throw new Error("Majibu ya API hayana muda wa kusomwa.");
     if (item) item.readAt = updated.readAt;
     notifPage();
-  } catch (x) {
-    read.disabled = false;
-    toast("Imeshindwa kuweka arifa kuwa imesomwa: " + x.message);
-  }
+  } catch (x) { read.disabled = false; toast("Imeshindwa kuweka arifa kuwa imesomwa: " + x.message); }
 });
 
 function recommendationCards(rows, query = "") {
@@ -1121,7 +1143,7 @@ $("recFilter").addEventListener("input", () => {
 });
 
 function renderPages(f) {
-  const { risk, rec, yld, veg } = D, fr = farmer(f) || {};
+  const { risk, rec, yld, veg, seed } = D, fr = farmer(f) || {};
   soilTable(); ndviPage(); notifPage();
   $("riskPg").innerHTML = state(risk, d => [...d].sort((a, b) => (rank[a.severity] ?? 9) - (rank[b.severity] ?? 9)).map(r =>
     `<div class="card">${tag(r.severity)}<b>${esc((r.riskCategory || "").replace(/_/g, " "))}</b>
@@ -1150,6 +1172,22 @@ function renderPages(f) {
       fmtDate(item.predictedFor), fmtDate(item.createdAt)
     ]))}</div></div>`;
   });
+  $("seedPg").innerHTML = state(seed, d => {
+    const s = d[0];
+    return `<div class="grid c2">
+      <div class="card"><h2>Kiasi cha Mbegu</h2>
+        <div class="big">${esc(s.value)}</div>
+        <p class="mu">kg/ha - ${esc((s.predictionType || "SEED_QUANTITY").replace(/_/g, " ").toLowerCase())}</p>
+        <p>Uhakika: ${s.confidence == null ? "haijatolewa" : `${Math.round(s.confidence * 100)}%`}</p>
+        ${s.confidence == null ? "" : `<div class="bar2"><i style="width:${Math.max(0, Math.min(100, Math.round(s.confidence * 100)))}%"></i></div>`}
+        <p class="mu">Model version ID: ${esc(s.modelVersionId ?? "haijatolewa na API")}</p>
+      </div>
+      <div class="card"><h2>Inputs za model</h2>${tbl(["Input","Thamani"], Object.entries(s.inputs || {}).map(([k, v]) => [esc(k), esc(v)]))}</div>
+    </div>
+    <div class="card"><h2>Historia</h2><div class="wrap">${tbl(["Aina","Kiasi (kg/ha)","Uhakika","Tarehe ya kuunda"], d.map(item => [
+      esc(item.predictionType || "-"), esc(item.value), confidenceLabel(item.confidence), fmtDate(item.createdAt)
+    ]))}</div></div>`;
+  });
   const di = pick(f, ["district","wilaya"]) || pick(fr, ["district","wilaya"]);
   const vi = pick(f, ["village","kijiji"]) || pick(fr, ["village","kijiji"]);
   $("farmDet").innerHTML = tbl(["Kipengele","Thamani"], [
@@ -1160,7 +1198,7 @@ function renderPages(f) {
   $("repPrev").innerHTML = tbl(["Kipengele","Thamani"], [
     ["Shamba", esc(f.name)], ["Mkoa", esc(region(f) || "-")], ["Hectares", esc(f.areaHa ?? "-")],
     ["NDVI ya hivi karibuni", esc(lv ? lv.value : "-")], ["Mavuno (t/ha)", esc(yld.d[0] ? yld.d[0].value : "-")],
-    ["Hatari", esc(risk.d.length)], ["Mapendekezo", esc(rec.d.length)]
+    ["Mbegu (kg/ha)", esc(seed.d[0] ? seed.d[0].value : "-")], ["Hatari", esc(risk.d.length)], ["Mapendekezo", esc(rec.d.length)]
   ]) + '<p class="mu">Huu ni muhtasari wa skrini. Ripoti kamili iko kwenye PDF/Excel.</p>';
 }
 
@@ -1190,10 +1228,7 @@ async function loadUsers() {
   const el = $("usersTbl");
   el.innerHTML = '<span class="sp"></span>Inapakia...';
   const r = await safe("/api/users");
-  if (r.e) {
-    el.innerHTML = `<p class="err">Imeshindwa kupakia: ${esc(r.e)} <button class="btn" data-retry-users>Jaribu tena</button></p>`;
-    return;
-  }
+  if (r.e) { el.innerHTML = `<p class="err">Imeshindwa kupakia: ${esc(r.e)} <button class="btn" data-retry-users>Jaribu tena</button></p>`; return; }
   USERS = r.d;
   el.innerHTML = r.d.length ? tbl(["ID","Email","Jina","Role","Enabled","Vitendo"], r.d.map(u => [
     esc(u.id), esc(u.email), esc(u.fullName || "-"),
@@ -1204,7 +1239,6 @@ async function loadUsers() {
 }
 document.addEventListener("click", async e => {
   if (e.target.closest("[data-retry-users]")) return loadUsers();
-  if (e.target.id === "addUser") { $("uErr").textContent = ""; $("uDlg").showModal(); return; }
   const d = e.target.closest("[data-udel]");
   if (d) {
     const u = USERS.find(x => String(x.id) === d.dataset.udel);
@@ -1221,19 +1255,39 @@ document.addEventListener("change", async e => {
   catch (x) { toast("Imeshindwa: " + x.message); await loadUsers(); }
   finally { if (s.isConnected) s.disabled = false; }
 });
-$("uForm").addEventListener("submit", async e => {
-  e.preventDefault();
-  const f = new FormData(e.target);
-  const submit = e.target.querySelector('[type="submit"]');
-  submit.disabled = true;
+
+/* ===== Settings ===== */
+async function loadSettings() {
+  const el = $("settingsView"); el.innerHTML = '<span class="sp"></span>Inapakia...';
   try {
-    await api("/api/auth/register", { method: "POST", body: { email: f.get("email"), password: f.get("password"), fullName: f.get("fullName"), role: f.get("role") } });
-    $("uDlg").close(); e.target.reset();
-    toast("Ombi la kuongeza mtumiaji limepokelewa."); await loadUsers();
-  } catch (x) { $("uErr").textContent = x.message; }
-  finally { submit.disabled = false; }
-});
-$("uCancel").onclick = () => $("uDlg").close();
+    const r = await api("/api/settings");
+    const data = r?.data ?? r ?? {};
+    const entries = Object.entries(data).filter(([k]) => !/secret|password|token|key/i.test(k));
+    el.innerHTML = tbl(["Key","Value"], entries.map(([k, v]) => [esc(k), esc(typeof v === "object" ? JSON.stringify(v) : v)]));
+    if (!entries.length) el.innerHTML = '<p class="mu">Hakuna mipangilio isiyo ya siri.</p>';
+  } catch (x) { el.innerHTML = errHtml(x.message); }
+}
+$("loadSettings").onclick = () => loadSettings();
+
+/* ===== Integration ===== */
+async function loadIntegration() {
+  const set = (id, html) => { const el = $(id); if (el) el.innerHTML = html; };
+  set("intHealth", '<span class="sp"></span>...');
+  set("intLogs", '<span class="sp"></span>...');
+  set("isdaStatus", '<span class="sp"></span>...');
+  set("isdaLayers", '<span class="sp"></span>...');
+  set("glamFetch", '<span class="sp"></span>...');
+  try { const r = await api("/api/integration/health"); set("intHealth", tbl(["Kipimo","Thamani"], Object.entries(r || {}).map(([k, v]) => [esc(k), esc(JSON.stringify(v))]))); }
+  catch (x) { set("intHealth", errHtml(x.message)); }
+  try { const r = await api("/api/integration/sync-logs"); const d = r?.data ?? r; set("intLogs", Array.isArray(d) ? tbl(["ID","Aina","Hali","Tarehe"], d.map(l => [esc(l.id ?? "-"), esc(l.type ?? "-"), esc(l.status ?? "-"), fmtDate(l.createdAt ?? l.timestamp)])) : tbl(["Kipimo","Thamani"], Object.entries(d || {}).map(([k, v]) => [esc(k), esc(JSON.stringify(v))]))); }
+  catch (x) { set("intLogs", errHtml(x.message)); }
+  try { const r = await api("/api/integration/isdasoil/status"); set("isdaStatus", tbl(["Kipimo","Thamani"], Object.entries(r || {}).map(([k, v]) => [esc(k), esc(JSON.stringify(v))]))); }
+  catch (x) { set("isdaStatus", errHtml(x.message)); }
+  try { const r = await api("/api/integration/isdasoil/layers"); const d = r?.data ?? r; set("isdaLayers", Array.isArray(d) ? tbl(["Layer","Maelezo"], d.map(l => [esc(l.name ?? l.id ?? "-"), esc(l.description ?? "-")])) : tbl(["Kipimo","Thamani"], Object.entries(d || {}).map(([k, v]) => [esc(k), esc(JSON.stringify(v))]))); }
+  catch (x) { set("isdaLayers", errHtml(x.message)); }
+  try { const r = await api("/api/integration/glam/fetch"); set("glamFetch", tbl(["Kipimo","Thamani"], Object.entries(r || {}).map(([k, v]) => [esc(k), esc(JSON.stringify(v))]))); }
+  catch (x) { set("glamFetch", errHtml(x.message)); }
+}
 
 /* ===== PWA (inline manifest) + offline banner ===== */
 (function injectManifest() {
@@ -1253,8 +1307,7 @@ $("uCancel").onclick = () => $("uDlg").close();
 function initPWA() {
   if ($("offline")) return;
   const offline = document.createElement("div");
-  offline.id = "offline";
-  offline.textContent = "⚠️ Hakuna mtandao";
+  offline.id = "offline"; offline.textContent = "⚠️ Hakuna mtandao";
   document.body.appendChild(offline);
   const upd = () => offline.classList.toggle("show", !navigator.onLine);
   window.addEventListener("online", upd);
@@ -1266,7 +1319,7 @@ function initPWA() {
 $("yr").textContent = new Date().getFullYear();
 document.addEventListener("click", e => {
   const g = e.target.closest("[data-go]"), s = e.target.closest("[data-scroll]");
-  if (g) { e.preventDefault(); $("nav").querySelector(`[data-t="${g.dataset.go}"]`).click(); $("content").scrollIntoView({ behavior: "smooth" }); }
+  if (g) { e.preventDefault(); $("nav").querySelector(`[data-t="${g.dataset.go}"]`)?.click(); $("content").scrollIntoView({ behavior: "smooth" }); }
   else if (s) { e.preventDefault(); document.querySelector(s.getAttribute("href"))?.scrollIntoView({ behavior: "smooth" }); }
 });
 
