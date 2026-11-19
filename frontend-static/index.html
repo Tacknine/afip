@@ -36,8 +36,6 @@ button{cursor:pointer;border:0}
   overflow:hidden;
   background:var(--k);
 }
-
-/* Picha upande wa kushoto */
 .login-hero{
   flex:1 1 60%;
   position:relative;
@@ -59,8 +57,6 @@ button{cursor:pointer;border:0}
 }
 .login-hero-content p{font-size:18px;opacity:.95;margin-bottom:4px}
 .login-hero-content .login-hero-sub{font-size:14px;opacity:.75;font-style:italic}
-
-/* Kitufe cha kufungua (upande wa kulia) */
 .login-toggle{
   position:absolute;top:50%;right:0;transform:translateY(-50%);
   background:var(--y);color:var(--k);
@@ -74,8 +70,6 @@ button{cursor:pointer;border:0}
 .login-toggle:hover{background:var(--g);color:#fff;transform:translateY(-50%) translateX(-4px)}
 .login-toggle svg{transition:transform .2s}
 .login-toggle:hover svg{transform:translateX(-3px)}
-
-/* Login panel (imefungwa mwanzoni, inaingia kwa slide) */
 .login-panel{
   position:absolute;top:0;right:0;
   width:min(480px,100%);height:100vh;
@@ -89,7 +83,6 @@ button{cursor:pointer;border:0}
   overflow-y:auto;
 }
 .login-panel.open{transform:translateX(0)}
-
 .login-close{
   position:absolute;top:16px;right:16px;
   background:transparent;color:var(--mu);
@@ -97,14 +90,12 @@ button{cursor:pointer;border:0}
   border-radius:4px;cursor:pointer;
 }
 .login-close:hover{background:#eee;color:#000}
-
 .login-panel form{width:100%;max-width:380px;margin:0 auto}
 .login-panel h1{font-size:32px;color:var(--fo);text-align:center;margin-bottom:4px}
 .login-panel p{color:var(--mu);margin-bottom:18px;font-size:14px;text-align:center}
 .login-panel input{background:#fff;color:#0F1F0F}
 .login-panel .btn{width:100%;margin-top:16px}
 
-/* Simu: picha juu, login chini */
 @media(max-width:800px){
   #login{flex-direction:column}
   .login-hero{flex:1 1 100%;min-height:100vh;width:100%}
@@ -233,7 +224,6 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
 
 <section id="login">
 
-  <!-- Picha upande wa kushoto -->
   <div class="login-hero">
     <div class="login-hero-overlay"></div>
     <div class="login-hero-content">
@@ -243,7 +233,6 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     </div>
   </div>
 
-  <!-- Kitufe cha kufungua login -->
   <button id="loginToggle" class="login-toggle" aria-label="Fungua fomu ya kuingia">
     <span>Ingia</span>
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -251,7 +240,6 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     </svg>
   </button>
 
-  <!-- Login panel (inafunguka kwa slide kutoka kulia) -->
   <div id="loginPanel" class="login-panel">
     <button id="loginClose" class="login-close" aria-label="Funga">&times;</button>
     <form id="lf">
@@ -458,9 +446,10 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         <div class="card"><h2>Afrika</h2><div id="mapAf2" class="map"></div></div>
       </div>
       <div class="card"><h2>Maelezo ya shamba</h2><div class="wrap" id="farmDet"></div>
-        <div class="row needs-act farm-manager">
-          <label for="boundaryInput" class="mu">Mpaka (GeoJSON):</label>
-          <input id="boundaryInput" type="file" accept=".json,.geojson" class="sel">
+        <!-- ===== BOUNDARY UPLOAD ===== -->
+        <div class="row needs-act farm-manager" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--ln)">
+          <label for="boundaryInput" class="mu" style="margin:0">Mpaka (GeoJSON):</label>
+          <input id="boundaryInput" type="file" accept=".json,.geojson" class="sel" style="margin:0">
           <button class="btn" id="uploadBoundary">Pakia Mpaka</button>
           <span class="mu" id="boundaryStatus"></span>
         </div>
@@ -1169,7 +1158,7 @@ $("uploadBoundary").addEventListener("click", async () => {
     const geojson = JSON.parse(text);
     await api(`/api/farms/${FARM.id}/boundary`, { method: "POST", body: geojson });
     $("boundaryStatus").textContent = "Imepakiwa.";
-    toast("Mpaka umepakiwa.");
+    toast("Mpaka umepakiwa."); await selectFarm(FARM);
   } catch (x) { $("boundaryStatus").textContent = "Imeshindwa: " + x.message; toast("Imeshindwa: " + x.message); }
 });
 
