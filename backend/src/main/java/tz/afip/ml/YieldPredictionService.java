@@ -1,16 +1,4 @@
-package tz.afip.ml;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.reactive.function.client.WebClient;
-import tz.afip.common.exception.ApiException;
-import tz.afip.farm.repository.FarmRepository;
+﻿import tz.afip.farm.repository.FarmRepository;
 import tz.afip.soil.SoilObservation;
 import tz.afip.soil.SoilObservationRepository;
 import tz.afip.vegetation.VegetationObservation;
@@ -20,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,7 +58,7 @@ public class YieldPredictionService {
     public ModelPrediction predict(Long farmId) {
         log.info("[Yield] predict() called for farm {}", farmId);
 
-        farms.findById(farmId)
+        var farm = farms.findById(farmId)
             .orElseThrow(() -> ApiException.notFound("Farm not found: " + farmId));
 
         List<SoilObservation> soilObs = soil.findByFarmIdOrderByPropertyAsc(farmId);
@@ -86,11 +75,16 @@ public class YieldPredictionService {
         BigDecimal latestNdvi = vegObs.isEmpty() ? null
             : vegObs.get(vegObs.size() - 1).getValue();
 
-        Map<String, Object> req = new LinkedHashMap<>();
-        req.put("ndvi", latestNdvi != null ? latestNdvi.doubleValue() : 0.3);
-        if (soilMap.get("ph") != null) req.put("ph", soilMap.get("ph").doubleValue());
-        if (soilMap.get("nitrogen_total") != null) req.put("nitrogen", soilMap.get("nitrogen_total").doubleValue());
-        if (soilMap.get("carbon_organic") != null) req.put("carbon", soilMap.get("carbon_organic").doubleValue());
+        Map<String, Object> req = new HashMap<>();
+        
+        Integer cropId = farm.getCropId();
+        req.put("cropid", cropId != null ? cropId : 1);
+        
+        req.put("ag4a_01", getSoilDouble(soilMap, "ag4a_01", 0.0));
+        req.put("ag4a_02", getSoilDouble(soilMap, "ag4a_02", 0.0));
+        req.put("ag4a_04", getSoilDouble(soilMap, "ag4a_04", 0.0));
+        req.put("ag4a_06", getSoilDouble(soilMap, "ag4a_06", 0.0));
+        req.put("ag4a_08", getSoilDouble(soilMap, "ag4a_08", 0.0));
 
         log.info("[Yield] Calling ML service with: {}", req);
 
@@ -110,13 +104,24 @@ public class YieldPredictionService {
 
         log.info("[Yield] ML response: {}", mlResp);
 
-        if (mlResp == null || mlResp.path("yield_t_ha").isMissingNode()) {
-            throw ApiException.badRequest("ML service returned invalid response");
+        if (mlResp == null) {
+            throw ApiException.badRequest("ML service returned null response");
         }
-
-        double yieldValue = mlResp.get("yield_t_ha").asDouble();
+        
+        double predictionValue;
+        String predictionType;
         String mlModelVersion = mlResp.path("model_version").asText("1.0.0");
         double confidence = mlResp.path("confidence").asDouble(0.7);
+        
+        if (!mlResp.path("yield_t_ha").isMissingNode()) {
+            predictionValue = mlResp.get("yield_t_ha").asDouble();
+            predictionType = "YIELD_ESTIMATE_MAIZE_T_HA";
+        } else if (!mlResp.path("seed_quantity_kg").isMissingNode()) {
+            predictionValue = mlResp.get("seed_quantity_kg").asDouble();
+            predictionType = "SEED_QUANTITY_KG_HA";
+        } else {
+            throw ApiException.badRequest("ML service returned invalid response: " + mlResp);
+        }
 
         ModelVersion mv;
         try {
@@ -138,13 +143,13 @@ public class YieldPredictionService {
         }
 
         log.info("[Yield] ModelVersion id={}", mv.getId());
-        log.info("[Yield] Saving prediction: value={}, confidence={}", yieldValue, confidence);
+        log.info("[Yield] Saving prediction: type={}, value={}, confidence={}", predictionType, predictionValue, confidence);
 
         ModelPrediction p = new ModelPrediction();
         p.setFarmId(farmId);
         p.setModelVersionId(mv.getId());
-        p.setPredictionType("YIELD_ESTIMATE_MAIZE_T_HA");
-        p.setValue(BigDecimal.valueOf(yieldValue));
+        p.setPredictionType(predictionType);
+        p.setValue(BigDecimal.valueOf(predictionValue));
         p.setConfidence(BigDecimal.valueOf(confidence));
         p.setPredictedFor(LocalDate.now().plusMonths(4));
 
@@ -162,6 +167,11 @@ public class YieldPredictionService {
             log.error("[Yield] Failed to save prediction", e);
             throw e;
         }
+    }
+
+    private double getSoilDouble(Map<String, BigDecimal> soilMap, String key, double defaultValue) {
+        BigDecimal v = soilMap.get(key);
+        return v != null ? v.doubleValue() : defaultValue;
     }
 
     public List<ModelPrediction> listByFarm(Long farmId) {
