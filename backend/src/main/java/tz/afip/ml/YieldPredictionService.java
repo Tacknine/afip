@@ -1,8 +1,20 @@
+package tz.afip.ml;
+
+import tz.afip.common.ApiException;
 import tz.afip.farm.repository.FarmRepository;
 import tz.afip.soil.SoilObservation;
 import tz.afip.soil.SoilObservationRepository;
 import tz.afip.vegetation.VegetationObservation;
 import tz.afip.vegetation.VegetationObservationRepository;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -58,7 +70,7 @@ public class YieldPredictionService {
     public ModelPrediction predict(Long farmId) {
         log.info("[Yield] predict() called for farm {}", farmId);
 
-        var farm = farms.findById(farmId)
+        farms.findById(farmId)
             .orElseThrow(() -> ApiException.notFound("Farm not found: " + farmId));
 
         List<SoilObservation> soilObs = soil.findByFarmIdOrderByPropertyAsc(farmId);
@@ -72,14 +84,8 @@ public class YieldPredictionService {
         Map<String, BigDecimal> soilMap = new LinkedHashMap<>();
         for (SoilObservation s : soilObs) soilMap.put(s.getProperty(), s.getValue());
 
-        BigDecimal latestNdvi = vegObs.isEmpty() ? null
-            : vegObs.get(vegObs.size() - 1).getValue();
-
         Map<String, Object> req = new HashMap<>();
-        
-        Integer cropId = farm.getCropId();
-        req.put("cropid", cropId != null ? cropId : 1);
-        
+        req.put("cropid", 1);
         req.put("ag4a_01", getSoilDouble(soilMap, "ag4a_01", 0.0));
         req.put("ag4a_02", getSoilDouble(soilMap, "ag4a_02", 0.0));
         req.put("ag4a_04", getSoilDouble(soilMap, "ag4a_04", 0.0));
@@ -107,12 +113,12 @@ public class YieldPredictionService {
         if (mlResp == null) {
             throw ApiException.badRequest("ML service returned null response");
         }
-        
+
         double predictionValue;
         String predictionType;
         String mlModelVersion = mlResp.path("model_version").asText("1.0.0");
         double confidence = mlResp.path("confidence").asDouble(0.7);
-        
+
         if (!mlResp.path("yield_t_ha").isMissingNode()) {
             predictionValue = mlResp.get("yield_t_ha").asDouble();
             predictionType = "YIELD_ESTIMATE_MAIZE_T_HA";
@@ -141,9 +147,6 @@ public class YieldPredictionService {
             log.error("[Yield] Failed to get/save ModelVersion", e);
             throw e;
         }
-
-        log.info("[Yield] ModelVersion id={}", mv.getId());
-        log.info("[Yield] Saving prediction: type={}, value={}, confidence={}", predictionType, predictionValue, confidence);
 
         ModelPrediction p = new ModelPrediction();
         p.setFarmId(farmId);
