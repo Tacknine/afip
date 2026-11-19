@@ -1,4 +1,4 @@
-spring:
+﻿spring:
   application:
     name: afip-backend
   datasource:
@@ -23,6 +23,10 @@ afip:
   jwt:
     secret: ${AFIP_JWT_SECRET:dev_only_change_me_long_random_string_min_32_chars}
     ttlHours: ${AFIP_JWT_TTL_HOURS:8}
+  ml:
+    url: ${AFIP_ML_URL:http://localhost:8000}
+    connect-timeout-ms: 5000
+    read-timeout-ms: 30000
   nasa:
     username: ${AFIP_NASA_USERNAME:}
     password: ${AFIP_NASA_PASSWORD:}

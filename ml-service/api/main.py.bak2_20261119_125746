@@ -1,0 +1,244 @@
+import json
+import logging
+from pathlib import Path
+from datetime import datetime, timezone
+from typing import Any
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, Field
+
+from model_registry import (
+    list_models,
+    get_production_models
+)
+
+from prediction import predict_seed_quantity, predict_seed_quantity_candidate, InvalidInputError
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+REPORTS_DIR = BASE_DIR / "reports"
+EVALUATION_REPORT = REPORTS_DIR / "evaluation_report.json"
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger("AFIP_API")
+
+app = FastAPI(
+    title="AFIP - Agricultural Forecasting and Intelligence Platform",
+    description="Agricultural Machine Learning API",
+    version="1.0.0"
+)
+
+
+class SeedQuantityRequest(BaseModel):
+    features: dict[str, Any] = Field(
+        ...,
+        description="Features required by the seed quantity model"
+    )
+
+
+@app.get("/")
+def root():
+    return {
+        "platform": "AFIP",
+        "version": "1.0.0",
+        "status": "running",
+        "documentation": "/docs"
+    }
+
+
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now(timezone.utc).isoformat()
+    }
+
+
+@app.get("/models")
+def models():
+    registry = list_models()
+
+    return {
+        "models": registry["models"],
+        "production_ready_count": len(get_production_models())
+    }
+
+
+@app.get("/evaluation")
+def evaluation():
+    if not EVALUATION_REPORT.exists():
+        raise HTTPException(
+            status_code=404,
+            detail="Evaluation report not found."
+        )
+
+    with open(
+        EVALUATION_REPORT,
+        "r",
+        encoding="utf-8"
+    ) as file:
+        return json.load(file)
+
+
+@app.get("/about")
+def about():
+    return {
+        "name": "AFIP",
+        "version": "1.0.0",
+        "models": {
+            "seed_quantity": "Trained - requires improvement",
+            "maize_yield": "Blocked",
+            "crop_recommendation": "Blocked",
+            "crop_production": "Blocked"
+        },
+        "raw_data_modified": False
+    }
+
+
+@app.post("/predict/seed-quantity")
+def seed_quantity_prediction(request: SeedQuantityRequest):
+
+    if "seed_quantity" not in get_production_models():
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "message": "Model is not approved for production.",
+                "status": "requires_review"
+            }
+        )
+
+    try:
+        result = predict_seed_quantity(request.features)
+
+        return {
+            "model": "seed_quantity",
+            "prediction_status": "success",
+            "prediction": result,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+    except (InvalidInputError, ValueError, RuntimeError) as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        ) from error
+
+    except Exception as error:
+        logger.exception("Prediction failed.")
+
+        raise HTTPException(
+            status_code=500,
+            detail="Internal prediction error."
+        ) from error
+
+
+@app.post("/predict/seed-quantity/research")
+def research_seed_quantity(request: SeedQuantityRequest):
+
+    model_info = list_models()["models"]["seed_quantity"]
+
+    if not model_info["available"]:
+        raise HTTPException(
+            status_code=404,
+            detail="Seed quantity model is unavailable."
+        )
+
+    try:
+        result = predict_seed_quantity(request.features)
+
+        return {
+            "model": "seed_quantity",
+            "prediction_status": "research_only",
+            "production_approved": False,
+            "warning": (
+                "Experimental prediction. Do not use "
+                "for real agricultural decisions."
+            ),
+            "prediction": result,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+    except (InvalidInputError, ValueError, RuntimeError) as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        ) from error
+
+    except Exception as error:
+        logger.exception("Research prediction failed.")
+
+        raise HTTPException(
+            status_code=500,
+            detail="Research prediction failed."
+        ) from error
+
+
+
+@app.post("/predict/seed-quantity/research/candidate")
+def research_seed_quantity_candidate(request: SeedQuantityRequest):
+
+    try:
+        result = predict_seed_quantity_candidate(request.features)
+
+        return {
+            "model": "seed_quantity_crop_median",
+            "prediction_status": "research_only",
+            "production_approved": False,
+            "warning": (
+                "Experimental crop-median estimate. "
+                "Do not use for real agricultural decisions."
+            ),
+            "prediction": result,
+            "timestamp": datetime.now(timezone.utc).isoformat()
+        }
+
+    except InvalidInputError as error:
+        raise HTTPException(
+            status_code=400,
+            detail=str(error)
+        ) from error
+
+    except Exception as error:
+        logger.exception("Research candidate prediction failed.")
+
+        raise HTTPException(
+            status_code=500,
+            detail="Research candidate prediction failed."
+        ) from error
+
+@app.get("/registry")
+def model_registry_endpoint():
+    from model_registry import list_models
+    return list_models()
+
+
+@app.get("/registry/production")
+def production_models_endpoint():
+    from model_registry import get_production_models
+    return {
+        "category": "production",
+        "models": get_production_models()
+    }
+
+
+@app.get("/registry/research")
+def research_models_endpoint():
+    from model_registry import get_research_models
+    return {
+        "category": "research",
+        "models": get_research_models()
+    }
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(
+        "api.main:app",
+        host="127.0.0.1",
+        port=8000,
+        reload=True
+    )
+
+
+
+
+

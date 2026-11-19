@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: afip-backend
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:afip}
+    username: ${DB_USER:afip}
+    password: ${DB_PASSWORD:afip}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+server:
+  port: ${PORT:8080}
+
+afip:
+  jwt:
+    secret: ${AFIP_JWT_SECRET:dev_only_change_me_long_random_string_min_32_chars}
+    ttlHours: ${AFIP_JWT_TTL_HOURS:8}
+  nasa:
+    username: ${AFIP_NASA_USERNAME:}
+    password: ${AFIP_NASA_PASSWORD:}
+  harvest:
+    token: ${AFIP_HARVEST_TOKEN:}
+  isda:
+    username: ${AFIP_ISDA_USERNAME:}
+    password: ${AFIP_ISDA_PASSWORD:}
+  sms:
+    provider: ${AFIP_SMS_PROVIDER:stub}
+    username: ${AFIP_SMS_USERNAME:}
+    apiKey: ${AFIP_SMS_API_KEY:}
+    senderId: ${AFIP_SMS_SENDER_ID:AFIP}
+
+logging:
+  level:
+    tz.afip: DEBUG

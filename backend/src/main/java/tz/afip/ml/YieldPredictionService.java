@@ -45,15 +45,24 @@ public class YieldPredictionService {
                                   ModelVersionRepository versions,
                                   ModelPredictionRepository predictions,
                                   ObjectMapper mapper,
-                                  @Value("${afip.ml.url:http://ml-service:8000}") String mlUrl) {
+                                  WebClient.Builder webClientBuilder,
+                                  @Value("${afip.ml.url:http://localhost:8000}") String mlUrl,
+                                  @Value("${afip.ml.connect-timeout-ms:5000}") long connectTimeoutMs,
+                                  @Value("${afip.ml.read-timeout-ms:30000}") long readTimeoutMs) {
         this.farms = farms;
         this.soil = soil;
         this.veg = veg;
         this.versions = versions;
         this.predictions = predictions;
         this.mapper = mapper;
-        this.mlClient = WebClient.builder().baseUrl(mlUrl).build();
-        log.info("YieldPredictionService initialized with ML URL: {}", mlUrl);
+        this.mlClient = webClientBuilder
+                .baseUrl(mlUrl)
+                .clientConnector(new org.springframework.http.client.reactive.ReactorClientHttpConnector(
+                        reactor.netty.http.client.HttpClient.create()
+                                .option(io.netty.channel.ChannelOption.CONNECT_TIMEOUT_MILLIS, (int) connectTimeoutMs)
+                                .responseTimeout(java.time.Duration.ofMillis(readTimeoutMs))))
+                .build();
+        log.info("YieldPredictionService initialized with ML URL: {} (readTimeout={}ms)", mlUrl, readTimeoutMs);
     }
 
     @Transactional
@@ -93,7 +102,7 @@ public class YieldPredictionService {
                 .bodyValue(req)
                 .retrieve()
                 .bodyToMono(JsonNode.class)
-                .block(Duration.ofSeconds(15));
+                .block(Duration.ofSeconds(30));
         } catch (Exception e) {
             log.error("[Yield] ML service call failed", e);
             throw ApiException.badRequest("ML service unavailable: " + e.getMessage());
@@ -106,12 +115,13 @@ public class YieldPredictionService {
         }
 
         double yieldValue = mlResp.get("yield_t_ha").asDouble();
+        String mlModelVersion = mlResp.path("model_version").asText("1.0.0");
         double confidence = mlResp.path("confidence").asDouble(0.7);
 
         ModelVersion mv;
         try {
             mv = versions
-                .findByModelNameAndVersion(MODEL_NAME, MODEL_VERSION)
+                .findByModelNameAndVersion(MODEL_NAME, mlModelVersion)
                 .orElseGet(() -> {
                     ModelVersion v = new ModelVersion();
                     v.setModelName(MODEL_NAME);

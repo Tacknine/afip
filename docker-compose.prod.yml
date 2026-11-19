@@ -1,4 +1,4 @@
-services:
+﻿services:
   db:
     image: postgis/postgis:16-3.4
     container_name: afip-db-prod
@@ -22,7 +22,7 @@ services:
       db:
         condition: service_healthy
       ml-service:
-        condition: service_started
+        condition: service_healthy
     environment:
       DB_HOST: db
       DB_PORT: 5432
@@ -46,6 +46,12 @@ services:
   ml-service:
     build: ./ml-service
     container_name: afip-ml-prod
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
     restart: unless-stopped
 
   nginx:
