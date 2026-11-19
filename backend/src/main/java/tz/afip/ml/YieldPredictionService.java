@@ -1,6 +1,6 @@
-package tz.afip.ml;
+﻿package tz.afip.ml;
 
-import tz.afip.common.ApiException;
+import tz.afip.common.exception.ApiException;
 import tz.afip.farm.repository.FarmRepository;
 import tz.afip.soil.SoilObservation;
 import tz.afip.soil.SoilObservationRepository;
