@@ -1,4 +1,4 @@
-﻿import tz.afip.farm.repository.FarmRepository;
+import tz.afip.farm.repository.FarmRepository;
 import tz.afip.soil.SoilObservation;
 import tz.afip.soil.SoilObservationRepository;
 import tz.afip.vegetation.VegetationObservation;
