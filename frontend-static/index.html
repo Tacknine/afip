@@ -994,7 +994,10 @@ function initMaps() {
   if (maps.tz) return;
   maps.tz = []; maps.af = []; layers.m = [];
   if (!window.L) { ["mapNote", "mapNote2"].forEach(i => { $(i).textContent = "Ramani haipatikani kwa sasa."; }); return; }
-  const tile = () => L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "&copy; OpenStreetMap" });
+  const tile = () => L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    { attribution: "&copy; Esri" }
+  );
   ["", "2"].forEach(s => {
     const a = L.map("mapTz" + s).setView([-6.37, 34.9], 5); tile().addTo(a); maps.tz.push(a);
     const b = L.map("mapAf" + s).setView([2, 20], 3); tile().addTo(b); maps.af.push(b);
