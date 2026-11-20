@@ -2,6 +2,7 @@ package tz.afip.integration.nasa.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class NasaTaskRequest {
@@ -49,7 +50,10 @@ public class NasaTaskRequest {
         @JsonProperty("recurring")
         private Boolean recurring = false;
 
+        // Kielezi hiki kinazuia uwanja huu usijumuishwe kwenye JSON wakati ni null,
+        // kuepuka kosa la NASA "None is not of type 'array'"
         @JsonProperty("yearRange")
+        @JsonInclude(JsonInclude.Include.NON_NULL)
         private int[] yearRange;
 
         public void setStartDate(String s) {
