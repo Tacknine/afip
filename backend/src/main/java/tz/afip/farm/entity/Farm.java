@@ -1,4 +1,4 @@
-﻿package tz.afip.farm.entity;
+package tz.afip.farm.entity;
 
 import jakarta.persistence.*;
 import org.locationtech.jts.geom.Point;

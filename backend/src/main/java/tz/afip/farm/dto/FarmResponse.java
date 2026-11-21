@@ -1,4 +1,4 @@
-﻿package tz.afip.farm.dto;
+package tz.afip.farm.dto;
 
 import java.math.BigDecimal;
 import tz.afip.farm.entity.Farm;
