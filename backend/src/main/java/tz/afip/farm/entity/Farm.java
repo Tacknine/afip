@@ -1,4 +1,4 @@
-package tz.afip.farm.entity;
+﻿package tz.afip.farm.entity;
 
 import jakarta.persistence.*;
 import org.locationtech.jts.geom.Point;
@@ -13,6 +13,8 @@ public class Farm {
     private BigDecimal areaHa;
     @Column(columnDefinition = "geography(Point,4326)") private Point centroid;
     private Long adminAreaId;
+    private Double latitude;
+    private Double longitude;
     private Instant createdAt = Instant.now();
     private Instant updatedAt = Instant.now();
 
@@ -27,4 +29,8 @@ public class Farm {
     public void setCentroid(Point v) { this.centroid = v; }
     public Long getAdminAreaId() { return adminAreaId; }
     public void setAdminAreaId(Long v) { this.adminAreaId = v; }
+    public Double getLatitude() { return latitude; }
+    public void setLatitude(Double v) { this.latitude = v; }
+    public Double getLongitude() { return longitude; }
+    public void setLongitude(Double v) { this.longitude = v; }
 }
