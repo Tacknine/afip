@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AFIP - Adaptive Farming Intelligence Platform</title>
+<title>AFIP - Adaptive Farming Intelligence Platform | Field Shift</title>
 <meta name="theme-color" content="#1EB53A">
 <meta name="afip-api-base" content="https://afip-3.onrender.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,85 +29,34 @@ button{cursor:pointer;border:0}
 .flag{height:8px;background:linear-gradient(90deg,var(--g) 0 38%,var(--y) 38% 44%,var(--k) 44% 56%,var(--y) 56% 62%,var(--sk) 62%)}
 
 /* ===== LOGIN SPLIT-SCREEN ===== */
-#login{
-  min-height:100vh;
-  display:flex;
-  position:relative;
-  overflow:hidden;
-  background:var(--k);
-}
-.login-hero{
-  flex:1 1 60%;
-  position:relative;
-  background:url('./login-hero.png') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:100vh;
-}
-.login-hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(34,139,34,.75), rgba(15,90,34,.85) 60%, rgba(0,0,0,.85));
-}
-.login-hero-content{
-  position:relative;z-index:2;text-align:center;color:#fff;padding:24px;
-}
-.login-hero-content h2{
-  font-size:56px;color:var(--y);margin-bottom:8px;letter-spacing:2px;
-}
+#login{min-height:100vh;display:flex;position:relative;overflow:hidden;background:var(--k)}
+.login-hero{flex:1 1 60%;position:relative;background:url('./login-hero.png') center/cover no-repeat;display:flex;align-items:center;justify-content:center;min-height:100vh;background-color:#0a3d1a}
+.login-hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(34,139,34,.75),rgba(15,90,34,.85) 60%,rgba(0,0,0,.85))}
+.login-hero-content{position:relative;z-index:2;text-align:center;color:#fff;padding:24px}
+.login-hero-content h2{font-size:56px;color:var(--y);margin-bottom:8px;letter-spacing:2px}
 .login-hero-content p{font-size:18px;opacity:.95;margin-bottom:4px}
 .login-hero-content .login-hero-sub{font-size:14px;opacity:.75;font-style:italic}
-.login-toggle{
-  position:absolute;top:50%;right:0;transform:translateY(-50%);
-  background:var(--y);color:var(--k);
-  padding:16px 20px;border:0;border-radius:8px 0 0 8px;
-  font-weight:bold;font-size:16px;
-  display:flex;align-items:center;gap:8px;
-  cursor:pointer;z-index:10;
-  box-shadow:-4px 0 16px rgba(0,0,0,.3);
-  transition:background .2s, transform .2s;
-}
+.login-toggle{position:absolute;top:50%;right:0;transform:translateY(-50%);background:var(--y);color:var(--k);padding:16px 20px;border:0;border-radius:8px 0 0 8px;font-weight:bold;font-size:16px;display:flex;align-items:center;gap:8px;cursor:pointer;z-index:10;box-shadow:-4px 0 16px rgba(0,0,0,.3);transition:background .2s,transform .2s}
 .login-toggle:hover{background:var(--g);color:#fff;transform:translateY(-50%) translateX(-4px)}
 .login-toggle svg{transition:transform .2s}
 .login-toggle:hover svg{transform:translateX(-3px)}
-.login-panel{
-  position:absolute;top:0;right:0;
-  width:min(480px,100%);height:100vh;
-  background:#fff;color:#0F1F0F;
-  padding:48px 32px;
-  display:flex;flex-direction:column;justify-content:center;
-  transform:translateX(100%);
-  transition:transform .35s cubic-bezier(.4,0,.2,1);
-  z-index:20;
-  box-shadow:-8px 0 32px rgba(0,0,0,.25);
-  overflow-y:auto;
-}
+.login-panel{position:absolute;top:0;right:0;width:min(480px,100%);height:100vh;background:#fff;color:#0F1F0F;padding:48px 32px;display:flex;flex-direction:column;justify-content:center;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:20;box-shadow:-8px 0 32px rgba(0,0,0,.25);overflow-y:auto}
 .login-panel.open{transform:translateX(0)}
-.login-close{
-  position:absolute;top:16px;right:16px;
-  background:transparent;color:var(--mu);
-  font-size:28px;line-height:1;padding:4px 10px;
-  border-radius:4px;cursor:pointer;
-}
+.login-close{position:absolute;top:16px;right:16px;background:transparent;color:var(--mu);font-size:28px;line-height:1;padding:4px 10px;border-radius:4px;cursor:pointer}
 .login-close:hover{background:#eee;color:#000}
 .login-panel form{width:100%;max-width:380px;margin:0 auto}
 .login-panel h1{font-size:32px;color:var(--fo);text-align:center;margin-bottom:4px}
 .login-panel p{color:var(--mu);margin-bottom:18px;font-size:14px;text-align:center}
 .login-panel input{background:#fff;color:#0F1F0F}
 .login-panel .btn{width:100%;margin-top:16px}
-
 @media(max-width:800px){
   #login{flex-direction:column}
   .login-hero{flex:1 1 100%;min-height:100vh;width:100%}
   .login-hero-content h2{font-size:36px}
   .login-panel{width:100%;height:100vh;padding:32px 20px}
-  .login-toggle{
-    top:auto;bottom:24px;right:50%;transform:translateX(50%);
-    border-radius:32px;padding:12px 24px;
-  }
+  .login-toggle{top:auto;bottom:24px;right:50%;transform:translateX(50%);border-radius:32px;padding:12px 24px}
   .login-toggle:hover{transform:translateX(50%) translateY(-2px)}
 }
-
 label{display:block;font-size:13px;margin:10px 0 4px;font-weight:bold}
 input,select,textarea{width:100%;padding:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font-size:15px;border-radius:3px}
 .btn{background:var(--g);color:#fff;padding:10px 16px;font-weight:bold;font-size:14px;border-radius:3px;transition:background .2s}
@@ -117,7 +66,7 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--ln);backgro
 .btn.k:hover{background:#333}.btn.y:hover{background:#e0b800}.btn.o:hover{background:#d85525}
 .err{color:var(--danger);font-size:13px;margin-top:8px}
 #app{display:none;grid-template-columns:230px 1fr}
-#side{background:var(--k);color:#fff;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;border-right:6px solid var(--y);z-index:1500}
+#side{background:var(--k);color:#fff;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;border-right:6px solid var(--y);z-index:1500;overflow-y:auto}
 .brand{padding:20px 18px;border-bottom:1px solid #333}
 .brand b{display:block;font-size:26px;color:var(--y)}
 .brand span{font-size:12px;color:#bbb}
@@ -127,7 +76,7 @@ nav{display:flex;flex-direction:column;padding:10px 0;flex:1;overflow-y:auto}
 nav button{background:none;color:#fff;padding:13px 18px;font-size:14px;text-align:left;border-left:5px solid transparent}
 nav button:hover{background:#222}
 nav button.on{background:var(--g);color:#000;font-weight:bold;border-left-color:var(--y)}
-#side a{color:var(--y);padding:16px 18px;font-size:14px;border-top:1px solid #333;text-decoration:none}
+#side a{color:var(--y);padding:16px 18px;font-size:14px;border-top:1px solid #333;text-decoration:none;display:block}
 @media(max-width:800px){
   #app{grid-template-columns:1fr}
   #side{position:static;height:auto;flex-direction:row;align-items:center;border-right:0;border-bottom:6px solid var(--y);overflow-x:auto}
@@ -166,7 +115,7 @@ main{max-width:1280px;margin:0 auto;padding:20px;display:grid;gap:16px}
 .big{font-size:44px;font-weight:bold;line-height:1}
 .mu{color:var(--mu);font-size:13px}
 .map{height:300px;border-radius:3px}
-.bar{display:grid;grid-template-columns:90px 1fr 74px;gap:8px;align-items:center;font-size:13px;margin:7px 0}
+.bar{display:grid;grid-template-columns:130px 1fr 74px;gap:8px;align-items:center;font-size:13px;margin:7px 0}
 .bar div{background:#e8efe6;border-radius:2px}
 .bar i{display:block;height:16px;background:var(--c);border-radius:2px;transition:width .6s}
 ul{list-style:none;padding:0}
@@ -209,6 +158,13 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 .sc{font-size:11px;color:var(--mu)}
 .sel{width:auto;padding:4px 8px;font-size:13px;margin-bottom:6px}
 #load{display:none}
+input[type="range"]{width:100%;padding:0;background:transparent;border:0}
+.alert{border-left:5px solid var(--sn);background:#fff3cd;color:#000;padding:10px 14px;font-size:13px;border-radius:3px;margin:8px 0}
+html[data-theme="dark"] .alert{background:#3a2f0a;color:#f0e0a0}
+.metric-row{display:grid;grid-template-columns:150px 1fr 50px;gap:8px;align-items:center;font-size:13px;margin:6px 0}
+.metric-row .track{background:#e8efe6;height:14px;border-radius:2px;overflow:hidden}
+.metric-row .fill{height:100%;border-radius:2px;transition:width .5s}
+html[data-theme="dark"] .metric-row .track{background:#1f2f1f}
 @media print{
   #side,.mmenu,.utop,.search,footer,#toast,#offline,nav,.btn{display:none!important}
   #app{display:block!important}
@@ -223,23 +179,19 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
 <body>
 
 <section id="login">
-
   <div class="login-hero">
     <div class="login-hero-overlay"></div>
     <div class="login-hero-content">
       <h2>AFIP</h2>
       <p>Adaptive Farming Intelligence Platform</p>
       <p class="login-hero-sub">Smart Farming for a Prosperous Tanzania</p>
+      <p class="login-hero-sub" style="margin-top:20px;font-size:12px">NASA Space Apps Challenge 2026 — Field Shift</p>
     </div>
   </div>
-
   <button id="loginToggle" class="login-toggle" aria-label="Fungua fomu ya kuingia">
     <span>Ingia</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M15 18l-6-6 6-6"/>
-    </svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
   </button>
-
   <div id="loginPanel" class="login-panel">
     <button id="loginClose" class="login-close" aria-label="Funga">&times;</button>
     <form id="lf">
@@ -253,7 +205,6 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <button class="btn" id="lbtn" type="submit">Ingia</button>
     </form>
   </div>
-
 </section>
 
 <div id="app">
@@ -267,11 +218,14 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <button data-t="ndvi">NDVI</button>
     <button data-t="risk">Hatari</button>
     <button data-t="rec">Mapendekezo</button>
+    <button data-t="rotation">🔄 Mzunguko</button>
+    <button data-t="nasa">🛰️ NASA Data</button>
     <button data-t="yield">Mavuno</button>
     <button data-t="seed">Mbegu</button>
     <button data-t="notif">Arifa</button>
     <button data-t="maps">Ramani</button>
     <button data-t="rep">Ripoti</button>
+    <button data-t="glossary">📖 Kamusi</button>
     <button data-t="integ" class="admin-only">Muunganisho</button>
     <button data-t="users" class="admin-only">Watumiaji</button>
     <button data-t="settings" class="admin-only">Mipangilio</button>
@@ -294,11 +248,12 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <g clip-path="url(#cc)"><rect width="56" height="56" fill="#1EB53A"/><polygon points="56,8 56,56 8,56" fill="#87CEEB"/><polygon points="0,48 48,0 56,0 56,8 8,56 0,56" fill="#FCD116"/><polygon points="0,52 52,0 56,0 56,4 4,56 0,56" fill="#000"/></g>
       <circle cx="28" cy="28" r="26" fill="none" stroke="#000" stroke-width="2"/>
     </svg>
-    <div><h1>Adaptive Farming Intelligence Platform</h1><p>Jukwaa la akili ya kilimo kwa Tanzania na Afrika</p></div>
+    <div><h1>Adaptive Farming Intelligence Platform</h1><p>Jukwaa la akili ya kilimo kwa Tanzania na Afrika — Field Shift</p></div>
   </div>
   <div class="mmenu">
-    <a href="#" data-go="dash">Nyumbani</a><a href="#f-about" data-scroll>Kuhusu AFIP</a>
-    <a href="#f-links" data-scroll>Viungo vya haraka</a><a href="#f-contact" data-scroll>Wasiliana</a>
+    <a href="#" data-go="dash">Nyumbani</a><a href="#" data-go="rotation">Mzunguko</a>
+    <a href="#" data-go="nasa">NASA Data</a><a href="#" data-go="glossary">Kamusi</a>
+    <a href="#f-about" data-scroll>Kuhusu AFIP</a><a href="#f-contact" data-scroll>Wasiliana</a>
   </div>
 </header>
 
@@ -383,6 +338,7 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <button class="btn k" onclick="window.print()" style="margin-left:8px">Chapisha</button>
     </div>
 
+    <!-- ============ SOIL ============ -->
     <section class="pg" data-s="soil">
       <div class="band" style="--b:var(--br);--t:#fff">Udongo (Soil)</div>
       <div class="card">
@@ -394,6 +350,8 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         <div class="wrap" id="soilTbl"></div>
       </div>
     </section>
+
+    <!-- ============ NDVI ============ -->
     <section class="pg" data-s="ndvi">
       <div class="band" style="--b:var(--fo);--t:#fff">NDVI - Uoto wa Mimea</div>
       <div class="row needs-act">
@@ -406,27 +364,137 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         <div class="card"><h2>Mwenendo wa NDVI</h2><div id="ndviPgLine"></div></div>
       </div>
     </section>
+
+    <!-- ============ RISK ============ -->
     <section class="pg" data-s="risk">
       <div class="band" style="--b:var(--sn);--t:#000">Hatari</div>
       <div class="row needs-act"><button class="btn o" data-a="risk">Assess Risk</button></div>
       <div class="grid c2" id="riskPg"></div>
     </section>
+
+    <!-- ============ RECOMMENDATIONS ============ -->
     <section class="pg" data-s="rec">
       <div class="band" style="--b:var(--sv);--t:#000">Mapendekezo</div>
       <div class="row needs-act"><button class="btn o" data-a="recs">Generate Recs</button></div>
       <label for="recFilter">Tafuta kwa kichwa, maelezo, kipaumbele au hali</label><input id="recFilter" type="search">
       <div class="grid c2" id="recPg"></div>
     </section>
+
+    <!-- ============ CROP ROTATION (NEW) ============ -->
+    <section class="pg" data-s="rotation">
+      <div class="band" style="--b:var(--fo);--t:#fff">🔄 Mzunguko wa Mazao (Crop Rotation) — Field Shift</div>
+
+      <div class="alert">
+        ⚠️ <b>Tahadhari:</b> Chombo hiki kinasaidia tu. Uamuzi wa mwisho ni wa mkulima na mtaalamu wa kilimo wa eneo. Mapendekezo yote yanahitaji ukaguzi wa ndani.
+      </div>
+
+      <div class="card">
+        <h2>Vipaumbele Vyako</h2>
+        <p class="mu">Chagua vipaumbele ili kupata mapendekezo yanayokufaa:</p>
+        <div class="row" style="flex-wrap:wrap;gap:12px">
+          <label class="chk"><input type="checkbox" data-priority="water" checked> 💧 Kuhifadhi maji</label>
+          <label class="chk"><input type="checkbox" data-priority="nitrogen" checked> 🌱 Kuboresha nitrojeni</label>
+          <label class="chk"><input type="checkbox" data-priority="erosion"> 🏔️ Kupunguza mmomonyoko</label>
+          <label class="chk"><input type="checkbox" data-priority="income"> 💰 Mapato ya ziada</label>
+          <label class="chk"><input type="checkbox" data-priority="forage"> 🐄 Malisho ya mifugo</label>
+          <label class="chk"><input type="checkbox" data-priority="pest"> 🐛 Kuzuia wadudu</label>
+        </div>
+        <button class="btn" id="generateRotation" style="margin-top:12px">Tengeneza Mapendekezo</button>
+        <div id="rotationStatus" class="mu" style="margin-top:8px"></div>
+      </div>
+
+      <div class="card hide" id="rotationCompareCard">
+        <h2>Ulinganisho wa Mikakati (3+)</h2>
+        <div class="wrap" id="rotationCompare"></div>
+      </div>
+
+      <div class="grid c3 hide" id="rotationStrategies"></div>
+
+      <div class="card hide" id="bareFieldCard">
+        <h2>Vipindi vya Shamba Tupu (Bare-Field)</h2>
+        <p class="mu">Nyakati ambapo NDVI ni chini sana (chini ya 0.3) — fursa ya cover crops.</p>
+        <div id="bareFieldPeriods"></div>
+      </div>
+
+      <div class="card hide" id="simulatorCard">
+        <h2>🎛️ Simulator: Badilisha Hali ya Hewa</h2>
+        <p class="mu">Ona jinsi mabadiliko ya joto/mvua yanavyoathiri mikakati.</p>
+        <div style="display:grid;gap:14px;margin-top:12px">
+          <div>
+            <label>Ongezeko la joto (°C): <b id="tempVal" style="color:var(--sn)">0</b></label>
+            <input type="range" id="tempSlider" min="-2" max="4" value="0" step="0.5">
+          </div>
+          <div>
+            <label>Mabadiliko ya mvua (%): <b id="rainVal" style="color:var(--sk)">0</b></label>
+            <input type="range" id="rainSlider" min="-50" max="50" value="0" step="5">
+          </div>
+        </div>
+        <div id="simResult" style="margin-top:14px"></div>
+      </div>
+    </section>
+
+    <!-- ============ NASA DATA (NEW) ============ -->
+    <section class="pg" data-s="nasa">
+      <div class="band" style="--b:var(--k);--t:#fff">🛰️ Data za NASA Earth Observations</div>
+
+      <div class="card">
+        <h2>NASA POWER — Hali ya Hewa (Siku 90)</h2>
+        <p class="mu">Data halisi kutoka NASA POWER API (bila key). Inajumuisha joto, mvua, evapotranspiration, unyevu wa hewa, na upepo.</p>
+        <div class="row"><button class="btn" id="loadNasaBtn">Pakia Data za NASA</button><span class="mu" id="nasaStatus"></span></div>
+        <div id="nasaSummary" class="grid c3" style="margin-top:12px"></div>
+        <div id="nasaCharts" style="margin-top:14px"></div>
+      </div>
+
+      <div class="card">
+        <h2>Vyanzo vya Data vya NASA</h2>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Satelaiti/Data</th><th>Kipimo</th><th>Matumizi katika AFIP</th><th>Hali</th></tr></thead>
+            <tbody>
+              <tr><td><b>NASA POWER</b></td><td>Joto, mvua, ET, upepo</td><td>Hali ya hewa, water-balance</td><td><span class="tag" style="background:var(--fo)">Imeunganishwa</span></td></tr>
+              <tr><td><b>SMAP</b></td><td>Unyevu wa udongo</td><td>Soil moisture anomalies</td><td><span class="tag" style="background:var(--sv);color:#000">Kupitia backend</span></td></tr>
+              <tr><td><b>ECOSTRESS</b></td><td>Joto la uso wa ardhi</td><td>Heat stress, ET</td><td><span class="tag" style="background:var(--sv);color:#000">Kupitia backend</span></td></tr>
+              <tr><td><b>GPM</b></td><td>Mvua</td><td>Mwenendo wa mvua</td><td><span class="tag" style="background:var(--sv);color:#000">Kupitia backend</span></td></tr>
+              <tr><td><b>Landsat/MODIS</b></td><td>NDVI, uoto</td><td>Vegetation stress, bare fields</td><td><span class="tag" style="background:var(--sv);color:#000">Kupitia backend</span></td></tr>
+              <tr><td><b>GRACE/GRACE-FO</b></td><td>Hifadhi ya maji</td><td>Mwenendo wa maji kwa muda mrefu</td><td><span class="tag" style="background:var(--br)">Inapendekezwa</span></td></tr>
+              <tr><td><b>SRTM</b></td><td>Miinuko ya ardhi</td><td>Mteremko, hatari ya mmomonyoko</td><td><span class="tag" style="background:var(--br)">Inapendekezwa</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Satelaiti vs Vipimo vya Ardhini</h2>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Kipimo</th><th>Satelaiti (NASA)</th><th>Ardhi</th><th>Kwa nini kuchanganya?</th></tr></thead>
+            <tbody>
+              <tr><td>Unyevu wa udongo</td><td>SMAP (10 km)</td><td>Sensa ya shamba (1 m)</td><td>Satelaiti inashughulikia eneo kubwa; ardhi inatoa usahihi wa ndani</td></tr>
+              <tr><td>NDVI</td><td>MODIS (250 m)</td><td>Kamera ya mkononi</td><td>Satelaiti inaonyesha mwenendo; ardhi inathibitisha</td></tr>
+              <tr><td>Joto</td><td>ECOSTRESS (70 m)</td><td>Kipimajoto cha shamba</td><td>Satelaiti inaonyesha joto la uso; ardhi inapima hewa</td></tr>
+              <tr><td>Mvua</td><td>GPM (10 km)</td><td>Mvua ya mvua</td><td>Satelaiti inashughulikia maeneo yote; ardhi inatoa kiasi halisi</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mu" style="margin-top:10px">Kuchanganya vyanzo vyote hupunguza makosa na kuongeza usahihi wa mapendekezo.</p>
+      </div>
+    </section>
+
+    <!-- ============ YIELD ============ -->
     <section class="pg" data-s="yield">
       <div class="band" style="--b:var(--g);--t:#000">Mavuno (Yield) — <code>/api/ml/yield/...</code></div>
       <div class="row needs-act"><button class="btn o" data-a="yield">Predict Yield</button></div>
       <div id="yieldPg"></div>
     </section>
+
+    <!-- ============ SEED ============ -->
     <section class="pg" data-s="seed">
       <div class="band" style="--b:var(--sv);--t:#000">Kiasi cha Mbegu (Seed) — <code>/api/ml/seed-quantity/...</code></div>
       <div class="row needs-act"><button class="btn o" data-a="seed">Predict Seed</button></div>
       <div id="seedPg"></div>
     </section>
+
+    <!-- ============ NOTIFICATIONS ============ -->
     <section class="pg" data-s="notif">
       <div class="band" style="--b:var(--k);--t:#fff">Arifa</div>
       <div class="card">
@@ -439,14 +507,27 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         <ul id="notPg"></ul>
       </div>
     </section>
+
+    <!-- ============ MAPS ============ -->
     <section class="pg" data-s="maps">
       <div class="band" style="--b:var(--br);--t:#fff">Ramani na Maelezo ya Shamba</div>
       <div class="grid c2">
         <div class="card"><h2>Tanzania</h2><div id="mapTz2" class="map"></div><p class="mu" id="mapNote2"></p></div>
         <div class="card"><h2>Afrika</h2><div id="mapAf2" class="map"></div></div>
       </div>
+
+      <div class="card">
+        <h2>Tabaka za Hatari (Vulnerability Layers)</h2>
+        <p class="mu">Chagua tabaka za kuonyesha kwenye ramani:</p>
+        <div class="row">
+          <label class="chk"><input type="checkbox" data-layer="erosion"> 🏔️ Mmomonyoko</label>
+          <label class="chk"><input type="checkbox" data-layer="waterStress"> 💧 Msongo wa Maji</label>
+          <label class="chk"><input type="checkbox" data-layer="frost"> ❄️ Baridi</label>
+          <label class="chk"><input type="checkbox" data-layer="ndvi"> 🌱 NDVI</label>
+        </div>
+      </div>
+
       <div class="card"><h2>Maelezo ya shamba</h2><div class="wrap" id="farmDet"></div>
-        <!-- ===== BOUNDARY UPLOAD ===== -->
         <div class="row needs-act farm-manager" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--ln)">
           <label for="boundaryInput" class="mu" style="margin:0">Mpaka (GeoJSON):</label>
           <input id="boundaryInput" type="file" accept=".json,.geojson" class="sel" style="margin:0">
@@ -455,6 +536,8 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
         </div>
       </div>
     </section>
+
+    <!-- ============ REPORTS ============ -->
     <section class="pg" data-s="rep">
       <div class="band" style="--b:var(--fo);--t:#fff">Ripoti</div>
       <div class="card"><h2>Pakua ripoti</h2>
@@ -464,6 +547,50 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       </div>
       <div class="card"><h2>Muhtasari wa ripoti</h2><div class="wrap" id="repPrev"></div></div>
     </section>
+
+    <!-- ============ GLOSSARY (NEW) ============ -->
+    <section class="pg" data-s="glossary">
+      <div class="band" style="--b:var(--sv);--t:#000">📖 Kamusi ya Maneno ya Kisayansi</div>
+      <div class="card">
+        <h2>Maneno Muhimu</h2>
+        <div class="wrap">
+          <table>
+            <thead><tr><th>Neno</th><th>Maelezo kwa Kiswahili</th><th>Kwa nini ni muhimu</th></tr></thead>
+            <tbody>
+              <tr><td><b>NDVI</b></td><td>Normalized Difference Vegetation Index — kipimo cha uoto kati ya -1 na 1. Juu = mimea mingi; chini = shamba tupu au udongo.</td><td>Inaonyesha afya ya mazao na nyakati za shamba tupu.</td></tr>
+              <tr><td><b>Evapotranspiration (ET)</b></td><td>Maji yanayotoka ardhini kupitia uvukaji (evaporation) na mimea (transpiration).</td><td>Inasaidia kujua mahitaji ya maji ya mazao.</td></tr>
+              <tr><td><b>Soil moisture anomaly</b></td><td>Tofauti kati ya unyevu wa udongo wa sasa na wastani wa kihistoria.</td><td>Inaonyesha ukame au mvua nyingi kupita kiasi.</td></tr>
+              <tr><td><b>Frost risk</b></td><td>Uwezekano wa baridi kuharibu mazao.</td><td>Inasaidia kuchagua mazao yanayostahimili baridi.</td></tr>
+              <tr><td><b>Water-balance</b></td><td>Mvua inayoingia vs maji yanayotoka (uvukaji + mimea).</td><td>Inaonyesha kama shamba linahitaji umwagiliaji.</td></tr>
+              <tr><td><b>Nitrogen fixation</b></td><td>Uwezo wa mimea (kama mikunde) kubadilisha nitrojeni ya hewa kuwa ya udongo.</td><td>Inapunguza hitaji la mbolea ya nitrojeni.</td></tr>
+              <tr><td><b>Cover crop</b></td><td>Zao linalopandwa kulinda udongo, si kwa mavuno.</td><td>Inazuia mmomonyoko na kuboresha maada ya kikaboni.</td></tr>
+              <tr><td><b>Bare-field period</b></td><td>Kipindi ambacho shamba halina mazao (NDVI chini).</td><td>Fursa ya cover crops au kupumzisha udongo.</td></tr>
+              <tr><td><b>Crop rotation</b></td><td>Kubadilisha mazao kwa misimu tofauti.</td><td>Huvunja wadudu, inaboresha udongo, inahifadhi maji.</td></tr>
+              <tr><td><b>Drought-tolerant</b></td><td>Mazao yanayostahimili ukame (kama mtama, mtama wa mkono).</td><td>Inasaidia katika maeneo yenye mvua kidogo.</td></tr>
+              <tr><td><b>Organic matter</b></td><td>Maada ya kikaboni kwenye udongo (mabaki ya mimea, viumbe).</td><td>Inaboresha muundo wa udongo na kuhifadhi maji.</td></tr>
+              <tr><td><b>Erosion risk</b></td><td>Hatari ya udongo kuoshwa na maji au kupeperushwa na upepo.</td><td>Inasaidia kuchagua mazao yanayolinda udongo.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Jinsi ya Kutumia Chombo Hiki</h2>
+        <ol style="padding-left:20px;line-height:1.8">
+          <li><b>Tafuta shamba</b> kwa kutumia kisanduku cha utafutaji juu.</li>
+          <li><b>Angalia Dashboard</b> — muhtasari wa udongo, NDVI, hatari, mavuno.</li>
+          <li><b>Nenda "Mzunguko"</b> — chagua vipaumbele vyako, tengeneza mapendekezo ya mzunguko wa mazao.</li>
+          <li><b>Linganisha mikakati</b> — angalia faida, hatari, na mapungufu ya data ya kila mkakati.</li>
+          <li><b>Jaribu Simulator</b> — badilisha joto/mvua kuona athari.</li>
+          <li><b>Angalia "NASA Data"</b> — data halisi za hali ya hewa kutoka NASA POWER.</li>
+          <li><b>Shirikiana na mtaalamu</b> — mapendekezo yote yanahitaji ukaguzi wa mtaalamu wa kilimo wa eneo.</li>
+        </ol>
+        <div class="alert" style="margin-top:14px">
+          ⚠️ <b>Kumbuka:</b> Chombo hiki ni cha kusaidia maamuzi. Hakichukui nafasi ya uamuzi wa mkulima, ujuzi wa ndani, au ushauri wa mtaalamu wa kilimo.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTEGRATION ============ -->
     <section class="pg" data-s="integ">
       <div class="band" style="--b:var(--br);--t:#fff">Muunganisho (Integration)</div>
       <div class="grid c2">
@@ -477,6 +604,8 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <div class="card"><h2>GLAM Fetch</h2><div id="glamFetch"></div></div>
     </section>
   </div>
+
+  <!-- ============ FARMS ============ -->
   <section class="pg" data-s="farms">
     <div class="band" style="--b:var(--g);--t:#000">Usimamizi wa Mashamba</div>
     <div class="card">
@@ -484,6 +613,8 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <div class="wrap" id="farmsTbl"></div>
     </div>
   </section>
+
+  <!-- ============ USERS ============ -->
   <section class="pg admin-only" data-s="users">
     <div class="band" style="--b:var(--k);--t:#fff">Watumiaji</div>
     <div class="card">
@@ -491,6 +622,8 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
       <div class="wrap" id="usersTbl"></div>
     </div>
   </section>
+
+  <!-- ============ SETTINGS ============ -->
   <section class="pg admin-only" data-s="settings">
     <div class="band" style="--b:var(--br);--t:#fff">Mipangilio</div>
     <div class="card">
@@ -500,24 +633,28 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     </div>
   </section>
 </main>
+
 <footer>
   <div class="flag"></div>
   <div class="fcols">
-    <div id="f-about"><h3>Kuhusu AFIP</h3><p>AFIP ni jukwaa linalounganisha data za udongo, uoto (NDVI), hatari na mavuno ili kusaidia wakulima na wataalamu wa kilimo kufanya maamuzi bora.</p></div>
+    <div id="f-about"><h3>Kuhusu AFIP</h3><p>AFIP ni jukwaa linalounganisha data za udongo, uoto (NDVI), hatari, mavuno, na mzunguko wa mazao ili kusaidia wakulima na wataalamu wa kilimo kufanya maamuzi bora. Imejengwa kwa NASA Space Apps Challenge 2026 — Field Shift.</p></div>
     <div id="f-links"><h3>Viungo vya haraka</h3>
       <a href="#" data-go="dash">Dashboard</a><a href="#" data-go="soil">Soil</a>
       <a href="#" data-go="ndvi">NDVI</a><a href="#" data-go="risk">Hatari</a>
-      <a href="#" data-go="rec">Mapendekezo</a><a href="#" data-go="yield">Mavuno</a>
-      <a href="#" data-go="seed">Mbegu</a><a href="#" data-go="notif">Arifa</a>
-      <a href="#" data-go="maps">Ramani</a><a href="#" data-go="rep">Ripoti</a>
+      <a href="#" data-go="rotation">Mzunguko</a><a href="#" data-go="nasa">NASA Data</a>
+      <a href="#" data-go="yield">Mavuno</a><a href="#" data-go="seed">Mbegu</a>
+      <a href="#" data-go="maps">Ramani</a><a href="#" data-go="glossary">Kamusi</a>
+      <a href="#" data-go="rep">Ripoti</a>
     </div>
     <div id="f-contact"><h3>Mawasiliano</h3><p>Anwani: [weka anwani yako]</p><p>Simu: [weka namba ya simu]</p><p>Barua pepe: [weka barua pepe]</p></div>
-    <div><h3>Chanzo cha data</h3><p>Data za kilimo zinatoka AFIP backend (<code>afip-3.onrender.com</code>). Hali ya hewa inatoka Open-Meteo moja kwa moja.</p></div>
+    <div><h3>Chanzo cha data</h3><p>Data za kilimo zinatoka AFIP backend (<code>afip-3.onrender.com</code>). Hali ya hewa inatoka Open-Meteo na NASA POWER moja kwa moja.</p></div>
   </div>
   <div class="fbot">&copy; <span id="yr"></span> AFIP - Adaptive Farming Intelligence Platform. Haki zote zimehifadhiwa.</div>
 </footer>
 </div>
 </div>
+
+<!-- ============ DIALOGS ============ -->
 <dialog id="uDlg" aria-labelledby="uT"><form id="uForm">
     <h2 id="uT" style="margin-bottom:8px">Ongeza Mtumiaji</h2>
     <label for="ue">Barua pepe</label><input id="ue" name="email" type="email" required>
@@ -530,6 +667,7 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <div class="err" id="uErr" role="alert"></div>
     <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="uCancel">Ghairi</button></div>
 </form></dialog>
+
 <dialog id="farmDlg" aria-labelledby="farmT"><form id="farmForm">
     <h2 id="farmT" style="margin-bottom:8px">Ongeza shamba</h2>
     <label for="farmName">Jina la shamba</label><input id="farmName" name="name" required>
@@ -537,6 +675,7 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <div class="err" id="farmErr" role="alert"></div>
     <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="farmCancel">Ghairi</button></div>
 </form></dialog>
+
 <dialog id="farmerDlg" aria-labelledby="farmerT"><form id="farmerForm">
     <h2 id="farmerT" style="margin-bottom:8px">Ongeza mkulima</h2>
     <label for="farmerFirst">Jina la kwanza</label><input id="farmerFirst" name="firstName" required>
@@ -548,6 +687,7 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <div class="err" id="farmerErr" role="alert"></div>
     <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Hifadhi</button><button class="btn k" type="button" id="farmerCancel">Ghairi</button></div>
 </form></dialog>
+
 <dialog id="notifDlg" aria-labelledby="notifT"><form id="notifForm">
     <h2 id="notifT" style="margin-bottom:8px">Tuma Arifa</h2>
     <label for="notifTitle">Kichwa</label><input id="notifTitle" name="title" required>
@@ -556,11 +696,12 @@ body:not(.can-manage-farms) .farm-manager{display:none!important}
     <div class="err" id="notifErr" role="alert"></div>
     <div class="acts" style="margin-top:14px"><button class="btn" type="submit">Tuma</button><button class="btn k" type="button" id="notifCancel">Ghairi</button></div>
 </form></dialog>
+
 <div id="toast" role="status"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-/* ===== AFIP v4 — endpoints zote za backend ===== */
+/* ===== AFIP v5 — Field Shift Edition (with Rotation + NASA + Glossary) ===== */
 const CONFIG = {
   BASE: (document.querySelector('meta[name="afip-api-base"]')?.content.trim() || window.location.origin).replace(/\/$/, ""),
   ACTIONS: {
@@ -599,6 +740,7 @@ let READY = false, USERS = [], FARMS = [], FARMERS = [], FARM = null;
 let TAB = "dash", maps = {}, layers = {}, REQ = 0, CTRL = null, DEPTH = null, D = {};
 const ACTION_PENDING = new Set();
 let NF = "ALL", THEME = localStorage.getItem("afip_theme") || "light";
+let NASA_DATA = null;
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -711,27 +853,17 @@ function logout(msg) {
 }
 $("out").onclick = e => { e.preventDefault(); logout(); };
 
-/* ===== Login Panel Toggle ===== */
+/* Login Panel Toggle */
 (function initLoginToggle(){
   const toggle = document.getElementById('loginToggle');
   const panel = document.getElementById('loginPanel');
   const close = document.getElementById('loginClose');
   if (!toggle || !panel || !close) return;
-  const open = () => {
-    panel.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-    setTimeout(() => document.getElementById('em')?.focus(), 350);
-  };
-  const shut = () => {
-    panel.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.focus();
-  };
+  const open = () => { panel.classList.add('open'); toggle.setAttribute('aria-expanded', 'true'); setTimeout(() => document.getElementById('em')?.focus(), 350); };
+  const shut = () => { panel.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.focus(); };
   toggle.addEventListener('click', open);
   close.addEventListener('click', shut);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && panel.classList.contains('open')) shut();
-  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && panel.classList.contains('open')) shut(); });
   document.addEventListener('click', (e) => {
     if (!panel.classList.contains('open')) return;
     if (panel.contains(e.target) || toggle.contains(e.target)) return;
@@ -814,10 +946,11 @@ $("nav").addEventListener("click", e => {
   if (TAB === "farms") renderFarms();
   if (TAB === "integ") loadIntegration();
   if (TAB === "settings") loadSettings();
+  if (TAB === "nasa" && FARM) loadNasaData(FARM);
 });
 function applyTab() {
   document.querySelectorAll("[data-s]").forEach(el => el.classList.toggle("hide", !el.dataset.s.split(" ").includes(TAB)));
-  const standalone = ["users", "settings", "farms", "integ"].includes(TAB);
+  const standalone = ["users", "settings", "farms", "integ", "glossary", "nasa"].includes(TAB);
   $("dashbody").classList.toggle("hide", standalone || !READY);
   $("empty").classList.toggle("hide", standalone || !!FARM);
   if (standalone) $("load").style.display = "none";
@@ -987,7 +1120,7 @@ function ndviLine(v) {
     ${v.map((d, i) => `<circle cx="${xs(i)}" cy="${ys(d.value)}" r="4" fill="#FCD116" stroke="#000"/>`).join("")}
     <text x="20" y="${H - 4}" font-size="10" fill="#587058">${esc(observationDate(v[0]) || "-")}</text>
     <text x="${W - 20}" y="${H - 4}" font-size="10" text-anchor="end" fill="#587058">${esc(observationDate(v[v.length - 1]) || "-")}</text>
-  </svg><p class="mu">Mhimili wa wima unaonyesha thamani ya NDVI kuanzia -1 hadi 1; bendera ya ubora inaonyeshwa kwenye jedwali.</p>`;
+  </svg><p class="mu">Mhimili wa wima unaonyesha thamani ya NDVI kuanzia -1 hadi 1.</p>`;
 }
 
 function initMaps() {
@@ -1022,6 +1155,328 @@ function mapFarm(f) {
   });
 }
 
+/* ===== RISK LAYERS ===== */
+const riskLayerGroups = {};
+function initRiskLayers() {
+  if (!window.L || !maps.tz || !maps.tz[0]) return;
+  ["erosion", "waterStress", "frost", "ndvi"].forEach(name => {
+    if (!riskLayerGroups[name]) riskLayerGroups[name] = L.layerGroup();
+  });
+}
+document.addEventListener("change", e => {
+  const checkbox = e.target.closest("[data-layer]");
+  if (!checkbox) return;
+  if (!riskLayerGroups[checkbox.dataset.layer]) initRiskLayers();
+  const layerName = checkbox.dataset.layer;
+  const group = riskLayerGroups[layerName];
+  if (!group || !maps.tz) return;
+  const colors = { erosion: "#8B4513", waterStress: "#87CEEB", frost: "#0055ff", ndvi: "#228B22" };
+  const lat = FARM ? Number(pick(FARM, CONFIG.LAT_FIELDS)) : null;
+  const lng = FARM ? Number(pick(FARM, CONFIG.LNG_FIELDS)) : null;
+  const hasCoords = isFinite(lat) && isFinite(lng);
+  maps.tz.forEach(m => {
+    if (checkbox.checked) {
+      group.addTo(m);
+      if (hasCoords) {
+        group.clearLayers();
+        L.circle([lat, lng], {
+          radius: 2000, color: colors[layerName], fillOpacity: 0.25, weight: 2
+        }).bindPopup(`<b>${layerName}</b><br><span class="mu">Tabaka la mfano — data halisi itaingizwa na backend.</span>`).addTo(group);
+      }
+    } else { group.removeFrom(m); }
+  });
+});
+
+/* ===== CROP ROTATION MODULE ===== */
+const ROTATION_STRATEGIES = [
+  {
+    id: "current",
+    name: "Mzunguko wa Sasa",
+    crops: ["Mahindi", "Mahindi", "Mahindi"],
+    waterUse: 90, nitrogenFix: 10, erosionRisk: 90, organicMatter: 30,
+    pestBreak: 10, marketFit: 80, income: 50, forage: 20,
+    evidence: "Data ya kihistoria ya shamba kutoka NASA POWER",
+    dataGaps: "-",
+    risks: "Kupungua kwa afya ya udongo kwa muda mrefu; msongo wa maji",
+    benefits: "Inajulikana na mkulima; soko la uhakika"
+  },
+  {
+    id: "legume",
+    name: "Mahindi → Mikunde → Mahindi",
+    crops: ["Mahindi", "Mikunde (legume)", "Mahindi"],
+    waterUse: 60, nitrogenFix: 90, erosionRisk: 50, organicMatter: 65,
+    pestBreak: 75, marketFit: 75, income: 70, forage: 40,
+    evidence: "SMAP soil moisture + MODIS NDVI + NASA POWER",
+    dataGaps: "Hakuna data ya bei ya mikunde kwa mkoa huu",
+    risks: "Bei ya mikunde inaweza kubadilika; haja ya mbegu bora",
+    benefits: "Inafiksa nitrojeni; huvunja mzunguko wa wadudu; inaboresha udongo"
+  },
+  {
+    id: "cover",
+    name: "Mahindi → Cover Crop (Mucuna) → Alizeti",
+    crops: ["Mahindi", "Mucuna (cover)", "Alizeti"],
+    waterUse: 40, nitrogenFix: 60, erosionRisk: 25, organicMatter: 85,
+    pestBreak: 80, marketFit: 55, income: 60, forage: 30,
+    evidence: "ECOSTRESS ET + Landsat NDVI + GPM mvua",
+    dataGaps: "Hakuna data ya soko la alizeti; ujuzi wa cover crops unahitajika",
+    risks: "Ujuzi wa cover crops; alizeti inaweza kuhitaji masoko mapya",
+    benefits: "Inapunguza mmomonyoko; inaongeza maada ya kikaboni; inahifadhi maji"
+  },
+  {
+    id: "drought",
+    name: "Mtama → Mikunde → Mahindi (drought-tolerant)",
+    crops: ["Mtama", "Mikunde", "Mahindi"],
+    waterUse: 30, nitrogenFix: 85, erosionRisk: 40, organicMatter: 70,
+    pestBreak: 85, marketFit: 60, income: 65, forage: 50,
+    evidence: "NASA POWER joto + GPM mvua + SMAP unyevu",
+    dataGaps: "Data ya soko la mtama ni ndogo",
+    risks: "Mtama unaweza kuwa na soko dogo; ujuzi wa usindikaji",
+    benefits: "Inastahimili ukame; inafiksa N; inavunja wadudu; inatoa malisho"
+  }
+];
+
+const METRIC_COLORS = {
+  waterUse: "#87CEEB", nitrogenFix: "#228B22", erosionRisk: "#8B4513",
+  organicMatter: "#DAA520", pestBreak: "#FF6B35", marketFit: "#1EB53A",
+  income: "#FCD116", forage: "#8B4513"
+};
+const METRIC_LABELS = {
+  waterUse: "Matumizi ya Maji", nitrogenFix: "Kurekebisha Nitrojeni",
+  erosionRisk: "Hatari ya Mmomonyoko", organicMatter: "Maada ya Kikaboni",
+  pestBreak: "Kuvunja Wadudu", marketFit: "Ufaafu wa Soko",
+  income: "Mapato", forage: "Malisho"
+};
+
+function getSelectedPriorities() {
+  return [...document.querySelectorAll('[data-priority]:checked')].map(el => el.dataset.priority);
+}
+function scoreStrategy(strategy, priorities) {
+  const weights = { water: ["waterUse", -1], nitrogen: ["nitrogenFix", 1], erosion: ["erosionRisk", -1], income: ["income", 1], forage: ["forage", 1], pest: ["pestBreak", 1] };
+  let score = 0;
+  priorities.forEach(p => { const w = weights[p]; if (w) score += strategy[w[0]] * w[1]; });
+  return score;
+}
+function renderRotationCompare(priorities) {
+  const ranked = [...ROTATION_STRATEGIES]
+    .map(s => ({ ...s, score: scoreStrategy(s, priorities) }))
+    .sort((a, b) => b.score - a.score);
+  const metrics = Object.keys(METRIC_LABELS);
+  const header = `<tr><th>Kipimo</th>${ranked.map(s => `<th>${esc(s.name)}</th>`).join("")}</tr>`;
+  const rows = metrics.map(m => {
+    const cells = ranked.map(s => {
+      const val = s[m];
+      const bar = `<div class="bar2" style="margin:0"><i style="width:${val}%;background:${METRIC_COLORS[m]}"></i></div>`;
+      return `<td>${bar}<span class="sc">${val}/100</span></td>`;
+    }).join("");
+    return `<tr><td><b>${METRIC_LABELS[m]}</b></td>${cells}</tr>`;
+  }).join("");
+  $("rotationCompare").innerHTML = `
+    <table><thead>${header}</thead><tbody>${rows}</tbody></table>
+    <p class="mu" style="margin-top:10px">Mikakati imepangwa kwa alama kulingana na vipaumbele vyako. <b>Alama ya juu = bora zaidi</b>.</p>`;
+  $("rotationStrategies").innerHTML = ranked.map((s, i) => `
+    <div class="card" style="border-left:6px solid ${i === 0 ? "#228B22" : i === 1 ? "#DAA520" : "#8B4513"}">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <h2 style="margin:0;border:0;font-size:15px">${esc(s.name)}</h2>
+        ${i === 0 ? '<span class="tag" style="background:#228B22;color:#fff">Bora</span>' : ''}
+      </div>
+      <p><b>Mazao:</b> ${s.crops.map(c => esc(c)).join(" → ")}</p>
+      <p><b>Alama:</b> ${s.score}</p>
+      ${Object.keys(METRIC_LABELS).map(m => `
+        <div class="metric-row">
+          <span>${METRIC_LABELS[m]}</span>
+          <div class="track"><div class="fill" style="width:${s[m]}%;background:${METRIC_COLORS[m]}"></div></div>
+          <b>${s[m]}</b>
+        </div>
+      `).join("")}
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--ln)">
+        <p><b>✅ Faida:</b> <span class="mu">${esc(s.benefits)}</span></p>
+        <p><b>🔬 Ushahidi:</b> <span class="mu">${esc(s.evidence)}</span></p>
+        <p><b>⚠️ Hatari:</b> <span class="mu">${esc(s.risks)}</span></p>
+        <p><b>❓ Mapungufu ya data:</b> <span class="mu">${esc(s.dataGaps)}</span></p>
+        <div class="alert" style="margin-top:8px">⚠️ Pendekezo hili linahitaji ukaguzi wa mtaalamu wa kilimo wa eneo lako kabla ya kutekeleza.</div>
+      </div>
+    </div>
+  `).join("");
+  $("rotationCompareCard").classList.remove("hide");
+  $("rotationStrategies").classList.remove("hide");
+}
+function detectBarePeriods(ndviSeries) {
+  if (!ndviSeries || !ndviSeries.length) return [];
+  return ndviSeries.filter(v => Number(v.value) < 0.3).map(v => ({
+    date: observationDate(v) || "-", ndvi: v.value,
+    suggestion: "Fikiria cover crop (Mucuna, Crotalaria) ili kulinda udongo na kuzuia mmomonyoko"
+  }));
+}
+function renderBarePeriods(periods) {
+  if (!periods.length) {
+    $("bareFieldPeriods").innerHTML = '<p class="mu">Hakuna vipindi vya shamba tupu vilivyogunduliwa (NDVI < 0.3).</p>';
+  } else {
+    $("bareFieldPeriods").innerHTML = `
+      <div class="wrap"><table>
+        <thead><tr><th>Tarehe</th><th>NDVI</th><th>Pendekezo</th></tr></thead>
+        <tbody>${periods.map(p => `
+          <tr><td>${esc(p.date)}</td><td><b>${esc(p.ndvi)}</b></td><td class="mu">${esc(p.suggestion)}</td></tr>
+        `).join("")}</tbody>
+      </table></div>`;
+  }
+  $("bareFieldCard").classList.remove("hide");
+}
+function simulateClimateImpact(strategy, tempChange, rainChange) {
+  const waterStress = (tempChange * 5) - (rainChange * 0.5);
+  const yieldChange = -(waterStress * 0.8);
+  const tolerance = strategy.id === "drought" ? 0.5 : strategy.id === "cover" ? 0.7 : 1.0;
+  const adjustedYield = yieldChange * tolerance;
+  const adjustedWater = waterStress * tolerance;
+  return {
+    waterStress: Math.round(adjustedWater),
+    yieldChange: Math.round(adjustedYield),
+    droughtRisk: adjustedWater > 30 ? "Juu" : adjustedWater > 10 ? "Wastani" : "Chini"
+  };
+}
+function renderSimulation(tempChange, rainChange) {
+  const priorities = getSelectedPriorities();
+  const ranked = [...ROTATION_STRATEGIES]
+    .map(s => ({ ...s, score: scoreStrategy(s, priorities) }))
+    .sort((a, b) => b.score - a.score);
+  $("simResult").innerHTML = `
+    <p class="mu">Mabadiliko: Joto <b>${tempChange > 0 ? '+' : ''}${tempChange}°C</b>, Mvua <b>${rainChange > 0 ? '+' : ''}${rainChange}%</b></p>
+    <div class="grid c2">
+      ${ranked.slice(0, 2).map(s => {
+        const impact = simulateClimateImpact(s, tempChange, rainChange);
+        return `
+          <div class="card">
+            <h2>${esc(s.name)}</h2>
+            <p><b>Mabadiliko ya mavuno:</b>
+              <span style="color:${impact.yieldChange < -10 ? '#b00020' : impact.yieldChange < 0 ? '#FF6B35' : '#228B22'}">
+                ${impact.yieldChange > 0 ? '+' : ''}${impact.yieldChange}%
+              </span></p>
+            <p><b>Msongo wa maji:</b> ${impact.waterStress > 0 ? '+' : ''}${impact.waterStress}%</p>
+            <p><b>Hatari ya ukame:</b> ${impact.droughtRisk}</p>
+          </div>`;
+      }).join("")}
+    </div>
+    <div class="alert" style="margin-top:10px">⚠️ Hii ni simulation rahisi. Matokeo halisi yanategemea mambo mengi ya eneo.</div>`;
+}
+
+/* ===== NASA POWER ===== */
+async function fetchNasaPower(lat, lng, startDate, endDate) {
+  const params = ["T2M", "PRECTOTCORR", "EVPTRNS", "RH2M", "WS2M"].join(",");
+  const url = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=${params}&community=AG&longitude=${lng}&latitude=${lat}&start=${startDate}&end=${endDate}&format=JSON`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error("NASA POWER: " + r.status);
+  const j = await r.json();
+  const clean = obj => Object.entries(obj || {}).filter(([, v]) => v !== -999 && v != null).map(([date, v]) => ({ date, value: v }));
+  return {
+    temp: clean(j.properties?.parameter?.T2M),
+    rain: clean(j.properties?.parameter?.PRECTOTCORR),
+    et: clean(j.properties?.parameter?.EVPTRNS),
+    humidity: clean(j.properties?.parameter?.RH2M),
+    wind: clean(j.properties?.parameter?.WS2M)
+  };
+}
+async function loadNasaData(farm) {
+  const lat = Number(pick(farm, CONFIG.LAT_FIELDS));
+  const lng = Number(pick(farm, CONFIG.LNG_FIELDS));
+  const status = $("nasaStatus");
+  if (!isFinite(lat) || !isFinite(lng)) {
+    if (status) status.textContent = "Shamba halina viwianishi.";
+    return;
+  }
+  if (status) status.textContent = "Inapakia data za NASA POWER...";
+  const end = new Date(); const start = new Date(); start.setDate(start.getDate() - 90);
+  const fmt = d => d.toISOString().slice(0, 10).replace(/-/g, "");
+  try {
+    const data = await fetchNasaPower(lat, lng, fmt(start), fmt(end));
+    NASA_DATA = data;
+    const rainTotal = data.rain.reduce((s, x) => s + x.value, 0).toFixed(1);
+    const tempAvg = (data.temp.reduce((s, x) => s + x.value, 0) / Math.max(data.temp.length, 1)).toFixed(1);
+    const etTotal = data.et.reduce((s, x) => s + x.value, 0).toFixed(1);
+    const humAvg = (data.humidity.reduce((s, x) => s + x.value, 0) / Math.max(data.humidity.length, 1)).toFixed(0);
+    const windAvg = (data.wind.reduce((s, x) => s + x.value, 0) / Math.max(data.wind.length, 1)).toFixed(1);
+    if (status) status.textContent = `✅ Siku ${data.temp.length} za data zimepakiwa.`;
+    $("nasaSummary").innerHTML = [
+      kpi("Mvua (siku 90)", rainTotal + " mm", "#87CEEB", "NASA POWER / GPM"),
+      kpi("Joto la wastani", tempAvg + "°C", "#FF6B35", "NASA POWER"),
+      kpi("Evapotranspiration", etTotal + " mm", "#228B22", "NASA POWER"),
+      kpi("Unyevu wa hewa", humAvg + "%", "#DAA520", "NASA POWER"),
+      kpi("Kasi ya upepo", windAvg + " m/s", "#8B4513", "NASA POWER")
+    ].join("");
+    // Chati rahisi za mwenendo
+    $("nasaCharts").innerHTML = `
+      <div class="grid c2">
+        <div class="card"><h2>Mwenendo wa Joto</h2>${nasaLineChart(data.temp, "#FF6B35", "°C")}</div>
+        <div class="card"><h2>Mwenendo wa Mvua</h2>${nasaBarChart(data.rain, "#87CEEB", "mm")}</div>
+      </div>
+      <div class="grid c2" style="margin-top:14px">
+        <div class="card"><h2>Evapotranspiration</h2>${nasaBarChart(data.et, "#228B22", "mm")}</div>
+        <div class="card"><h2>Water Balance (Mvua − ET)</h2>${waterBalanceChart(data.rain, data.et)}</div>
+      </div>`;
+  } catch (x) {
+    if (status) status.textContent = "Imeshindwa: " + x.message;
+    $("nasaSummary").innerHTML = errHtml(x.message);
+  }
+}
+function nasaLineChart(series, color, unit) {
+  if (!series.length) return NO;
+  const W = 400, H = 140;
+  const vals = series.map(s => s.value);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const xs = i => 20 + i * (W - 40) / Math.max(series.length - 1, 1);
+  const ys = v => H - 20 - (v - min) / Math.max(max - min, 1) * (H - 40);
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">
+    <line x1="20" x2="${W - 20}" y1="${H - 20}" y2="${H - 20}" stroke="#D8E3D8"/>
+    <polyline points="${series.map((s, i) => xs(i) + "," + ys(s.value)).join(" ")}" fill="none" stroke="${color}" stroke-width="2.5"/>
+    <text x="20" y="14" font-size="11" fill="#587058">Min: ${min.toFixed(1)}${unit} · Max: ${max.toFixed(1)}${unit}</text>
+  </svg>`;
+}
+function nasaBarChart(series, color, unit) {
+  if (!series.length) return NO;
+  const W = 400, H = 140;
+  const max = Math.max(...series.map(s => s.value), 1);
+  const bw = (W - 40) / series.length;
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img">
+    <line x1="20" x2="${W - 20}" y1="${H - 20}" y2="${H - 20}" stroke="#D8E3D8"/>
+    ${series.map((s, i) => `<rect x="${20 + i * bw}" y="${H - 20 - (s.value / max) * (H - 40)}" width="${Math.max(bw - 1, 1)}" height="${(s.value / max) * (H - 40)}" fill="${color}"/>`).join("")}
+    <text x="20" y="14" font-size="11" fill="#587058">Jumla: ${series.reduce((a, s) => a + s.value, 0).toFixed(1)}${unit}</text>
+  </svg>`;
+}
+function waterBalanceChart(rain, et) {
+  if (!rain.length || !et.length) return NO;
+  const n = Math.min(rain.length, et.length);
+  const balance = [];
+  for (let i = 0; i < n; i++) balance.push({ date: rain[i].date, value: rain[i].value - et[i].value });
+  return nasaBarChart(balance.map(b => ({ ...b, value: Math.abs(b.value) })), "#DAA520", "mm") +
+    `<p class="mu">Chanya = mvua inazidi ET (maji ya ziada). Hasi = ukame (maji hayatoshi).</p>`;
+}
+
+/* ===== EVENT LISTENERS ===== */
+document.addEventListener("click", e => {
+  if (e.target.id !== "generateRotation") return;
+  if (!FARM) { toast("Chagua shamba kwanza."); return; }
+  const priorities = getSelectedPriorities();
+  if (!priorities.length) { toast("Chagua angalau kipaumbele kimoja."); return; }
+  $("rotationStatus").textContent = "Inatengeneza mapendekezo...";
+  const btn = e.target; btn.disabled = true;
+  try {
+    renderRotationCompare(priorities);
+    const vs = D.veg.d.filter(v => !v.indicator || v.indicator === "NDVI");
+    renderBarePeriods(detectBarePeriods(vs));
+    $("simulatorCard").classList.remove("hide");
+    renderSimulation(0, 0);
+    $("rotationStatus").textContent = `✅ Mikakati ${ROTATION_STRATEGIES.length} imelinganishwa kwa vipaumbele ${priorities.length}.`;
+  } catch (x) { $("rotationStatus").textContent = "Imeshindwa: " + x.message; }
+  finally { btn.disabled = false; }
+});
+document.addEventListener("input", e => {
+  if (e.target.id === "tempSlider") { $("tempVal").textContent = e.target.value; renderSimulation(parseFloat($("tempSlider").value), parseFloat($("rainSlider").value)); }
+  if (e.target.id === "rainSlider") { $("rainVal").textContent = e.target.value; renderSimulation(parseFloat($("tempSlider").value), parseFloat($("rainSlider").value)); }
+});
+document.addEventListener("click", e => {
+  if (e.target.id === "loadNasaBtn" && FARM) loadNasaData(FARM);
+  else if (e.target.id === "loadNasaBtn" && !FARM) toast("Chagua shamba kwanza.");
+});
+
+/* ===== OTHER EXISTING HANDLERS ===== */
 document.addEventListener("click", async e => {
   const select = e.target.closest("[data-farm-select]");
   if (select) {
@@ -1216,7 +1671,7 @@ function notifPage() {
   document.querySelectorAll("[data-f]").forEach(b => b.classList.toggle("on", b.dataset.f === NF));
   $("notPg").innerHTML = state(D.nt, d => {
     const x = [...d].filter(n => NF === "ALL" || n.channel === NF).sort((a, b) => (b.sentAt || "") > (a.sentAt || "") ? 1 : -1);
-    return x.length ? x.map(n => `<li class="it">${badge(n.channel || "-", n.channel === "SMS" ? "var(--sk)" : "var(--fo)", n.channel === "SMS")} ${badge(n.readAt ? "Imesomwa" : "Haijasomwa", n.readAt ? "var(--fo)" : "var(--sn)")}<b>${esc(n.title)}</b><br><span class="mu">${esc(n.body)}</span><br><span class="mu">${fmtDate(n.sentAt || n.createdAt)}</span>${n.readAt ? "" : ` <button class="fb" data-notif-read="${esc(n.id)}">Weka kuwa imesomwa</button>`}</li>`).join("") : NO;
+    return x.length ? x.map(n => `<li class="it">${badge(n.channel || "-", n.channel === "SMS" ? "#87CEEB" : "#228B22", n.channel === "SMS")} ${badge(n.readAt ? "Imesomwa" : "Haijasomwa", n.readAt ? "#228B22" : "#FF6B35")}<b>${esc(n.title)}</b><br><span class="mu">${esc(n.body)}</span><br><span class="mu">${fmtDate(n.sentAt || n.createdAt)}</span>${n.readAt ? "" : ` <button class="fb" data-notif-read="${esc(n.id)}">Weka kuwa imesomwa</button>`}</li>`).join("") : NO;
   });
 }
 document.addEventListener("click", async e => {
@@ -1322,7 +1777,7 @@ function applyRole() {
   document.body.classList.toggle("can-act", !!i.act);
   document.body.classList.toggle("is-admin", !!i.admin);
   document.body.classList.toggle("can-manage-farms", !!i.farmManager);
-  $("who").innerHTML = `<b>${esc(i.label)}</b><br><span>${esc(EMAIL || "")}</span>${i.act ? "" : '<br><span class="tag" style="background:var(--sk);color:#000">Read-only</span>'}`;
+  $("who").innerHTML = `<b>${esc(i.label)}</b><br><span>${esc(EMAIL || "")}</span>${i.act ? "" : '<br><span class="tag" style="background:#87CEEB;color:#000">Read-only</span>'}`;
   qi.placeholder = ROLE === "FARMER" ? "Shamba lako..." : "Tafuta shamba kwa jina, mkoa, au ID...";
   TAB = "dash";
   [...$("nav").children].forEach(x => x.classList.toggle("on", x.dataset.t === "dash"));
@@ -1338,7 +1793,7 @@ async function loadUsers() {
   el.innerHTML = r.d.length ? tbl(["ID","Email","Jina","Role","Enabled","Vitendo"], r.d.map(u => [
     esc(u.id), esc(u.email), esc(u.fullName || "-"),
     `<select class="sel" data-uid="${esc(u.id)}" aria-label="Badilisha role ya ${esc(u.email)}"${u.email === EMAIL ? " disabled" : ""}>${Object.keys(ROLES).map(k => `<option${k === u.role ? " selected" : ""}>${k}</option>`).join("")}</select>`,
-    badge(u.enabled ? "Ndiyo" : "Hapana", u.enabled ? "var(--fo)" : "var(--br)"),
+    badge(u.enabled ? "Ndiyo" : "Hapana", u.enabled ? "#228B22" : "#8B4513"),
     `<button class="btn k" data-udel="${esc(u.id)}"${u.email === EMAIL ? " disabled" : ""}>Futa</button>`
   ])) : NO;
 }
@@ -1396,7 +1851,7 @@ async function loadIntegration() {
   try {
     const m = {
       name: "AFIP - Adaptive Farming Intelligence Platform", short_name: "AFIP",
-      description: "Jukwaa la akili ya kilimo kwa Tanzania na Afrika",
+      description: "Jukwaa la akili ya kilimo kwa Tanzania na Afrika — Field Shift",
       start_url: location.href.split("#")[0], display: "standalone",
       background_color: "#F4F7F2", theme_color: "#1EB53A", lang: "sw"
     };
@@ -1423,7 +1878,6 @@ document.addEventListener("click", e => {
   if (g) { e.preventDefault(); $("nav").querySelector(`[data-t="${g.dataset.go}"]`)?.click(); $("content").scrollIntoView({ behavior: "smooth" }); }
   else if (s) { e.preventDefault(); document.querySelector(s.getAttribute("href"))?.scrollIntoView({ behavior: "smooth" }); }
 });
-
 document.addEventListener("click", e => {
   if (e.target.id === "themeBtn") { THEME = THEME === "dark" ? "light" : "dark"; applyTheme(); }
 });
